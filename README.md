@@ -13,6 +13,14 @@ Participação:
 ---
 
 ## Anotações
+- Certifique-se de: "cd secretaria-web"
+- Instalar as Extensões:
+    - ES7 + React/Redux...;
+    - Tailwind Intellisense;
+    - JavaScript and Typescript nightly
+
+## Rodar Localmente:
+- "bun dev"
 
 ### Inputs e Comandos de Instalação ()
 - bun create next-app@latest secretaria-web
