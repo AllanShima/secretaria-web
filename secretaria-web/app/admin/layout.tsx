@@ -24,7 +24,7 @@ export default function HomepageAdminLayout({
           {/* Inner Container */}
           <div className="flex w-full h-full">
             {/* Logo Container */}
-            <div className="flex w-full h-full items-center justify-start pl-4 gap-3">
+            <div className="flex w-full h-full items-center justify-start gap-3">
               <div className="flex p-2 rounded-lg text-[#ce3434] h-full aspect-square bg-[#332028] border-1 border-[#76314a] items-center justify-center">
                 <LiaClinicMedicalSolid className="h-full w-full"/>
               </div>            
@@ -49,7 +49,7 @@ export default function HomepageAdminLayout({
             </div>
 
             {/* Avatar and Exit Container */}
-            <div className="flex w-full h-full gap-4 justify-end pr-4">
+            <div className="flex w-full h-full gap-4 justify-end">
               <div className="flex items-center justify-center h-full bg-[#1c2330] gap-2 rounded-xl p-3">
                 <Avatar className={"flex justify-center items-center text-red-500 border-2 border-blue-500/20 bg-blue-500/10 rounded-lg"}>
                   <MdOutlineLocalPhone className=""/>
@@ -65,13 +65,17 @@ export default function HomepageAdminLayout({
             </div>
           </div>
         </div>
-        {/* Homepage Content */}
-        <div className="flex w-full h-full px-10 py-4 bg-[#0d1117]">
-          <TabsContent value="alert">
-            {alert}
+        {/* Content Container (Prevents page scrolling) */}
+        <div className="flex-1 w-full overflow-hidden px-6 py-6 bg-[#0d1117]">
+          <TabsContent value="alert" className="h-full w-full m-0 data-[state=inactive]:hidden">
+            <div className="h-full w-full overflow-y-auto">
+              {alert}
+            </div>
           </TabsContent>
-          <TabsContent value="chat">
-            {chat}
+          <TabsContent value="chat" className="h-full w-full m-0 data-[state=inactive]:hidden">
+            <div className="h-full w-full overflow-y-auto">
+              {chat}
+            </div>
           </TabsContent>
         </div>
       </Tabs>
