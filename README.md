@@ -7,10 +7,11 @@
 #### Data e Prazo para o Desenvolvimento: 07/08/2026 - 31/11/2026
 
 #### Integrantes e Responsabilidades do Grupo:
-- Allan (Front-end, contexto de Autenticação do usuário) - github.com/AllanShima
-- Guilherme Ryu (contexto de Profile) - github.com/Ryzoppi
-- Hugo Facchini (contexto de Billing) - github.com/UInfinitu
-- Renan (contexto de Events) - github.com/RenanHikaru
+- Allan (Front-end) - github.com/AllanShima
+- Guilherme Ryu (Front-end) - github.com/Ryzoppi
+- Hugo Facchini (Back-end) - github.com/UInfinitu
+- Renan (Back-end) - github.com/RenanHikaru
+- Henrique Mazega (Front-end) - github.com/henrique334
 
 ---
 

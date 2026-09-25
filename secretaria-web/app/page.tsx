@@ -10,8 +10,8 @@ export default function Home() {
             Landing Page
           </h1>
           <span className="flex gap-4">
-            <Link href={"/login"}>Login</Link>
-            <Link href={"/register"}>Cadastro</Link>          
+            <Link href={"/auth/login"}>Login</Link>
+            <Link href={"/auth/register"}>Cadastro</Link>          
           </span>
         </main>
       </div>
