@@ -28,7 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable, jetbrainsMonoHeading.variable)}
     >
-      <body className="min-h-full flex flex-col w-full h-full">
+      <body className="min-h-full flex flex-col w-full h-full" suppressHydrationWarning={true}>
         {children}
       </body>
     </html>

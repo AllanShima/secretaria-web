@@ -5,6 +5,7 @@ import { MdOutlineChat } from "react-icons/md";
 import { Button } from "@/components/ui/button";
 import { Avatar } from "@/components/ui/avatar";
 import { MdOutlineLocalPhone } from "react-icons/md";
+import Link from "next/link";
 
 interface AdminLayoutProps {
   children: React.ReactNode;
@@ -59,9 +60,12 @@ export default function HomepageAdminLayout({
                   <p className="font-light text-white/20 text-xs">TEL - 14 98182 6224</p>
                 </div>
               </div>
-              <Button variant="outline" className={"dark bg-transparent text-white/70 hover:text-white text-md font-normal px-4 py-6"}>
-                Sair
-              </Button>
+              <Link href="/auth/login">
+                <Button variant="outline" className={"dark bg-transparent text-white/70 hover:text-white text-md font-normal px-4 py-6"}>
+                  Sair
+                </Button>              
+              </Link>
+
             </div>
           </div>
         </div>
