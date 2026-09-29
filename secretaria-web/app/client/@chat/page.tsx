@@ -1,6 +1,6 @@
 import React from 'react'
 
-const HomepageClient = () => {
+const ClientHomepageChat = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const HomepageClient = () => {
   )
 }
 
-export default HomepageClient
+export default ClientHomepageChat
