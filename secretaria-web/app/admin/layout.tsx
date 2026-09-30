@@ -35,12 +35,13 @@ export default function HomepageAdminLayout({
             {/* Tabs Container */}
             <div className="flex w-full h-full items-center justify-center">
               <TabsList className={"flex bg-white/5 h-full"}>
-                <TabsTrigger value="alert" className={"text-white/70 hover:text-white data-active:text-black data-active:hover:text-black px-6 rounded-r-none"}>
+                <TabsTrigger value="alert" className={"text-white/70 hover:text-white data-active:text-black data-active:hover:text-black data-active:inset-shadow-sm inset-shadow-indigo-700 px-6 border-none rounded-r-none"}>
                   <FiAlertTriangle/>
                   <h2 className="font-light ">
                     Alertas
-                  </h2>                </TabsTrigger>
-                <TabsTrigger value="chat" className={" text-white/70 hover:text-white data-active:text-black data-active:hover:text-black px-6 rounded-l-none"}>
+                  </h2>                
+                </TabsTrigger>
+                <TabsTrigger value="chat" className={"text-white/70 hover:text-white data-active:text-black data-active:hover:text-black data-active:inset-shadow-sm inset-shadow-indigo-700 border-none px-6 rounded-l-none"}>
                   <MdOutlineChat/>
                   <h2 className="font-light">
                     Live Chat
