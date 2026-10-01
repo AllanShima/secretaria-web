@@ -31,7 +31,7 @@ export default function LoginPage() {
 
     console.log("Login:", form);
 
-    router.push("/client");
+    router.push("/admin");
   }
 
   return (
