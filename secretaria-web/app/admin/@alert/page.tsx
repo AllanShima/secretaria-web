@@ -1,7 +1,10 @@
+import SeverityStatus from '@/components/SeverityStatus';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Avatar } from '@/components/ui/avatar';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input'
+import { Item, ItemActions, ItemContent, ItemDescription, ItemTitle } from '@/components/ui/item';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { CheckCircle2Icon, InfoIcon } from 'lucide-react';
 import React from 'react'
@@ -127,6 +130,21 @@ const AdminHomepageAlert = () => {
                     your email address.
                   </AlertDescription>
                 </Alert>
+                <Item className='bg-[#1c2330]/80'>
+                  <ItemContent>
+                    <ItemTitle className=''>
+                      <SeverityStatus status={status}/>
+                    </ItemTitle>
+                    <ItemDescription>
+                      A simple item with title and description.
+                    </ItemDescription>
+                  </ItemContent>
+                  <ItemActions>
+                    <Button variant="outline" size="sm">
+                      Action
+                    </Button>
+                  </ItemActions>
+                </Item>
                 <Alert className='dark bg-[#1c2330]'>
                   <InfoIcon />
                   <AlertTitle>New feature available</AlertTitle>

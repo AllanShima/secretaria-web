@@ -34,3 +34,38 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+---
+
+## Project's frontend architecture
+
+src/
+├── app/                        <-- Next.js App Router (pages & layouts)
+│   ├── (auth)/
+│   │   ├── login/page.tsx
+│   │   └── register/page.tsx
+│   ├── events/page.tsx
+│   └── payment/page.tsx
+│
+├── features/                   <-- Vertical slices for features
+│   ├── auth/
+│   │   ├── components/         <-- LoginForm, UserInfoCard
+│   │   ├── api/                <-- loginUser(), authQueries
+│   │   └── types/              <-- Auth-related interfaces/DTOs
+│   │
+│   ├── events/
+│   │   ├── components/         <-- EventInfoCard, HomeEventCard, NewEventModal
+│   │   ├── api/                <-- fetchEvents(), createEvent()
+│   │   └── types/              <-- Event entity/types
+│   │
+│   └── payment/
+│       ├── components/         <-- PurchaseDetailsCard, TicketsCard
+│       └── api/                <-- processPayment()
+│
+├── components/                 <-- Global / Shared UI ONLY
+│   ├── ui/                     <-- Base shadcn primitives (badge, button, dialog)
+│   └── layout/                 <-- Header, Footer, Sidebar
+│
+├── hooks/                      <-- Global React hooks
+├── lib/                        <-- API clients, utilities, helpers
+└── types/                      <-- Global TypeScript declarations

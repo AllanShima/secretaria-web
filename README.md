@@ -33,7 +33,6 @@ pnpm dev
 bun dev
 ```
 
-
 ### Inputs e Comandos de Instalação ()
 - Criando o Projeto: bun create next-app@latest secretaria-web
 - Implementando o shadcn: "bunx --bun shadcn@latest init"
