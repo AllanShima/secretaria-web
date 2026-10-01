@@ -1,17 +1,20 @@
 import React from 'react'
-
-type Status = 
+import { Badge } from './ui/badge'
 
 interface SevStatusProps {
-    status: 
+    status: String
 }
 
 const SeverityStatus = ({status} : SevStatusProps) => {
-  return (
-    <div>
-      
-    </div>
-  )
+    const statusHandler = {
+        "critical": ["Crítico", ""],
+        "urgent": ["Urgente", ""],
+        "moderate": ["Moderado", ""]
+    }
+    
+    return (
+        Badge
+    )
 }
 
 export default SeverityStatus
