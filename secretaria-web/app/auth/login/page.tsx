@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { LiaHospitalAltSolid } from "react-icons/lia";
+import { useRouter } from "next/navigation";
 
 interface FormState {
   email: string;
@@ -12,6 +13,8 @@ interface FormState {
 }
 
 export default function LoginPage() {
+  const router = useRouter();
+
   const [form, setForm] = useState<FormState>({
     email: "",
     senha: ""
@@ -27,10 +30,12 @@ export default function LoginPage() {
     setErro(null);
 
     console.log("Login:", form);
+
+    router.push("/admin");
   }
 
   return (
-    <div className="min-h-screen w-full bg-[#0d1117] flex flex-col items-center justify-center p-6">
+    <div className="min-h-screen w-full bg-linear-to-b from-[#0d1117] to-[#170d0d] flex flex-col items-center justify-center p-6">
       <div className="flex flex-col items-center gap-5">
     <div className="flex h-[60px] w-[60px] items-center justify-center rounded-[15px] border border-[#76314a] bg-[#332028]">
       <LiaHospitalAltSolid className="h-8 w-8 text-[#ce3434]" />
@@ -79,12 +84,15 @@ export default function LoginPage() {
             Entrar no Sistema
           </Button>
 
-          <p className="text-center text-[10px] text-white">
-            Clique aqui para{" "}
-            <Link href="/auth/register" className="text-[#f64444] underline">
-              Cadastrar
-            </Link>
-          </p>
+          <div className="flex w-full justify-end">
+            <p className="text-center text-[10px] text-white">
+              Clique aqui para{" "}
+              <Link href="/auth/register" className="text-[#f64444] underline">
+                Cadastrar
+              </Link>
+            </p>            
+          </div>
+
         </form>
       </div>
     </div>

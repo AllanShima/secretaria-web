@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Phone, Ambulance } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 
 type Perfil = "telefonista" | "socorrista";
 
@@ -18,6 +19,8 @@ interface FormState {
 }
 
 export default function SignupPage() {
+  const router = useRouter();
+
   const [form, setForm] = useState<FormState>({
     email: "",
     senha: "",
@@ -41,11 +44,14 @@ export default function SignupPage() {
     }
 
     console.log("Cadastro:", form);
+
+    router.push(`/admin`);
   }
 
   return (
-    <div className="min-h-screen w-full bg-[#0d1117] flex items-center justify-center p-6">
-      <div className="w-full max-w-[500px] rounded-[30px] border border-white/50 bg-[#1c2330] p-[30px] flex flex-col gap-[15px]">
+    <div className="flex flex-col min-h-screen w-full bg-linear-to-b from-[#0d1117] to-[#170d0d] items-center justify-center">
+      {/* Container */}
+      <div className="w-100 h-fit rounded-[30px] border border-white/50 bg-[#1c2330] flex flex-col p-6 gap-5">
         <div className="flex flex-col gap-2.5">
           <h1 className="text-2xl font-normal text-white">Cadastro</h1>
           <p className="text-sm text-white/60">
@@ -53,7 +59,7 @@ export default function SignupPage() {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-[15px]">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-2 text-xs">
           <Field label="Email">
             <Input
               type="email"
@@ -98,11 +104,11 @@ export default function SignupPage() {
             />
           </Field>
 
-          <div className="flex flex-col gap-[15px]">
+          <div className="flex flex-col gap-2">
             <Label className="text-base font-normal text-white/50">
               Cadastrar como
             </Label>
-            <div className="flex">
+            <div className="flex h-12 gap-2">
               <PerfilOption
                 icon={Phone}
                 label="Telefonista"
@@ -122,25 +128,33 @@ export default function SignupPage() {
 
           <Button
             type="submit"
-            className="mt-2.5 h-[42px] w-full rounded-[10px] bg-[#f93a3a] text-lg font-semibold text-white hover:bg-[#e13333]"
+            className="mt-2.5 h-[40px] w-full rounded-[10px] bg-[#f93a3a] text-lg font-semibold text-white hover:bg-[#e13333]"
           >
             Entrar no Sistema
           </Button>
 
-          <p className="text-center text-[10px] text-white">
-            Clique aqui para{" "}
-            <Link href="/auth/login" className="text-[#f64444] underline">
-              Logar
-            </Link>
-          </p>
+          <div className="flex w-full justify-end">
+            <p className="text-center text-[10px] text-white">
+              Clique aqui para{" "}
+              <Link href="/auth/login" className="text-[#f64444] underline">
+                Logar
+              </Link>
+            </p>            
+          </div>
+
         </form>
       </div>
+      <span className="my-2">
+        <p className="text-white/50 text-[8px]">
+          Secretaria da Saúde de Marília — Uso restrito a funcionários autorizados
+        </p>
+      </span>
     </div>
   );
 }
 
 const inputClasses =
-  "h-auto rounded-[10px] border border-[#30363d] bg-[#1c2330] px-5 py-[15px] text-base text-white placeholder:text-white/50 focus-visible:ring-1 focus-visible:ring-white/50";
+  "h-auto rounded-[10px] border border-[#30363d] bg-[#1c2330] px-5 py-[8px] text-xs text-white placeholder:text-white/50 focus-visible:ring-1 focus-visible:ring-white/50";
 
 function Field({
   label,
@@ -150,7 +164,7 @@ function Field({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col gap-2.5">
+    <div className="flex flex-col gap-1">
       <Label className="text-base font-normal text-white/50">{label}</Label>
       {children}
     </div>
@@ -173,7 +187,7 @@ function PerfilOption({
       type="button"
       onClick={onClick}
       className={cn(
-        "flex flex-1 items-center justify-center gap-[15px] rounded-[10px] border border-[#30363d] px-5 py-[15px] transition-colors",
+        "flex flex-1 items-center justify-center gap-[15px] rounded-xl border border-[#30363d] px-5 py-[5px] transition-colors",
         selected ? "bg-white text-black" : "bg-[#1c2330] text-white/50",
       )}
     >
