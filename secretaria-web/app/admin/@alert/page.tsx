@@ -1,7 +1,6 @@
 import SeverityStatus from '@/components/SeverityStatus';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Avatar } from '@/components/ui/avatar';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input'
 import { Item, ItemActions, ItemContent, ItemDescription, ItemTitle } from '@/components/ui/item';
@@ -133,7 +132,7 @@ const AdminHomepageAlert = () => {
                 <Item className='bg-[#1c2330]/80'>
                   <ItemContent>
                     <ItemTitle className=''>
-                      <SeverityStatus status={status}/>
+                      <SeverityStatus status="critical"/>
                     </ItemTitle>
                     <ItemDescription>
                       A simple item with title and description.
