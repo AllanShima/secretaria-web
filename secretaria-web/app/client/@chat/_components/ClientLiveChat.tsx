@@ -32,7 +32,7 @@ const LiveChatWindow = () => {
       {/* Sidebar - Lista de Conversas */}
       <div className="flex w-80 flex-col border-r border-[#262c3a] bg-[#161c28]">
         {/* Header Sidebar */}
-        <div className="flex h-16 items-center gap-2 border-b border-[#262c3a] bg-white px-6 text-black">
+        <div className="flex h-16 items-center justify-center gap-2 border-b border-[#262c3a] bg-white px-6 text-black">
           <MdOutlineChat className="h-5 w-5" />
           <span className="font-medium text-sm">Conversas</span>
         </div>
@@ -40,10 +40,10 @@ const LiveChatWindow = () => {
         {/* Lista de Contatos */}
         <div className="flex-1 overflow-y-auto p-4 space-y-3">
           {users.map((user, index) => (
-            <Button>
-                
-            </Button>
-            <AdminItem key={user.id} user={user} isSelected={index === selectedUserIndex}/>
+            <div key={index} onClick={() => setSelectedUserIndex(index)}>
+                <AdminItem user={user} isSelected={index === selectedUserIndex}/>                
+            </div>
+
           ))}
         </div>
       </div>
@@ -52,7 +52,7 @@ const LiveChatWindow = () => {
       <div className="flex flex-1 flex-col bg-[#181e2a]">
         {/* Header do Chat Ativo */}
         <div className="flex h-16 items-center justify-center border-b border-[#262c3a] bg-white px-6 text-black">
-          <span className="font-semibold text-sm">
+          <span className="font-light text-sm">
             {selectedUser?.name} - {selectedUser?.phoneNumber}
           </span>
         </div>

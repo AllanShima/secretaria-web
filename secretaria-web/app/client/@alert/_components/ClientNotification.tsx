@@ -8,12 +8,13 @@ import { LuDot } from 'react-icons/lu'
 
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
+import { Badge } from '@/components/ui/badge'
 
-interface EventItemProp {
+interface ClientNotItemProp {
     event: Event
 }
 
-const EventItem = ({event}: EventItemProp) => {
+const ClientNotificationItem = ({event}: ClientNotItemProp) => {
     // Exemplo: "há cerca de 2 horas" / "há 3 segundos"
     const timeAgo = formatDistanceToNow(event.createdAt, {
         addSuffix: true, // Adiciona o "há ..."
@@ -24,8 +25,9 @@ const EventItem = ({event}: EventItemProp) => {
         <Item className='bg-[#1c2330]/80'>
             <ItemContent className='gap-2'>
                 <ItemTitle className='gap-2'>
-                    <SeverityStatus status={event.severity} />
-                    <p className='text-xs font-semibold'>
+                <Badge variant={"outline"} className={`rounded-sm bg-[#1b2730] border-[#b5d7f2] text-[#b5d7f2] py-3`}>
+                    {event.code}
+                </Badge>                    <p className='text-xs font-semibold'>
                         {timeAgo}
                     </p>
                 </ItemTitle>
@@ -44,15 +46,8 @@ const EventItem = ({event}: EventItemProp) => {
                     </p>
                 </ItemDescription>
             </ItemContent>
-            <ItemActions>
-                {(event.status != "Finalizado") && (
-                    <Button variant="destructive" size="sm">
-                        <IoMdSend />
-                    </Button>                    
-                )}
-            </ItemActions>
         </Item>
     )
 }
 
-export default EventItem
+export default ClientNotificationItem

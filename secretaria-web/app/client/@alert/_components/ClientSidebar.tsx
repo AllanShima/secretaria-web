@@ -1,16 +1,13 @@
-import { Avatar } from '@/components/ui/avatar'
+import { BASE_EVENTS, BASE_VEHICLES } from '@/app/features/auth/api/MockData'
+import { User } from '@/app/features/auth/types/User'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import React from 'react'
-import { IoIosMedical } from 'react-icons/io'
-import AlertItem from './AdminEvent'
-import RescuerItem from './ClientItem'
-import { BASE_EVENTS, BASE_VEHICLES } from '@/app/features/auth/api/MockData'
-import { User } from '@/app/features/auth/types/User'
-import { Vehicle } from '@/app/features/auth/types/Vehicle'
-import EventItem from './AdminEvent'
+import { IoIosMedical, IoIosNotifications } from "react-icons/io";
+import ClientNotificationItem from './ClientNotification'
+import ClientEvent from './ClientEvent'
 
-const EventSidebar = () => {
+const ClientSidebar = () => {
     const vehicles = BASE_VEHICLES;
     const events = BASE_EVENTS;
 
@@ -27,17 +24,13 @@ const EventSidebar = () => {
                         <TabsTrigger value="rescuers" className={"text-white/70 gap-3 hover:text-white data-active:text-black data-active:hover:text-black data-active:inset-shadow-sm inset-shadow-indigo-700 px-6 border-none rounded-none rounded-tl-3xl"}>
                             <IoIosMedical />
                             <h2 className="font-light">
-                                Socorristas
+                                Eventos
                             </h2>
                         </TabsTrigger>
                         <TabsTrigger value="alerts-sent" className={"text-white/70 hover:text-white data-active:text-black data-active:hover:text-black data-active:inset-shadow-sm inset-shadow-indigo-700 border-none px-6 rounded-none rounded-tr-3xl"}>
-                            <Avatar className={"w-5 h-5 bg-white justify-center items-center"}>
-                                <p className='text-[8px] text-black'>
-                                    12
-                                </p>
-                            </Avatar>
+                            <IoIosNotifications/>
                             <h2 className="font-light">
-                                Alertas Enviados
+                                Notificações
                             </h2>
                         </TabsTrigger>
                     </TabsList>
@@ -47,8 +40,8 @@ const EventSidebar = () => {
                     <TabsContent value={"rescuers"} className={"flex flex-col w-full h-full m-0 data-[state=inactive]:hidden"}>
                         {/* Content */}
                         <div className='flex flex-col p-3 w-full h-full items-start gap-3 bg-[#1c2330]/20'>
-                            {drivers.map((user: User) => (
-                                <RescuerItem key={user.id} user={user} />
+                            {events.map(event => (
+                                <ClientEvent key={event.id} event={event} />
                             ))}
                         </div>
                         {/* Button */}
@@ -62,7 +55,7 @@ const EventSidebar = () => {
                         {/* Content */}
                         <div className='flex flex-col p-3 w-full h-full items-start gap-3 bg-[#1c2330]/20 rounded-b-2xl'>
                             {events.map(event => (
-                                <EventItem key={event.id} event={event}/>
+                                <ClientNotificationItem key={event.id} event={event} />
                             ))}
                         </div>
                     </TabsContent>
@@ -72,4 +65,4 @@ const EventSidebar = () => {
     )
 }
 
-export default EventSidebar
+export default ClientSidebar

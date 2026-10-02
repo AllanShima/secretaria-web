@@ -1,6 +1,6 @@
 import { User } from '@/app/features/auth/types/User';
 import { Avatar } from '@/components/ui/avatar';
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 import { MdOutlineLocalPhone } from 'react-icons/md';
 
 interface AdminItemProp {
