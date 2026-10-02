@@ -1,3 +1,5 @@
+"use client";
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { LiaClinicMedicalSolid } from "react-icons/lia";
 import { FiAlertTriangle } from "react-icons/fi";
@@ -6,6 +8,10 @@ import { Button } from "@/components/ui/button";
 import { Avatar } from "@/components/ui/avatar";
 import { MdOutlineLocalPhone } from "react-icons/md";
 import Link from "next/link";
+import { useAuth } from "../features/auth/api/AuthContext";
+import { useEffect } from "react";
+import { toast } from "@/components/ui/toast";
+import { useRouter } from "next/navigation";
 
 interface AdminLayoutProps {
   children: React.ReactNode;
@@ -17,6 +23,17 @@ export default function HomepageAdminLayout({
   alert,
   chat,
 }: AdminLayoutProps) {
+  const router = useRouter();
+
+  const { user } = useAuth();
+
+  useEffect(() => {
+    if (!user) {
+      console.log("Usuário não cadastrado.")
+      router.push("/auth/login");
+    }
+  }, [user])
+
   return (
     <div className="flex-col w-full h-full">
       <Tabs defaultValue="preview" className={"flex-col h-full w-full gap-0"}>
@@ -54,11 +71,11 @@ export default function HomepageAdminLayout({
             <div className="flex w-full h-full gap-4 justify-end">
               <div className="flex items-center justify-center h-full bg-[#1c2330] gap-2 rounded-xl p-3">
                 <Avatar className={"flex justify-center items-center text-red-500 border-2 border-blue-500/20 bg-blue-500/10 rounded-lg"}>
-                  <MdOutlineLocalPhone className=""/>
+                  <MdOutlineLocalPhone/>
                 </Avatar>
                 <div className="flex-col">
-                  <h3 className="font-medium text-white text-sm">Ana Beatriz Costa</h3>
-                  <p className="font-light text-white/20 text-xs">TEL - 14 98182 6224</p>
+                  <h3 className="font-medium text-white text-sm">{user?.name}</h3>
+                  <p className="font-light text-white/20 text-xs">TEL - {user?.phoneNumber}</p>
                 </div>
               </div>
               <Link href="/auth/login">

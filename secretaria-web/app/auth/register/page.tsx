@@ -45,7 +45,7 @@ export default function SignupPage() {
 
     console.log("Cadastro:", form);
 
-    router.push(`/admin`);
+    router.push(`/auth/login`);
   }
 
   return (

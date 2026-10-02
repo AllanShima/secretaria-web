@@ -6,6 +6,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { LiaHospitalAltSolid } from "react-icons/lia";
 import { useRouter } from "next/navigation";
+import { BASE_USERS } from "@/app/features/auth/api/MockData";
+import { toast } from "@/components/ui/toast";
+import { useAuth } from "@/app/features/auth/api/AuthContext";
 
 interface FormState {
   email: string;
@@ -14,6 +17,11 @@ interface FormState {
 
 export default function LoginPage() {
   const router = useRouter();
+  
+  const { login } = useAuth();
+
+  // usuários mockados
+  const users = BASE_USERS;
 
   const [form, setForm] = useState<FormState>({
     email: "",
@@ -31,7 +39,24 @@ export default function LoginPage() {
 
     console.log("Login:", form);
 
-    router.push("/admin");
+    const foundUser = users.find(user => user.email == form.email)
+
+    if (foundUser && foundUser.password == form.senha) {
+      // Alocando para o state User
+      login(foundUser);
+
+      if (foundUser.type == "Client") {
+        router.push("/auth/login/vehicle");
+        return;
+      }
+      router.push("/admin");
+      return;
+    }
+    toast.add({
+      type: "error",
+      description: "Usuário não encontrado.",
+      priority: "high",
+    })
   }
 
   return (

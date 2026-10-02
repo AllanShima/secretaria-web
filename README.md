@@ -38,3 +38,4 @@ bun dev
 - Implementando o shadcn: "bunx --bun shadcn@latest init"
 - Instalando componentes: "bunx --bun shadcn@latest add button"
 - Ícones react: "bun install react-icons --save"
+- Instalando formatador de datas: 'npm install date-fns'

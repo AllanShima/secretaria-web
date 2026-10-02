@@ -1,6 +1,7 @@
 import { Input } from '@/components/ui/input'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import EventSidebar from './_components/EventSidebar';
+import { useAuth } from '@/app/features/auth/api/AuthContext';
 
 const AdminHomepageAlert = () => {
   const ButtonStyle = "text-white/30 hover:text-red-300 data-active:bg-[#301b24] data-active:border-red-600 data-active:text-red-500 data-active:hover:text-red-500 bg-[#1c2330] border-1 border-[#30363d] rounded-sm";
@@ -52,7 +53,6 @@ const AdminHomepageAlert = () => {
                   alt="GPS Tracking" 
                 />                
               </div>
-
             </div>
           </div>
         </div>

@@ -1,14 +1,23 @@
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Avatar } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { CheckCircle2Icon, InfoIcon } from 'lucide-react'
 import React from 'react'
 import { IoIosMedical } from 'react-icons/io'
-import AlertItem from './AlertItem'
+import AlertItem from './EventItem'
 import RescuerItem from './RescuerItem'
+import { BASE_EVENTS, BASE_VEHICLES } from '@/app/features/auth/api/MockData'
+import { User } from '@/app/features/auth/types/User'
+import { Vehicle } from '@/app/features/auth/types/Vehicle'
+import EventItem from './EventItem'
 
 const EventSidebar = () => {
+    const vehicles = BASE_VEHICLES;
+    const events = BASE_EVENTS;
+
+    const drivers: User[] = vehicles
+        .filter((vehicle) => vehicle.driver) // Filtra os veículos que têm motorista
+        .map((vehicle) => vehicle.driver);  // Extrai apenas o motorista do veículo
+
     return (
         <div className='flex flex-col w-1/3 h-full min-h-0 rounded-xl shrink-0'>
             {/* Tabs Container */}
@@ -38,8 +47,9 @@ const EventSidebar = () => {
                     <TabsContent value={"rescuers"} className={"flex flex-col w-full h-full m-0 data-[state=inactive]:hidden"}>
                         {/* Content */}
                         <div className='flex flex-col p-3 w-full h-full items-start gap-3 bg-[#1c2330]/20'>
-                            <RescuerItem/>
-                            <RescuerItem/>
+                            {drivers.map((user: User) => (
+                                <RescuerItem key={user.id} user={user} />
+                            ))}
                         </div>
                         {/* Button */}
                         <Button className='w-full h-10 rounded-b-2xl rounded-t-none'>
@@ -51,9 +61,9 @@ const EventSidebar = () => {
                     <TabsContent value={"alerts-sent"} className={"w-full h-full m-0 data-[state=inactive]:hidden"}>
                         {/* Content */}
                         <div className='flex flex-col p-3 w-full h-full items-start gap-3 bg-[#1c2330]/20 rounded-b-2xl'>
-                            <AlertItem/>
-                            <AlertItem/>
-                            <AlertItem/>
+                            {events.map(event => (
+                                <EventItem key={event.id} event={event}/>
+                            ))}
                         </div>
                     </TabsContent>
                 </div>
