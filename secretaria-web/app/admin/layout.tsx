@@ -66,7 +66,6 @@ export default function HomepageAdminLayout({
                   Sair
                 </Button>              
               </Link>
-
             </div>
           </div>
         </div>
