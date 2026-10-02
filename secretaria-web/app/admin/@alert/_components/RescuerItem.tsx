@@ -1,10 +1,5 @@
 import React from 'react'
-import SeverityStatus from '@/app/features/admin/components/SeverityStatus'
-import { Button } from '@/components/ui/button'
-import { IoMdSend } from 'react-icons/io'
-import { LuDot } from 'react-icons/lu'
 import { Avatar } from '@/components/ui/avatar'
-import { MdOutlineLocalPhone } from 'react-icons/md'
 import { Badge } from '@/components/ui/badge'
 import { BiSolidAmbulance } from "react-icons/bi";
 import { Toggle } from '@/components/ui/toggle'
@@ -35,7 +30,6 @@ const RescuerItem = ({user}: RescuerItemProp) => {
                 </Badge>
             </div>      
         </Toggle>
-
     )
 }
 

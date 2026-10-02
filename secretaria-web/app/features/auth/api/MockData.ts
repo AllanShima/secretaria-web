@@ -103,7 +103,7 @@ export const BASE_EVENTS: Event[] = [
     description: "Queda de própria altura com suspeita de fratura.",
     injuryLocations: ["Membro Superior Esquerdo"],
     createdByUser: BASE_USERS[0],
-    status: "Não Iniciado",
+    status: "Em Andamento",
     operatorUser: BASE_USERS[2], // Mariana Souza
     createdAt: new Date("2024-03-05T09:00:00Z")
   },

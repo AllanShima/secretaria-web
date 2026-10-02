@@ -45,9 +45,11 @@ const EventItem = ({event}: EventItemProp) => {
                 </ItemDescription>
             </ItemContent>
             <ItemActions>
-                <Button variant="destructive" size="sm">
-                    <IoMdSend />
-                </Button>
+                {(event.status != "Finalizado") && (
+                    <Button variant="destructive" size="sm">
+                        <IoMdSend />
+                    </Button>                    
+                )}
             </ItemActions>
         </Item>
     )
