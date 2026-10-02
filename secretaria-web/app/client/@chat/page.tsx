@@ -1,9 +1,10 @@
 import React from 'react'
+import LiveChatWindow from './_components/LiveChat'
 
 const ClientHomepageChat = () => {
   return (
-    <div>
-      
+    <div className='w-full h-full'>
+      <LiveChatWindow/>
     </div>
   )
 }

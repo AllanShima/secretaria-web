@@ -9,7 +9,7 @@ interface RescuerItemProp {
     user: User
 }
 
-const RescuerItem = ({user}: RescuerItemProp) => {
+const ClientItem = ({user}: RescuerItemProp) => {
     const status = user.status == false ? "Offline" : "Online";
     const statusStyle = user.status == false ? "bg-[#4c1f1f] border-red-600 text-red-500" : "bg-[#1f4c2a] border-[#1c7f2a] text-green-500"
     return (
@@ -33,4 +33,4 @@ const RescuerItem = ({user}: RescuerItemProp) => {
     )
 }
 
-export default RescuerItem
+export default ClientItem
