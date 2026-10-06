@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { MdOutlineChat, MdOutlineLocalPhone, MdSend } from "react-icons/md";
 import AdminItem from "@/app/client/@chat/_components/AdminItem";
+import { User } from "@/app/features/auth/types/User";
+import ClientItem from "./ClientItem";
 
 // Mock de mensagens para demonstração
 const MOCK_MESSAGES = [
@@ -20,8 +22,11 @@ const MOCK_MESSAGES = [
   },
 ];
 
-const LiveChatWindow = () => {
-  const users = BASE_USERS;
+interface LiveChatWindowProps {
+  users: User[]
+}
+
+const LiveChatWindow = ({users}: LiveChatWindowProps) => {
   const [selectedUserIndex, setSelectedUserIndex] = useState(0);
   const [message, setMessage] = useState("");
 
@@ -30,7 +35,7 @@ const LiveChatWindow = () => {
   return (
     <div className="flex h-full w-full overflow-hidden rounded-2xl bg-[#131924] text-white shadow-xl">
       {/* Sidebar - Lista de Conversas */}
-      <div className="flex w-50 flex-col border-r border-[#262c3a] bg-[#161c28]">
+      <div className="flex w-fit flex-col border-r border-[#262c3a] bg-[#161c28]">
         {/* Header Sidebar */}
         <div className="flex h-16 items-center justify-center gap-2 border-b border-[#262c3a] bg-white px-6 text-black">
           <MdOutlineChat className="h-5 w-5" />
@@ -41,7 +46,7 @@ const LiveChatWindow = () => {
         <div className="flex-1 overflow-y-auto p-4 space-y-3">
           {users.map((user, index) => (
             <div key={index} onClick={() => setSelectedUserIndex(index)}>
-                <AdminItem user={user} isSelected={index === selectedUserIndex}/>                
+                <ClientItem user={user} isSelected={index === selectedUserIndex}/>                
             </div>
           ))}
         </div>

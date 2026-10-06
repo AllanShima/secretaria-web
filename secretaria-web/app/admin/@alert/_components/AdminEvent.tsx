@@ -22,14 +22,14 @@ const AdminEvent = ({event}: AdminEventProp) => {
 
     return (
         <Item className='bg-[#1c2330]/80'>
-            <ItemContent className='gap-2'>
-                <ItemTitle className='gap-2'>
+            <ItemContent className='gap-4'>
+                <ItemTitle className='gap-4'>
                     <SeverityStatus status={event.severity} />
                     <p className='text-xs font-semibold'>
                         {timeAgo}
                     </p>
                 </ItemTitle>
-                <ItemDescription className='flex flex-col gap-5'>
+                <ItemDescription className='flex flex-col gap-6'>
                     <p>
                         {event.address}
                     </p>

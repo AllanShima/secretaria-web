@@ -1,19 +1,23 @@
 import React from 'react'
 import LiveChatWindow from './_components/AdminLiveChat'
 import { Input } from '@/components/ui/input'
+import { BASE_USERS } from '@/app/features/auth/api/MockData'
+import { User } from '@/app/features/auth/types/User'
 
 const AdminHomepageChat = () => {
+  const users: User[] = BASE_USERS.filter(user => user.type == "Client");
+
   return (
     <div className='flex w-full h-full gap-4'>
       <div className='w-1/2 h-full'>
-        <LiveChatWindow/>        
+        <LiveChatWindow users={users}/>        
       </div>
-      <div className='flex flex-col flex-1 min-h-0 w-full gap-2'>
+      <div className='flex flex-col flex-1 min-h-0 w-full gap-4'>
         <h3 className='text-white/50 font-semibold text-sm shrink-0'>
           Localização
         </h3>
 
-        <div className='flex-1 p-2 min-h-0 w-full h-full overflow-hidden relative'>
+        <div className='flex-1 min-h-0 w-full h-full overflow-hidden relative'>
           <Input
             disabled
             placeholder='Ex: Av. Brasil, 1500, Apto 42, Centro, Marília - SP'

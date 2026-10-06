@@ -82,7 +82,6 @@ export default function HomepageClientLayout({
                   Sair
                 </Button>
               </Link>
-
             </div>
           </div>
         </div>

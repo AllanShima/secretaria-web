@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { MdOutlineChat, MdOutlineLocalPhone, MdSend } from "react-icons/md";
 import AdminItem from "./AdminItem";
+import { User } from "@/app/features/auth/types/User";
 
 // Mock de mensagens para demonstração
 const MOCK_MESSAGES = [
@@ -20,8 +21,11 @@ const MOCK_MESSAGES = [
   },
 ];
 
-const LiveChatWindow = () => {
-  const users = BASE_USERS;
+interface LiveChatWindowProps {
+  users: User[]
+}
+
+const LiveChatWindow = ({users}: LiveChatWindowProps) => {
   const [selectedUserIndex, setSelectedUserIndex] = useState(0);
   const [message, setMessage] = useState("");
 

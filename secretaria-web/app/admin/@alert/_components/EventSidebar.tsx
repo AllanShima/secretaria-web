@@ -33,7 +33,7 @@ const EventSidebar = () => {
                         <TabsTrigger value="alerts-sent" className={"text-white/70 hover:text-white data-active:text-black data-active:hover:text-black data-active:inset-shadow-sm inset-shadow-indigo-700 border-none px-6 rounded-none rounded-tr-3xl"}>
                             <Avatar className={"w-5 h-5 bg-white justify-center items-center"}>
                                 <p className='text-[8px] text-black'>
-                                    12
+                                    {events.length}
                                 </p>
                             </Avatar>
                             <h2 className="font-light">

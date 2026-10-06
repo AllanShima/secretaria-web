@@ -15,15 +15,15 @@ const SeverityStatus = ({status} : SevStatusProps) => {
     // const statusHandler: Record<"critical" | "urgent" | "moderate", [string, string]> = { ... };
 
     const statusHandler: Record<string, [string, string]> = {
-        "critical": ["Crítico", "border-[#ee3636] bg-[#301b1b] text-[#ff1c1c]"],
-        "urgent": ["Urgente", "border-[#eedd37] bg-[#302e1b] text-[#ffe91b]"],
-        "moderate": ["Moderado", "border-[#369dee] bg-[#1b2730] text-[#1a82ff]"]
+        "critical": ["Crítico", "border-[#ee3636]/70 bg-[#301b1b]/70 text-[#ff1c1c]/70"],
+        "urgent": ["Urgente", "border-[#eedd37]/70 bg-[#302e1b]/70 text-[#ffe91b]/70"],
+        "moderate": ["Moderado", "border-[#369dee]/70 bg-[#1b2730]/70 text-[#1a82ff]/70"]
     }
     
     const [label, style] = statusHandler[status]
 
     return (
-        <Badge variant={"outline"} className={`rounded-sm ${style}`}>
+        <Badge variant={"outline"} className={`flex px-4 py-3 rounded-sm ${style}`}>
             {label}
         </Badge>
     )
