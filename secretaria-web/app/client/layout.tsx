@@ -10,8 +10,10 @@ import { MdOutlineLocalPhone } from "react-icons/md";
 import Link from "next/link";
 import { BiSolidAmbulance } from "react-icons/bi";
 import { useAuth } from "../features/auth/api/AuthContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { Badge } from "@/components/ui/badge";
+import { TbReload } from "react-icons/tb";
 
 interface ClientLayoutProps {
   children: React.ReactNode;
@@ -25,6 +27,8 @@ export default function HomepageClientLayout({
 }: ClientLayoutProps) {
   const router = useRouter();
   const { user } = useAuth();
+
+  const [status, setStatus] = useState(false);
 
   useEffect(() => {
     if (!user) {
@@ -76,6 +80,21 @@ export default function HomepageClientLayout({
                   <h3 className="font-medium text-white text-sm">{user?.name}</h3>
                   <p className="font-light text-white/20 text-xs">TEL - {user?.phoneNumber}</p>
                 </div>
+
+                <div onClick={() => setStatus(!status)} className="w-20 h-fit">
+                  {status == true ? (
+                    <Badge className="w-full h-fit rounded-md border-[#1e7f1c] bg-[#204c1f] text-green-500">
+                      <p>Online</p>
+                      <TbReload/>
+                    </Badge>  
+                  ) : (
+                    <Badge className="w-full h-fit rounded-md border-[#7f1c1c] bg-[#4c1f1f] text-red-500">
+                      <p>Offline</p>
+                      <TbReload/>
+                    </Badge>
+                  )}              
+                </div>
+
               </div>
               <Link href="/auth/login">
                 <Button variant="outline" className={"dark bg-transparent text-white/70 hover:text-white text-md font-normal px-4 py-6"}>
