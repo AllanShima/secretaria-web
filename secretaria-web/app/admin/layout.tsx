@@ -46,7 +46,7 @@ export default function HomepageAdminLayout({
               <div className="flex p-2 rounded-lg text-[#ce3434] h-full aspect-square bg-[#332028] border-1 border-[#76314a] items-center justify-center">
                 <LiaClinicMedicalSolid className="h-full w-full"/>
               </div>            
-              <h1 className="text-white font-semibold">SAMU Marília</h1>
+              <h1 className="text-white font-semibold">Rota SAMU</h1>
             </div>
 
             {/* Tabs Container */}

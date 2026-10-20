@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { IoLocationSharp } from "react-icons/io5";
 import { FaFlag } from "react-icons/fa";
+import { LuDot } from "react-icons/lu";
 
 interface ClientEventProps {
   event: Event;
@@ -20,7 +21,7 @@ interface ClientEventProps {
 
 const ClientEvent = ({ event, onFinishEvent }: ClientEventProps) => {
   return (
-    <Accordion className="w-full">
+    <Accordion className="flex w-full h-fit">
       <AccordionItem
         value={event.id}
         className="rounded-2xl border border-[#2a3447] bg-[#161f2d] transition-colors data-[state=open]:border-[#8b2222] data-[state=open]:bg-[#241318]"
@@ -35,10 +36,16 @@ const ClientEvent = ({ event, onFinishEvent }: ClientEventProps) => {
               </div>
 
               <div className="flex flex-col">
-                <span className="text-xs font-semibold text-white/50">
+                <span className="flex items-center text-xs font-semibold text-white/50">
+                <p>
                   Código: {event.code}
+                </p>
+                <LuDot/>
+                <p>
+                  {event.status}
+                </p>
                 </span>
-                <h4 className="font-bold text-base text-white">
+                <h4 className="font-semibold text-md text-white">
                   {event.address}
                 </h4>
                 <p className="text-sm text-white/70">
@@ -56,8 +63,8 @@ const ClientEvent = ({ event, onFinishEvent }: ClientEventProps) => {
 
         {/* Conteúdo Expandido - Informações Adicionais */}
         <AccordionContent className="px-5 pb-5 pt-2 text-white">
-          <div className="space-y-4">
-            <h5 className="font-mono text-xs font-bold text-white/80">
+          <div className="space-y-2">
+            <h5 className="font-mono text-md font-bold text-white/80">
               Informações adicionais
             </h5>
 

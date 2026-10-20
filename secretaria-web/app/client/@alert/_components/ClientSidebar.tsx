@@ -16,11 +16,11 @@ const ClientSidebar = () => {
         .map((vehicle) => vehicle.driver);  // Extrai apenas o motorista do veículo
 
     return (
-        <div className='flex flex-col w-1/3 h-full min-h-0 rounded-xl shrink-0'>
+        <div className='flex flex-col w-1/3 h-full min-h-0 rounded-4xl shrink-0'>
             {/* Tabs Container */}
-            <Tabs className={"flex w-full h-full gap-0"}>
-                <div className="flex w-full h-15 items-center justify-center">
-                    <TabsList className={"flex w-full bg-white/5 h-full rounded-b-none rounded-t-4xl"}>
+            <Tabs className={"flex w-full h-full gap-0 overflow-hidden"}>
+                <div className="flex w-full min-h-15 items-center justify-center">
+                    <TabsList className={"flex w-full bg-white/5 h-full rounded-b-none rounded-t-3xl"}>
                         <TabsTrigger value="rescuers" className={"text-white/70 gap-3 hover:text-white data-active:text-black data-active:hover:text-black data-active:inset-shadow-sm inset-shadow-indigo-700 px-6 border-none rounded-none rounded-tl-3xl"}>
                             <IoIosMedical />
                             <h2 className="font-light">
@@ -39,17 +39,11 @@ const ClientSidebar = () => {
                 <div className='w-full h-full flex flex-col'>
                     <TabsContent value={"rescuers"} className={"flex flex-col w-full h-full m-0 data-[state=inactive]:hidden"}>
                         {/* Content */}
-                        <div className='flex flex-col p-3 w-full h-full items-start gap-3 bg-[#1c2330]/20'>
+                        <div className='flex flex-col p-3 pb-20 w-full h-full items-start gap-3 bg-[#1c2330]/20 rounded-b-3xl overflow-auto scrollbar-none'>
                             {events.map(event => (
                                 <ClientEvent key={event.id} event={event} />
                             ))}
                         </div>
-                        {/* Button */}
-                        <Button className='w-full h-10 rounded-b-2xl rounded-t-none'>
-                            <h3 className='font-medium text-white '>
-                                Enviar Alerta de Socorro
-                            </h3>
-                        </Button>
                     </TabsContent>
                     <TabsContent value={"alerts-sent"} className={"w-full h-full m-0 data-[state=inactive]:hidden"}>
                         {/* Content */}

@@ -49,7 +49,7 @@ export default function HomepageClientLayout({
               <div className="flex p-2 rounded-lg text-[#ce3434] h-full aspect-square bg-[#332028] border-1 border-[#76314a] items-center justify-center">
                 <LiaClinicMedicalSolid className="h-full w-full" />
               </div>
-              <h1 className="text-white font-semibold">SAMU Marília</h1>
+              <h1 className="text-white font-semibold">Rota SAMU</h1>
             </div>
 
             {/* Tabs Container */}
@@ -72,16 +72,19 @@ export default function HomepageClientLayout({
 
             {/* Avatar and Exit Container */}
             <div className="flex w-full h-full gap-4 justify-end">
-              <div className="flex items-center justify-center h-full bg-[#1c2330] gap-2 rounded-xl p-3">
-                <Avatar className={"flex justify-center items-center text-[#25c345] border-2 border-[#1c7f3e] bg-[#1f4c2a] rounded-lg"}>
-                  <BiSolidAmbulance/>
-                </Avatar>
-                <div className="flex-col">
-                  <h3 className="font-medium text-white text-sm">{user?.name}</h3>
-                  <p className="font-light text-white/20 text-xs">TEL - {user?.phoneNumber}</p>
-                </div>
+              <div className="flex items-center justify-center h-full bg-[#1c2330] gap-4 rounded-xl p-3">
+                <span className="flex gap-2">
+                  <Avatar className={"flex justify-center items-center text-[#25c345] border-2 border-[#1c7f3e] bg-[#1f4c2a] rounded-lg"}>
+                    <BiSolidAmbulance/>
+                  </Avatar>
+                  <div className="flex-col">
+                    <h3 className="font-medium text-white text-sm">{user?.name}</h3>
+                    <p className="font-light text-white/20 text-xs">TEL - {user?.phoneNumber}</p>
+                  </div>                  
+                </span>
 
-                <div onClick={() => setStatus(!status)} className="w-20 h-fit">
+
+                <button onClick={() => setStatus(!status)} className="w-20 h-fit">
                   {status == true ? (
                     <Badge className="w-full h-fit rounded-md border-[#1e7f1c] bg-[#204c1f] text-green-500">
                       <p>Online</p>
@@ -93,7 +96,7 @@ export default function HomepageClientLayout({
                       <TbReload/>
                     </Badge>
                   )}              
-                </div>
+                </button>
 
               </div>
               <Link href="/auth/login">

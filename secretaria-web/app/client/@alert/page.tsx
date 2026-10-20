@@ -10,7 +10,7 @@ const ClientHomepageAlert = () => {
           Localização
         </h3>
 
-        <div className='flex-1 p-2 min-h-0 w-full h-full overflow-hidden relative'>
+        <div className='flex-1 min-h-0 w-full h-full overflow-hidden relative'>
           <Input
             disabled
             placeholder='Ex: Av. Brasil, 1500, Apto 42, Centro, Marília - SP'
