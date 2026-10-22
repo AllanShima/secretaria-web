@@ -24,18 +24,18 @@ const ClientEvent = ({ event, onFinishEvent }: ClientEventProps) => {
     <Accordion className="flex w-full h-fit">
       <AccordionItem
         value={event.id}
-        className="rounded-2xl border border-[#2a3447] bg-[#161f2d] transition-colors data-[state=open]:border-[#8b2222] data-[state=open]:bg-[#241318]"
+        className=" rounded-2xl border border-[#2a3447] transition-colors data-[state=open]:border-[#8b2222] data-[state=open]:bg-[#241318]"
       >
         {/* Cabeçalho do Card / Trigger do Accordion */}
-        <AccordionTrigger className="p-4 hover:no-underline [&>svg]:hidden">
+        <AccordionTrigger className="p-4 hover:no-underline">
           <div className="flex w-full items-center justify-between gap-3">
             {/* Ícone de Localização e Informações Principais */}
             <div className="flex items-center gap-3 text-left">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#1c2e42] text-[#2980b9]">
-                <IoLocationSharp className="h-6 w-6" />
+                <IoLocationSharp className="h-5 w-5" />
               </div>
 
-              <div className="flex flex-col">
+              <div className="flex flex-col gap-2">
                 <span className="flex items-center text-xs font-semibold text-white/50">
                 <p>
                   Código: {event.code}
@@ -49,13 +49,13 @@ const ClientEvent = ({ event, onFinishEvent }: ClientEventProps) => {
                   {event.address}
                 </h4>
                 <p className="text-sm text-white/70">
-                  {event.createdByUser?.name ?? "Solicitante não informado"}
+                  Enviado por: {event.createdByUser?.name ?? "Solicitante não informado"}
                 </p>
               </div>
             </div>
 
             {/* Badge de Severidade */}
-            <div className="shrink-0">
+            <div className="flex w-full h-full shrink-0 absolute justify-end items-end pr-8 pb-4">
               <SeverityStatus status={event.severity} />
             </div>
           </div>

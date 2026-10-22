@@ -2,8 +2,18 @@ import { Input } from '@/components/ui/input'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import EventSidebar from './_components/EventSidebar';
 import { useAuth } from '@/app/features/auth/api/AuthContext';
+import { BASE_EVENTS, BASE_VEHICLES } from '@/app/features/auth/api/MockData';
 
 const AdminHomepageAlert = () => {
+  // try {
+  //   const data = await getUsers();
+  //   return <UserList users={data} />;
+  // } catch (error) {
+  //   return <p>Ocorreu um erro ao carregar os usuários.</p>;
+  // }
+  const vehicles = BASE_VEHICLES;
+  const events = BASE_EVENTS;
+
   const ButtonStyle = "text-white/30 hover:text-red-300 data-active:bg-[#301b24] data-active:border-red-600 data-active:text-red-500 data-active:hover:text-red-500 bg-[#1c2330] border-1 border-[#30363d] rounded-sm";
   return (
     <div className='flex w-full h-full gap-6 overflow-hidden'>
@@ -59,7 +69,7 @@ const AdminHomepageAlert = () => {
       </div>
 
       {/* Right Sidebar */}
-      <EventSidebar/>
+      <EventSidebar vehicles={vehicles} events={events}/>
     </div>
   )
 }

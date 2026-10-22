@@ -3,16 +3,19 @@ import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import React from 'react'
 import { IoIosMedical } from 'react-icons/io'
-import AlertItem from './AdminEvent'
-import RescuerItem from './ClientItem'
+import ClientItem from './ClientItem'
 import { BASE_EVENTS, BASE_VEHICLES } from '@/app/features/auth/api/MockData'
 import { User } from '@/app/features/auth/types/User'
+import AdminEvent from './AdminEvent'
 import { Vehicle } from '@/app/features/auth/types/Vehicle'
-import EventItem from './AdminEvent'
+import { Event } from '@/app/features/auth/types/Event'
 
-const EventSidebar = () => {
-    const vehicles = BASE_VEHICLES;
-    const events = BASE_EVENTS;
+interface EventSidebarProps {
+    vehicles: Vehicle[],
+    events: Event[]
+}
+
+const EventSidebar = ({vehicles, events}: EventSidebarProps) => {
 
     const drivers: User[] = vehicles
         .filter((vehicle) => vehicle.driver) // Filtra os veículos que têm motorista
@@ -48,7 +51,7 @@ const EventSidebar = () => {
                         {/* Content */}
                         <div className='flex flex-col p-3 w-full h-full items-start gap-3 bg-[#1c2330]/20'>
                             {drivers.map((user: User) => (
-                                <RescuerItem key={user.id} user={user} />
+                                <ClientItem key={user.id} user={user} />
                             ))}
                         </div>
                         {/* Button */}
@@ -62,7 +65,7 @@ const EventSidebar = () => {
                         {/* Content */}
                         <div className='flex flex-col p-3 w-full h-full items-start gap-3 bg-[#1c2330]/20 rounded-b-2xl'>
                             {events.map(event => (
-                                <EventItem key={event.id} event={event}/>
+                                <AdminEvent key={event.id} event={event}/>
                             ))}
                         </div>
                     </TabsContent>

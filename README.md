@@ -39,3 +39,4 @@ bun dev
 - Instalando componentes: "bunx --bun shadcn@latest add button"
 - Ícones react: "bun install react-icons --save"
 - Instalando formatador de datas: 'npm install date-fns'
+- Instalando Axios "bun install axios"

@@ -1,24 +1,33 @@
+'use client'
+
 import { BASE_EVENTS, BASE_VEHICLES } from '@/app/features/auth/api/MockData'
 import { User } from '@/app/features/auth/types/User'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import React from 'react'
+import React, { useState } from 'react'
 import { IoIosMedical, IoIosNotifications } from "react-icons/io";
 import ClientNotificationItem from './ClientNotification'
 import ClientEvent from './ClientEvent'
+import { Vehicle } from '@/app/features/auth/types/Vehicle'
+import { Event } from '@/app/features/auth/types/Event'
 
-const ClientSidebar = () => {
-    const vehicles = BASE_VEHICLES;
-    const events = BASE_EVENTS;
+interface ClientSidebarProps {
+    vehicles: Vehicle[],
+    events: Event[]
+}
+
+const ClientSidebar = ({vehicles, events}: ClientSidebarProps) => {
+
+    const [selectedValue, setSelectedValue] = useState("plus");
 
     const drivers: User[] = vehicles
         .filter((vehicle) => vehicle.driver) // Filtra os veículos que têm motorista
         .map((vehicle) => vehicle.driver);  // Extrai apenas o motorista do veículo
 
     return (
-        <div className='flex flex-col w-1/3 h-full min-h-0 rounded-4xl shrink-0'>
+        <div className='flex flex-col w-full h-full min-h-0 rounded-3xl shrink-0'>
             {/* Tabs Container */}
-            <Tabs className={"flex w-full h-full gap-0 overflow-hidden"}>
+            <Tabs className={"flex w-full h-full gap-0 overflow-hidden rounded-b-3xl"}>
                 <div className="flex w-full min-h-15 items-center justify-center">
                     <TabsList className={"flex w-full bg-white/5 h-full rounded-b-none rounded-t-3xl"}>
                         <TabsTrigger value="rescuers" className={"text-white/70 gap-3 hover:text-white data-active:text-black data-active:hover:text-black data-active:inset-shadow-sm inset-shadow-indigo-700 px-6 border-none rounded-none rounded-tl-3xl"}>
@@ -40,6 +49,7 @@ const ClientSidebar = () => {
                     <TabsContent value={"rescuers"} className={"flex flex-col w-full h-full m-0 data-[state=inactive]:hidden"}>
                         {/* Content */}
                         <div className='flex flex-col p-3 pb-20 w-full h-full items-start gap-3 bg-[#1c2330]/20 rounded-b-3xl overflow-auto scrollbar-none'>
+                            
                             {events.map(event => (
                                 <ClientEvent key={event.id} event={event} />
                             ))}
