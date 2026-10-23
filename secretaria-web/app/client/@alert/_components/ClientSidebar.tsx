@@ -1,0 +1,74 @@
+'use client'
+
+import { BASE_EVENTS, BASE_VEHICLES } from '@/app/features/auth/api/MockData'
+import { User } from '@/app/features/auth/types/User'
+import { Button } from '@/components/ui/button'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import React, { Dispatch, useState } from 'react'
+import { IoIosMedical, IoIosNotifications } from "react-icons/io";
+import ClientNotificationItem from './ClientNotification'
+import ClientEvent from './ClientEvent'
+import { Vehicle } from '@/app/features/auth/types/Vehicle'
+import { Event } from '@/app/features/auth/types/Event'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+
+interface ClientSidebarProps {
+    vehicles: Vehicle[],
+    events: Event[],
+    selectedEvent: Event,
+    setSelectedEvent: Dispatch<React.SetStateAction<Event>>
+}
+
+const ClientSidebar = ({vehicles, events, selectedEvent, setSelectedEvent}: ClientSidebarProps) => {
+
+    const drivers: User[] = vehicles
+        .filter((vehicle) => vehicle.driver) // Filtra os veículos que têm motorista
+        .map((vehicle) => vehicle.driver);  // Extrai apenas o motorista do veículo
+
+    return (
+        <div className='flex flex-col w-full h-full min-h-0 rounded-3xl shrink-0'>
+            {/* Tabs Container */}
+            <Tabs className={"flex w-full h-full gap-0 overflow-hidden rounded-b-3xl"}>
+                <div className="flex w-full min-h-15 items-center justify-center">
+                    <TabsList className={"flex w-full bg-white/5 h-full rounded-b-none rounded-t-3xl"}>
+                        <TabsTrigger value="rescuers" className={"text-white/70 gap-3 hover:text-white data-active:text-black data-active:hover:text-black data-active:inset-shadow-sm inset-shadow-indigo-700 px-6 border-none rounded-none rounded-tl-3xl"}>
+                            <IoIosMedical />
+                            <h2 className="font-light">
+                                Eventos
+                            </h2>
+                        </TabsTrigger>
+                        <TabsTrigger value="alerts-sent" className={"text-white/70 hover:text-white data-active:text-black data-active:hover:text-black data-active:inset-shadow-sm inset-shadow-indigo-700 border-none px-6 rounded-none rounded-tr-3xl"}>
+                            <IoIosNotifications/>
+                            <h2 className="font-light">
+                                Notificações
+                            </h2>
+                        </TabsTrigger>
+                    </TabsList>
+                </div>
+                {/* Tabs Contents (das duas abas) */}
+                <div className='w-full h-full flex flex-col'>
+                    <TabsContent value={"rescuers"} className={"flex flex-col w-full h-full m-0 data-[state=inactive]:hidden"}>
+                        {/* Content */}
+                        <div className='flex flex-col p-3 pb-20 w-full h-full items-start gap-3 bg-[#1c2330]/20 rounded-b-3xl overflow-auto scrollbar-none'>
+                            <RadioGroup value={selectedEvent} onValueChange={setSelectedEvent}>
+                                {events.map(event => (
+                                    <ClientEvent key={event.id} event={event} selectedEventCode={selectedEvent.code}/>
+                                ))}
+                            </RadioGroup>
+                        </div>
+                    </TabsContent>
+                    <TabsContent value={"alerts-sent"} className={"w-full h-full m-0 data-[state=inactive]:hidden"}>
+                        {/* Content */}
+                        <div className='flex flex-col p-3 w-full h-full items-start gap-3 bg-[#1c2330]/20 rounded-b-2xl'>
+                            {events.map(event => (
+                                <ClientNotificationItem key={event.id} event={event} />
+                            ))}
+                        </div>
+                    </TabsContent>
+                </div>
+            </Tabs>
+        </div>
+    )
+}
+
+export default ClientSidebar

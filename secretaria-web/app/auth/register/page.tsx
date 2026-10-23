@@ -45,7 +45,7 @@ export default function SignupPage() {
 
     console.log("Cadastro:", form);
 
-    router.push(`/admin`);
+    router.push(`/auth/login`);
   }
 
   return (
@@ -130,7 +130,7 @@ export default function SignupPage() {
             type="submit"
             className="mt-2.5 h-[40px] w-full rounded-[10px] bg-[#f93a3a] text-lg font-semibold text-white hover:bg-[#e13333]"
           >
-            Entrar no Sistema
+            Cadastrar
           </Button>
 
           <div className="flex w-full justify-end">
