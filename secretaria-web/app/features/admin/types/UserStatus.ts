@@ -1,5 +1,5 @@
 export enum SeverityStatus {
-    Critical = "critical",
-    Urgent = "urgent",
+    Offline = "offline",
+    Online = "online",
     Moderate = "moderate"
 }

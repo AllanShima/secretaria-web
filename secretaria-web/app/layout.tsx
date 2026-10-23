@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { Toaster } from "@/components/ui/toast";
+import { AuthProvider } from "./features/auth/api/AuthContext";
 
 const jetbrainsMonoHeading = JetBrains_Mono({subsets:['latin'],variable:'--font-heading'});
 
@@ -29,8 +31,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable, jetbrainsMonoHeading.variable)}
     >
       <body className="min-h-full flex flex-col w-full h-full" suppressHydrationWarning={true}>
-        {children}
+        <AuthProvider>{children}</AuthProvider>
       </body>
+      <Toaster/>
     </html>
   );
 }
