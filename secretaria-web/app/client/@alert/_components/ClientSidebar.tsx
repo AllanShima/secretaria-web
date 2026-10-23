@@ -4,21 +4,22 @@ import { BASE_EVENTS, BASE_VEHICLES } from '@/app/features/auth/api/MockData'
 import { User } from '@/app/features/auth/types/User'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import React, { useState } from 'react'
+import React, { Dispatch, useState } from 'react'
 import { IoIosMedical, IoIosNotifications } from "react-icons/io";
 import ClientNotificationItem from './ClientNotification'
 import ClientEvent from './ClientEvent'
 import { Vehicle } from '@/app/features/auth/types/Vehicle'
 import { Event } from '@/app/features/auth/types/Event'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 
 interface ClientSidebarProps {
     vehicles: Vehicle[],
-    events: Event[]
+    events: Event[],
+    selectedEvent: Event,
+    setSelectedEvent: Dispatch<React.SetStateAction<Event>>
 }
 
-const ClientSidebar = ({vehicles, events}: ClientSidebarProps) => {
-
-    const [selectedValue, setSelectedValue] = useState("plus");
+const ClientSidebar = ({vehicles, events, selectedEvent, setSelectedEvent}: ClientSidebarProps) => {
 
     const drivers: User[] = vehicles
         .filter((vehicle) => vehicle.driver) // Filtra os veículos que têm motorista
@@ -49,10 +50,11 @@ const ClientSidebar = ({vehicles, events}: ClientSidebarProps) => {
                     <TabsContent value={"rescuers"} className={"flex flex-col w-full h-full m-0 data-[state=inactive]:hidden"}>
                         {/* Content */}
                         <div className='flex flex-col p-3 pb-20 w-full h-full items-start gap-3 bg-[#1c2330]/20 rounded-b-3xl overflow-auto scrollbar-none'>
-                            
-                            {events.map(event => (
-                                <ClientEvent key={event.id} event={event} />
-                            ))}
+                            <RadioGroup value={selectedEvent} onValueChange={setSelectedEvent}>
+                                {events.map(event => (
+                                    <ClientEvent key={event.id} event={event} selectedEventCode={selectedEvent.code}/>
+                                ))}
+                            </RadioGroup>
                         </div>
                     </TabsContent>
                     <TabsContent value={"alerts-sent"} className={"w-full h-full m-0 data-[state=inactive]:hidden"}>

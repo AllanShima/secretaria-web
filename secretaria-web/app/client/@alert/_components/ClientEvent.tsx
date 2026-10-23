@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Event } from "@/app/features/auth/types/Event";
 import SeverityStatus from "@/app/features/admin/components/SeverityStatus";
 import {
@@ -13,37 +13,54 @@ import { Button } from "@/components/ui/button";
 import { IoLocationSharp } from "react-icons/io5";
 import { FaFlag } from "react-icons/fa";
 import { LuDot } from "react-icons/lu";
+import { RadioGroupItem } from "@/components/ui/radio-group";
 
 interface ClientEventProps {
   event: Event;
+  selectedEventCode: string;
   onFinishEvent?: (eventId: string) => void;
 }
 
-const ClientEvent = ({ event, onFinishEvent }: ClientEventProps) => {
+const ClientEvent = ({ event, selectedEventCode, onFinishEvent }: ClientEventProps) => {
+
+  const radioId = `event-radio-${event.code}`;
+  const value = event;
+  
+  // 1. Criamos uma referência para o input do rádio
+  const radioRef = useRef<HTMLButtonElement>(null);
+
+  const handleClickStyle = selectedEventCode === event.code ? "border-[#7f1c1c] bg-[#301b1b]" : "border-[#2a3447]"
+
   return (
     <Accordion className="flex w-full h-fit">
       <AccordionItem
         value={event.id}
-        className=" rounded-2xl border border-[#2a3447] transition-colors data-[state=open]:border-[#8b2222] data-[state=open]:bg-[#241318]"
+        className={`w-full rounded-2xl border-1 ${handleClickStyle}`}
       >
         {/* Cabeçalho do Card / Trigger do Accordion */}
-        <AccordionTrigger className="p-4 hover:no-underline">
-          <div className="flex w-full items-center justify-between gap-3">
-            {/* Ícone de Localização e Informações Principais */}
+        <AccordionTrigger
+          className="p-4 hover:no-underline [&[data-state=open]>svg]:rotate-180"
+          onClick={() => {
+            // 2. Quando clicar no accordion, disparamos o clique no rádio programaticamente
+            radioRef.current?.click();
+          }}
+        >
+          <div className="flex w-full h-full items-center justify-between gap-3 pr-6 relative">
+            {/* Ícone de Localização, Radio e Informações Principais */}
             <div className="flex items-center gap-3 text-left">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#1c2e42] text-[#2980b9]">
                 <IoLocationSharp className="h-5 w-5" />
               </div>
+              
+              <div className="flex items-center absolute">
+                <RadioGroupItem hidden disabled={event.status === "Finalizado"} ref={radioRef} value={value} id={radioId} />
+              </div>
 
               <div className="flex flex-col gap-2">
                 <span className="flex items-center text-xs font-semibold text-white/50">
-                <p>
-                  Código: {event.code}
-                </p>
-                <LuDot/>
-                <p>
-                  {event.status}
-                </p>
+                  <p className="">Código: {event.code}</p>
+                  <LuDot />
+                  <p>{event.status}</p>
                 </span>
                 <h4 className="font-semibold text-md text-white">
                   {event.address}
@@ -55,7 +72,7 @@ const ClientEvent = ({ event, onFinishEvent }: ClientEventProps) => {
             </div>
 
             {/* Badge de Severidade */}
-            <div className="flex w-full h-full shrink-0 absolute justify-end items-end pr-8 pb-4">
+            <div className="absolute right-0 mr-0 flex h-full items-end shrink-0 ">
               <SeverityStatus status={event.severity} />
             </div>
           </div>
@@ -131,8 +148,10 @@ const ClientEvent = ({ event, onFinishEvent }: ClientEventProps) => {
             {event.status !== "Finalizado" && (
               <div className="flex justify-center pt-3">
                 <Button
-                  onClick={() => onFinishEvent?.(event.id)}
-                  className="gap-2 rounded-full bg-[#d32f2f] px-6 py-2 text-xs font-bold text-white hover:bg-[#b71c1c]"
+                  onClick={(e) => {
+                    onFinishEvent?.(event.id);
+                  }}
+                  className="gap-2 shadow-lg rounded-full bg-[#d32f2f] px-6 py-2 text-xs font-bold text-white hover:bg-[#b71c1c]"
                 >
                   Terminar Alerta
                   <FaFlag className="h-3 w-3" />

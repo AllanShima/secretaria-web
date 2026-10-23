@@ -2,7 +2,7 @@ import SeverityStatus from '@/app/features/admin/components/SeverityStatus'
 import { Event } from '@/app/features/auth/types/Event'
 import { Button } from '@/components/ui/button'
 import { Item, ItemActions, ItemContent, ItemDescription, ItemTitle } from '@/components/ui/item'
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 import { IoMdSend } from 'react-icons/io'
 import { LuDot } from 'react-icons/lu'
 
@@ -10,10 +10,11 @@ import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
 interface AdminEventProp {
-    event: Event
+    event: Event,
+    setEventsSelected: Dispatch<SetStateAction<Event[]>>
 }
 
-const AdminEvent = ({event}: AdminEventProp) => {
+const AdminEvent = ({event, setEventsSelected}: AdminEventProp) => {
     // Exemplo: "há cerca de 2 horas" / "há 3 segundos"
     const timeAgo = formatDistanceToNow(event.createdAt, {
         addSuffix: true, // Adiciona o "há ..."
@@ -23,7 +24,7 @@ const AdminEvent = ({event}: AdminEventProp) => {
     return (
         <Item className='bg-[#1c2330]/80'>
             <ItemContent className='gap-4'>
-                <ItemTitle className='gap-4'>
+                <ItemTitle className='gap-2'>
                     <SeverityStatus status={event.severity} />
                     <p className='text-xs font-semibold'>
                         {timeAgo}

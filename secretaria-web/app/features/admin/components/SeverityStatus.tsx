@@ -24,7 +24,10 @@ const SeverityStatus = ({status} : SevStatusProps) => {
 
     return (
         <Badge variant={"outline"} className={`flex px-2 py-1 rounded-sm ${style}`}>
-            {label}
+            <p className='text-xs font-light'>
+                {label}
+            </p>
+            
         </Badge>
     )
 }

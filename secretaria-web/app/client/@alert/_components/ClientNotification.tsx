@@ -37,13 +37,9 @@ const ClientNotificationItem = ({event}: ClientNotItemProp) => {
                     </p>
                 </ItemDescription>
                 <ItemDescription className='flex w-fit text-[10px] font-semibold justify-center items-center'>
-                    <p>
-                        Código: {event.code}
-                    </p>
+                    Código: {event.code}
                     <LuDot />
-                    <p>
-                        {event.status}
-                    </p>
+                    {event.status}
                 </ItemDescription>
             </ItemContent>
         </Item>

@@ -84,7 +84,7 @@ export default function HomepageClientLayout({
                 </span>
 
 
-                <button onClick={() => setStatus(!status)} className="w-20 h-fit">
+                <button onClick={() => setStatus(!status)} className="w-20 h-fit cursor-pointer">
                   {status == true ? (
                     <Badge className="w-full h-fit rounded-md border-[#1e7f1c] bg-[#204c1f] text-green-500">
                       <p>Online</p>

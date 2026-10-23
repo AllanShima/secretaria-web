@@ -1,7 +1,9 @@
+'use client'
+
 import { Avatar } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import React from 'react'
+import React, { useState } from 'react'
 import { IoIosMedical } from 'react-icons/io'
 import ClientItem from './ClientItem'
 import { BASE_EVENTS, BASE_VEHICLES } from '@/app/features/auth/api/MockData'
@@ -9,6 +11,7 @@ import { User } from '@/app/features/auth/types/User'
 import AdminEvent from './AdminEvent'
 import { Vehicle } from '@/app/features/auth/types/Vehicle'
 import { Event } from '@/app/features/auth/types/Event'
+import { ToggleGroup } from '@/components/ui/toggle-group'
 
 interface EventSidebarProps {
     vehicles: Vehicle[],
@@ -17,9 +20,15 @@ interface EventSidebarProps {
 
 const EventSidebar = ({vehicles, events}: EventSidebarProps) => {
 
+    const [eventsSelected, setEventsSelected] = useState<Event[]>([]);
+
     const drivers: User[] = vehicles
         .filter((vehicle) => vehicle.driver) // Filtra os veículos que têm motorista
         .map((vehicle) => vehicle.driver);  // Extrai apenas o motorista do veículo
+
+    const handleSend = () => {
+        console.log(eventsSelected);
+    }
 
     return (
         <div className='flex flex-col w-1/3 h-full min-h-0 rounded-xl shrink-0'>
@@ -34,7 +43,7 @@ const EventSidebar = ({vehicles, events}: EventSidebarProps) => {
                             </h2>
                         </TabsTrigger>
                         <TabsTrigger value="alerts-sent" className={"text-white/70 hover:text-white data-active:text-black data-active:hover:text-black data-active:inset-shadow-sm inset-shadow-indigo-700 border-none px-6 rounded-none rounded-tr-3xl"}>
-                            <Avatar className={"w-5 h-5 bg-white justify-center items-center"}>
+                            <Avatar className={"w-4 h-4 bg-white justify-center items-center"}>
                                 <p className='text-[8px] text-black'>
                                     {events.length}
                                 </p>
@@ -49,13 +58,13 @@ const EventSidebar = ({vehicles, events}: EventSidebarProps) => {
                 <div className='w-full h-full flex flex-col'>
                     <TabsContent value={"rescuers"} className={"flex flex-col w-full h-full m-0 data-[state=inactive]:hidden"}>
                         {/* Content */}
-                        <div className='flex flex-col p-3 w-full h-full items-start gap-3 bg-[#1c2330]/20'>
+                        <ToggleGroup className='flex flex-col p-3 w-full h-full items-start gap-3 bg-[#1c2330]/20'>
                             {drivers.map((user: User) => (
                                 <ClientItem key={user.id} user={user} />
                             ))}
-                        </div>
+                        </ToggleGroup>
                         {/* Button */}
-                        <Button className='w-full h-10 rounded-b-2xl rounded-t-none'>
+                        <Button onClick={() => handleSend()} className='w-full h-10 rounded-b-2xl rounded-t-none'>
                             <h3 className='font-medium text-white '>
                                 Enviar Alerta de Socorro
                             </h3>
@@ -65,7 +74,7 @@ const EventSidebar = ({vehicles, events}: EventSidebarProps) => {
                         {/* Content */}
                         <div className='flex flex-col p-3 w-full h-full items-start gap-3 bg-[#1c2330]/20 rounded-b-2xl'>
                             {events.map(event => (
-                                <AdminEvent key={event.id} event={event}/>
+                                <AdminEvent key={event.id} event={event} setEventsSelected={setEventsSelected}/>
                             ))}
                         </div>
                     </TabsContent>
