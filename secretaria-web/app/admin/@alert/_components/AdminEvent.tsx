@@ -8,13 +8,16 @@ import { LuDot } from 'react-icons/lu'
 
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
+import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
+import { Label } from '@/components/ui/label'
+import { Input } from '@/components/ui/input'
+import AdminFormDialog from './AdminFormDialog'
 
 interface AdminEventProp {
     event: Event,
-    setEventsSelected: Dispatch<SetStateAction<Event[]>>
 }
 
-const AdminEvent = ({event, setEventsSelected}: AdminEventProp) => {
+const AdminEvent = ({event}: AdminEventProp) => {
     // Exemplo: "há cerca de 2 horas" / "há 3 segundos"
     const timeAgo = formatDistanceToNow(event.createdAt, {
         addSuffix: true, // Adiciona o "há ..."
@@ -22,7 +25,7 @@ const AdminEvent = ({event, setEventsSelected}: AdminEventProp) => {
     });
 
     return (
-        <Item className='bg-[#1c2330]/80'>
+        <Item className='flex bg-[#1c2330]/80'>
             <ItemContent className='gap-4'>
                 <ItemTitle className='gap-2'>
                     <SeverityStatus status={event.severity} />
@@ -40,11 +43,16 @@ const AdminEvent = ({event, setEventsSelected}: AdminEventProp) => {
                 </ItemDescription>
             </ItemContent>
             <ItemActions>
-                {(event.status != "Finalizado") && (
-                    <Button variant="destructive" size="sm">
-                        <IoMdSend />
-                    </Button>                    
-                )}
+                <Dialog>
+                    {(event.status != "Finalizado") && (
+                        <DialogTrigger render={
+                            <Button variant="destructive" size="sm">
+                                <IoMdSend />
+                            </Button> 
+                        } />
+                    )}                    
+                    <AdminFormDialog/>
+                </Dialog>
             </ItemActions>
         </Item>
     )

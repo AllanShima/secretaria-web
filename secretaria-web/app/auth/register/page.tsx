@@ -51,7 +51,7 @@ export default function SignupPage() {
   return (
     <div className="flex flex-col min-h-screen w-full bg-linear-to-b from-[#0d1117] to-[#170d0d] items-center justify-center">
       {/* Container */}
-      <div className="w-100 h-fit rounded-[30px] border border-white/50 bg-[#1c2330] flex flex-col p-6 gap-5">
+      <div className="w-100 h-fit rounded-[30px] border border-white/20 bg-[#1c2330] flex flex-col p-6 gap-5">
         <div className="flex flex-col gap-2.5">
           <h1 className="text-2xl font-normal text-white">Cadastro</h1>
           <p className="text-sm text-white/60">
@@ -117,7 +117,7 @@ export default function SignupPage() {
               />
               <PerfilOption
                 icon={Ambulance}
-                label="Socorrista"
+                label="Ambulância"
                 selected={form.perfil === "socorrista"}
                 onClick={() => setField("perfil", "socorrista")}
               />

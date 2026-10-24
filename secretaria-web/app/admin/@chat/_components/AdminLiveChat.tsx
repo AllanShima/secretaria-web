@@ -62,9 +62,9 @@ const LiveChatWindow = ({users, selectedClient, onSelectClient}: LiveChatWindowP
     } catch (error) {
       console.error("Falha ao copiar texto: ", error);
         toast.add({
-        type: "error",
-        description: "Falha ao copiar o telefone!",
-      })
+          type: "error",
+          description: "Falha ao copiar o telefone!",
+        })
     }
   };
 

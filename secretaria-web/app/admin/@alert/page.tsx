@@ -1,8 +1,10 @@
+'use client'
 import { Input } from '@/components/ui/input'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import EventSidebar from './_components/EventSidebar';
 import { useAuth } from '@/app/features/auth/api/AuthContext';
-import { BASE_EVENTS, BASE_VEHICLES } from '@/app/features/auth/api/MockData';
+import { BASE_EVENTS, BASE_USERS, BASE_VEHICLES } from '@/app/features/auth/api/MockData';
+import { useState } from 'react';
 
 const AdminHomepageAlert = () => {
   // try {
@@ -11,7 +13,8 @@ const AdminHomepageAlert = () => {
   // } catch (error) {
   //   return <p>Ocorreu um erro ao carregar os usuários.</p>;
   // }
-  const vehicles = BASE_VEHICLES;
+  const [value, setValue] = useState("");
+  const users = BASE_USERS;
   const events = BASE_EVENTS;
 
   const ButtonStyle = "text-white/30 hover:text-red-300 data-active:bg-[#301b24] data-active:border-red-600 data-active:text-red-500 data-active:hover:text-red-500 bg-[#1c2330] border-1 border-[#30363d] rounded-sm";
@@ -53,6 +56,8 @@ const AdminHomepageAlert = () => {
 
             <div className='flex-1 p-2 min-h-0 w-full h-full overflow-hidden relative'>
               <Input 
+                value={value} 
+                onChange={(e) => setValue(e.target.value)} 
                 placeholder='Ex: Av. Brasil, 1500, Apto 42, Centro, Marília - SP' 
                 className='dark text-white shrink-0 bg-[#1c2330] rounded-b-none h-12 px-5'
               />
@@ -69,7 +74,7 @@ const AdminHomepageAlert = () => {
       </div>
 
       {/* Right Sidebar */}
-      <EventSidebar vehicles={vehicles} events={events}/>
+      <EventSidebar users={users} events={events} locationValue={value}/>
     </div>
   )
 }

@@ -22,7 +22,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$
 ;
 ;
 ;
-const AdminEvent = ({ event, setEventsSelected })=>{
+const AdminEvent = ({ event })=>{
     // Exemplo: "há cerca de 2 horas" / "há 3 segundos"
     const timeAgo = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$formatDistanceToNow$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["formatDistanceToNow"])(event.createdAt, {
         addSuffix: true,
@@ -41,7 +41,7 @@ const AdminEvent = ({ event, setEventsSelected })=>{
                                 status: event.severity
                             }, void 0, false, {
                                 fileName: "[project]/app/admin/@alert/_components/AdminEvent.tsx",
-                                lineNumber: 28,
+                                lineNumber: 27,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -49,13 +49,13 @@ const AdminEvent = ({ event, setEventsSelected })=>{
                                 children: timeAgo
                             }, void 0, false, {
                                 fileName: "[project]/app/admin/@alert/_components/AdminEvent.tsx",
-                                lineNumber: 29,
+                                lineNumber: 28,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/admin/@alert/_components/AdminEvent.tsx",
-                        lineNumber: 27,
+                        lineNumber: 26,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$item$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ItemDescription"], {
@@ -63,7 +63,7 @@ const AdminEvent = ({ event, setEventsSelected })=>{
                         children: event.address
                     }, void 0, false, {
                         fileName: "[project]/app/admin/@alert/_components/AdminEvent.tsx",
-                        lineNumber: 33,
+                        lineNumber: 32,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$item$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ItemDescription"], {
@@ -73,20 +73,20 @@ const AdminEvent = ({ event, setEventsSelected })=>{
                             event.code,
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$lu$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["LuDot"], {}, void 0, false, {
                                 fileName: "[project]/app/admin/@alert/_components/AdminEvent.tsx",
-                                lineNumber: 38,
+                                lineNumber: 37,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             event.status
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/admin/@alert/_components/AdminEvent.tsx",
-                        lineNumber: 36,
+                        lineNumber: 35,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/admin/@alert/_components/AdminEvent.tsx",
-                lineNumber: 26,
+                lineNumber: 25,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$item$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ItemActions"], {
@@ -95,23 +95,23 @@ const AdminEvent = ({ event, setEventsSelected })=>{
                     size: "sm",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$io$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["IoMdSend"], {}, void 0, false, {
                         fileName: "[project]/app/admin/@alert/_components/AdminEvent.tsx",
-                        lineNumber: 45,
+                        lineNumber: 44,
                         columnNumber: 25
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/app/admin/@alert/_components/AdminEvent.tsx",
-                    lineNumber: 44,
+                    lineNumber: 43,
                     columnNumber: 21
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/app/admin/@alert/_components/AdminEvent.tsx",
-                lineNumber: 42,
+                lineNumber: 41,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/app/admin/@alert/_components/AdminEvent.tsx",
-        lineNumber: 25,
+        lineNumber: 24,
         columnNumber: 9
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -141,10 +141,17 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$toggle$2
 ;
 ;
 ;
-const ClientItem = ({ user })=>{
+const ClientItem = ({ user, setClientsSelected })=>{
     const status = user.status == false ? "Offline" : "Online";
     const statusStyle = user.status == false ? "bg-[#4c1f1f] border-red-600 text-red-500" : "bg-[#1f4c2a] border-[#1c7f2a] text-green-500";
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$toggle$2d$group$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ToggleGroupItem"], {
+        onClick: ()=>{
+            setClientsSelected((prevClients)=>[
+                    ...prevClients,
+                    user
+                ]);
+        },
+        value: user.id,
         disabled: user.status === false,
         "aria-label": "Toggle bookmark",
         size: "sm",
@@ -160,12 +167,12 @@ const ClientItem = ({ user })=>{
                             className: "size-full"
                         }, void 0, false, {
                             fileName: "[project]/app/admin/@alert/_components/ClientItem.tsx",
-                            lineNumber: 26,
+                            lineNumber: 29,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/app/admin/@alert/_components/ClientItem.tsx",
-                        lineNumber: 25,
+                        lineNumber: 28,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -176,7 +183,7 @@ const ClientItem = ({ user })=>{
                                 children: user.name
                             }, void 0, false, {
                                 fileName: "[project]/app/admin/@alert/_components/ClientItem.tsx",
-                                lineNumber: 29,
+                                lineNumber: 32,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -187,19 +194,19 @@ const ClientItem = ({ user })=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/admin/@alert/_components/ClientItem.tsx",
-                                lineNumber: 30,
+                                lineNumber: 33,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/admin/@alert/_components/ClientItem.tsx",
-                        lineNumber: 28,
+                        lineNumber: 31,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/admin/@alert/_components/ClientItem.tsx",
-                lineNumber: 24,
+                lineNumber: 27,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -209,18 +216,18 @@ const ClientItem = ({ user })=>{
                     children: status
                 }, void 0, false, {
                     fileName: "[project]/app/admin/@alert/_components/ClientItem.tsx",
-                    lineNumber: 35,
+                    lineNumber: 38,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/app/admin/@alert/_components/ClientItem.tsx",
-                lineNumber: 34,
+                lineNumber: 37,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/app/admin/@alert/_components/ClientItem.tsx",
-        lineNumber: 21,
+        lineNumber: 20,
         columnNumber: 9
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -248,6 +255,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$ico
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$admin$2f40$alert$2f$_components$2f$ClientItem$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/admin/@alert/_components/ClientItem.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$admin$2f40$alert$2f$_components$2f$AdminEvent$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/admin/@alert/_components/AdminEvent.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$toggle$2d$group$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/toggle-group.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$features$2f$auth$2f$api$2f$AuthContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/features/auth/api/AuthContext.tsx [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 'use client';
@@ -259,21 +267,46 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-const EventSidebar = ({ vehicles, events })=>{
+;
+const EventSidebar = ({ users, events })=>{
     _s();
-    const [eventsSelected, setEventsSelected] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
-    const drivers = vehicles.filter((vehicle)=>vehicle.driver) // Filtra os veículos que têm motorista
-    .map((vehicle)=>vehicle.driver); // Extrai apenas o motorista do veículo
+    const { user } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$features$2f$auth$2f$api$2f$AuthContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"])();
+    const [tabSelected, setTabSelected] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("rescuers");
+    const [clientsSelected, setClientsSelected] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
+    const clients = users.filter((user)=>user.type == "Client");
+    const [eventList, setEventList] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(events);
     const handleSend = ()=>{
-        console.log(eventsSelected);
+        if (!user) return;
+        const newEvent = {
+            id: "evt-002",
+            code: "ATD-2026-002",
+            severity: "urgent",
+            address: "Rua Das Roseiras, 120 - Jardim Fragata, Marília - SP",
+            description: "Queda de própria altura com suspeita de fratura.",
+            injuryLocations: [
+                "Membro Superior Esquerdo"
+            ],
+            createdByUser: user,
+            status: "Em Andamento",
+            operatorUser: clientsSelected,
+            createdAt: new Date("2024-03-05T09:00:00Z")
+        };
+        setEventList((prevEvents)=>[
+                ...prevEvents,
+                newEvent
+            ]);
+        setTabSelected("alerts-sent");
+        setClientsSelected([]);
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "flex flex-col w-1/3 h-full min-h-0 rounded-xl shrink-0",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Tabs"], {
+            value: tabSelected,
+            onValueChange: setTabSelected,
             className: "flex w-full h-full gap-0",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "flex w-full h-15 items-center justify-center",
+                    className: "flex w-full h-15 min-h-15 items-center justify-center",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsList"], {
                         className: "flex w-full bg-white/5 h-full rounded-b-none rounded-t-4xl",
                         children: [
@@ -283,7 +316,7 @@ const EventSidebar = ({ vehicles, events })=>{
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$io$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["IoIosMedical"], {}, void 0, false, {
                                         fileName: "[project]/app/admin/@alert/_components/EventSidebar.tsx",
-                                        lineNumber: 40,
+                                        lineNumber: 62,
                                         columnNumber: 29
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -291,13 +324,13 @@ const EventSidebar = ({ vehicles, events })=>{
                                         children: "Socorristas"
                                     }, void 0, false, {
                                         fileName: "[project]/app/admin/@alert/_components/EventSidebar.tsx",
-                                        lineNumber: 41,
+                                        lineNumber: 63,
                                         columnNumber: 29
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/admin/@alert/_components/EventSidebar.tsx",
-                                lineNumber: 39,
+                                lineNumber: 61,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsTrigger"], {
@@ -308,15 +341,15 @@ const EventSidebar = ({ vehicles, events })=>{
                                         className: "w-4 h-4 bg-white justify-center items-center",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "text-[8px] text-black",
-                                            children: events.length
+                                            children: eventList.length
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/@alert/_components/EventSidebar.tsx",
-                                            lineNumber: 47,
+                                            lineNumber: 69,
                                             columnNumber: 33
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/app/admin/@alert/_components/EventSidebar.tsx",
-                                        lineNumber: 46,
+                                        lineNumber: 68,
                                         columnNumber: 29
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -324,24 +357,24 @@ const EventSidebar = ({ vehicles, events })=>{
                                         children: "Alertas Enviados"
                                     }, void 0, false, {
                                         fileName: "[project]/app/admin/@alert/_components/EventSidebar.tsx",
-                                        lineNumber: 51,
+                                        lineNumber: 73,
                                         columnNumber: 29
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/admin/@alert/_components/EventSidebar.tsx",
-                                lineNumber: 45,
+                                lineNumber: 67,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/admin/@alert/_components/EventSidebar.tsx",
-                        lineNumber: 38,
+                        lineNumber: 60,
                         columnNumber: 21
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/app/admin/@alert/_components/EventSidebar.tsx",
-                    lineNumber: 37,
+                    lineNumber: 59,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -354,16 +387,17 @@ const EventSidebar = ({ vehicles, events })=>{
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$toggle$2d$group$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ToggleGroup"], {
                                     multiple: true,
                                     className: "flex flex-col p-3 w-full h-full items-start gap-3 bg-[#1c2330]/20",
-                                    children: drivers.map((user)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$admin$2f40$alert$2f$_components$2f$ClientItem$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                            user: user
+                                    children: clients.map((user)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$admin$2f40$alert$2f$_components$2f$ClientItem$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                            user: user,
+                                            setClientsSelected: setClientsSelected
                                         }, user.id, false, {
                                             fileName: "[project]/app/admin/@alert/_components/EventSidebar.tsx",
-                                            lineNumber: 63,
+                                            lineNumber: 85,
                                             columnNumber: 33
                                         }, ("TURBOPACK compile-time value", void 0)))
                                 }, void 0, false, {
                                     fileName: "[project]/app/admin/@alert/_components/EventSidebar.tsx",
-                                    lineNumber: 61,
+                                    lineNumber: 83,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -374,62 +408,65 @@ const EventSidebar = ({ vehicles, events })=>{
                                         children: "Enviar Alerta de Socorro"
                                     }, void 0, false, {
                                         fileName: "[project]/app/admin/@alert/_components/EventSidebar.tsx",
-                                        lineNumber: 68,
+                                        lineNumber: 90,
                                         columnNumber: 29
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/app/admin/@alert/_components/EventSidebar.tsx",
-                                    lineNumber: 67,
+                                    lineNumber: 89,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/admin/@alert/_components/EventSidebar.tsx",
-                            lineNumber: 59,
+                            lineNumber: 81,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsContent"], {
                             value: "alerts-sent",
                             className: "w-full h-full m-0 data-[state=inactive]:hidden",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex flex-col p-3 w-full h-full items-start gap-3 bg-[#1c2330]/20 rounded-b-2xl",
-                                children: events.map((event)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$admin$2f40$alert$2f$_components$2f$AdminEvent$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                        event: event,
-                                        setEventsSelected: setEventsSelected
-                                    }, event.id, false, {
+                                className: "flex overflow-auto scrollbar-none flex-col p-3 w-full h-full items-start gap-3 bg-[#1c2330]/20 rounded-b-2xl",
+                                children: eventList.map((event, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$admin$2f40$alert$2f$_components$2f$AdminEvent$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                        event: event
+                                    }, index, false, {
                                         fileName: "[project]/app/admin/@alert/_components/EventSidebar.tsx",
-                                        lineNumber: 77,
+                                        lineNumber: 99,
                                         columnNumber: 33
                                     }, ("TURBOPACK compile-time value", void 0)))
                             }, void 0, false, {
                                 fileName: "[project]/app/admin/@alert/_components/EventSidebar.tsx",
-                                lineNumber: 75,
+                                lineNumber: 97,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/app/admin/@alert/_components/EventSidebar.tsx",
-                            lineNumber: 73,
+                            lineNumber: 95,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/admin/@alert/_components/EventSidebar.tsx",
-                    lineNumber: 58,
+                    lineNumber: 80,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/app/admin/@alert/_components/EventSidebar.tsx",
-            lineNumber: 36,
+            lineNumber: 55,
             columnNumber: 13
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/app/admin/@alert/_components/EventSidebar.tsx",
-        lineNumber: 34,
+        lineNumber: 53,
         columnNumber: 9
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(EventSidebar, "AbAatz1IK5ivCJAKtp6yluYNCtI=");
+_s(EventSidebar, "I8ttd9fTlNjT87X/RV6tP2nkDVg=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$features$2f$auth$2f$api$2f$AuthContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"]
+    ];
+});
 _c = EventSidebar;
 const __TURBOPACK__default__export__ = EventSidebar;
 var _c;

@@ -71,7 +71,7 @@ export default function LoginPage() {
             Sistema de Gestão de Alertas de Socorro
           </p>
         </div>
-        <div className="w-full max-w[500px] rounded-[30px] border border-white/50 bg-[#1c2330] p-[30px] flex flex-col gap-[15px]">
+        <div className="w-full max-w[500px] rounded-[30px] border border-white/20 bg-[#1c2330] p-[30px] flex flex-col gap-[15px]">
           <div className="flex flex-col gap-2.5">
             <h1 className="text-2xl font-normal text-white">Login</h1>
             <p className="text-sm text-white/60">

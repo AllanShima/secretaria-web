@@ -14,6 +14,8 @@ import { IoLocationSharp } from "react-icons/io5";
 import { FaFlag } from "react-icons/fa";
 import { LuDot } from "react-icons/lu";
 import { RadioGroupItem } from "@/components/ui/radio-group";
+import { Dialog, DialogTrigger } from "@/components/ui/dialog";
+import ClientEventDialog from "./ClientEventDialog";
 
 interface ClientEventProps {
   event: Event;
@@ -25,7 +27,7 @@ const ClientEvent = ({ event, selectedEventCode, onFinishEvent }: ClientEventPro
 
   const radioId = `event-radio-${event.code}`;
   const value = event;
-  
+
   // 1. Criamos uma referência para o input do rádio
   const radioRef = useRef<HTMLButtonElement>(null);
 
@@ -51,7 +53,7 @@ const ClientEvent = ({ event, selectedEventCode, onFinishEvent }: ClientEventPro
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#1c2e42] text-[#2980b9]">
                 <IoLocationSharp className="h-5 w-5" />
               </div>
-              
+
               <div className="flex items-center absolute">
                 <RadioGroupItem hidden disabled={event.status === "Finalizado"} ref={radioRef} value={value} id={radioId} />
               </div>
@@ -143,21 +145,25 @@ const ClientEvent = ({ event, selectedEventCode, onFinishEvent }: ClientEventPro
                 </div>
               </div>
             </div>
-
-            {/* Botão Terminar Alerta */}
-            {event.status !== "Finalizado" && (
-              <div className="flex justify-center pt-3">
-                <Button
-                  onClick={(e) => {
-                    onFinishEvent?.(event.id);
-                  }}
-                  className="gap-2 shadow-lg rounded-full bg-[#d32f2f] px-6 py-2 text-xs font-bold text-white hover:bg-[#b71c1c]"
-                >
-                  Terminar Alerta
-                  <FaFlag className="h-3 w-3" />
-                </Button>
-              </div>
-            )}
+            <Dialog>
+              {/* Botão Terminar Alerta */}
+              {event.status !== "Finalizado" && (
+                <div className="flex justify-center pt-3">
+                  <DialogTrigger render={
+                    <Button
+                      onClick={(e) => {
+                        onFinishEvent?.(event.id);
+                      }}
+                      className="gap-2 shadow-lg rounded-full bg-[#d32f2f] px-6 py-2 text-xs font-bold text-white hover:bg-[#b71c1c]"
+                    >
+                      Terminar Alerta
+                      <FaFlag className="h-3 w-3" />
+                    </Button>
+                  } />
+                </div>
+              )}
+              <ClientEventDialog/>
+            </Dialog>
           </div>
         </AccordionContent>
       </AccordionItem>

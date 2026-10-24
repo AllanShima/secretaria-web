@@ -1,0 +1,5 @@
+(globalThis["TURBOPACK_CHUNK_LISTS"] || (globalThis["TURBOPACK_CHUNK_LISTS"] = [])).push({
+    script: typeof document === "object" ? document.currentScript : undefined,
+    chunks: ["static/chunks/[root-of-the-server]__117b078._.css","static/chunks/1n7b_03gibhb._.js","static/chunks/secretaria-web_0gw102r._.js","static/chunks/1n7b_@base-ui_react_12oegg9._.js","static/chunks/1n7b_react-icons_lia_index_mjs_0lu0b35._.js","static/chunks/1n7b_react-icons_fi_index_mjs_0y_nhpz._.js","static/chunks/1n7b_react-icons_md_index_mjs_1lnbind._.js","static/chunks/1n7b_react-icons_lib_1p2xxuu._.js","static/chunks/1n7b_1d3o-_0._.js","static/chunks/secretaria-web_1r-5yln._.js","static/chunks/secretaria-web_0lymx2f._.js","static/chunks/1n7b_@base-ui_react_1t7a2m5._.js","static/chunks/1n7b_react-icons_io_index_mjs_01sfisd._.js","static/chunks/1n7b_react-icons_bi_index_mjs_0lmdrjn._.js","static/chunks/1n7b_react-icons_lu_index_mjs_1g8exbj._.js","static/chunks/1n7b_1kzwcmx._.js","static/chunks/secretaria-web_1-2fc3o._.js"],
+    source: "entry"
+});
