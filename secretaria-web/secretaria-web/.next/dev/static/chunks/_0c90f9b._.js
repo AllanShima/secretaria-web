@@ -60,13 +60,7 @@ const AdminEvent = ({ event, setEventsSelected })=>{
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$item$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ItemDescription"], {
                         className: "flex flex-col gap-6",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            children: event.address
-                        }, void 0, false, {
-                            fileName: "[project]/app/admin/@alert/_components/AdminEvent.tsx",
-                            lineNumber: 34,
-                            columnNumber: 21
-                        }, ("TURBOPACK compile-time value", void 0))
+                        children: event.address
                     }, void 0, false, {
                         fileName: "[project]/app/admin/@alert/_components/AdminEvent.tsx",
                         lineNumber: 33,
@@ -75,32 +69,18 @@ const AdminEvent = ({ event, setEventsSelected })=>{
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$item$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ItemDescription"], {
                         className: "flex w-fit text-[10px] font-semibold justify-center items-center",
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                children: [
-                                    "Código: ",
-                                    event.code
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/app/admin/@alert/_components/AdminEvent.tsx",
-                                lineNumber: 39,
-                                columnNumber: 21
-                            }, ("TURBOPACK compile-time value", void 0)),
+                            "Código: ",
+                            event.code,
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$lu$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["LuDot"], {}, void 0, false, {
                                 fileName: "[project]/app/admin/@alert/_components/AdminEvent.tsx",
-                                lineNumber: 42,
+                                lineNumber: 38,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                children: event.status
-                            }, void 0, false, {
-                                fileName: "[project]/app/admin/@alert/_components/AdminEvent.tsx",
-                                lineNumber: 43,
-                                columnNumber: 21
-                            }, ("TURBOPACK compile-time value", void 0))
+                            event.status
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/admin/@alert/_components/AdminEvent.tsx",
-                        lineNumber: 38,
+                        lineNumber: 36,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
@@ -115,17 +95,17 @@ const AdminEvent = ({ event, setEventsSelected })=>{
                     size: "sm",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$io$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["IoMdSend"], {}, void 0, false, {
                         fileName: "[project]/app/admin/@alert/_components/AdminEvent.tsx",
-                        lineNumber: 51,
+                        lineNumber: 45,
                         columnNumber: 25
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/app/admin/@alert/_components/AdminEvent.tsx",
-                    lineNumber: 50,
+                    lineNumber: 44,
                     columnNumber: 21
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/app/admin/@alert/_components/AdminEvent.tsx",
-                lineNumber: 48,
+                lineNumber: 42,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0))
         ]
@@ -372,6 +352,7 @@ const EventSidebar = ({ vehicles, events })=>{
                             className: "flex flex-col w-full h-full m-0 data-[state=inactive]:hidden",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$toggle$2d$group$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ToggleGroup"], {
+                                    multiple: true,
                                     className: "flex flex-col p-3 w-full h-full items-start gap-3 bg-[#1c2330]/20",
                                     children: drivers.map((user)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$admin$2f40$alert$2f$_components$2f$ClientItem$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                             user: user

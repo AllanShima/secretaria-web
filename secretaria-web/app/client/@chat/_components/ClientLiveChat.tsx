@@ -1,40 +1,77 @@
 "use client";
 
-import { useState } from "react";
-import { BASE_USERS } from "@/app/features/auth/api/MockData";
-import { Avatar } from "@/components/ui/avatar";
+import { Dispatch, SetStateAction, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { MdOutlineChat, MdOutlineLocalPhone, MdSend } from "react-icons/md";
-import AdminItem from "./AdminItem";
 import { User } from "@/app/features/auth/types/User";
+import { toast } from "@/components/ui/toast";
+import AdminItem from "./AdminItem";
 
 // Mock de mensagens para demonstração
 const MOCK_MESSAGES = [
-  { id: 1, text: "Olá", sender: "user" },
-  { id: 2, text: "Boa noite", sender: "me" },
-  { id: 3, text: "Boa noite", sender: "user" },
+  { id: 1, text: "Olá", sender: "user", date: new Date() },
+  { id: 2, text: "Boa noite", sender: "me", date: new Date()  },
+  { id: 3, text: "Boa noite", sender: "user", date: new Date()  },
   {
     id: 4,
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     sender: "me",
+    date: new Date() 
   },
 ];
 
 interface LiveChatWindowProps {
-  users: User[]
+  users: User[],
+  selectedClient: User,
+  onSelectClient: Dispatch<SetStateAction<User>> 
 }
 
-const LiveChatWindow = ({users}: LiveChatWindowProps) => {
-  const [selectedUserIndex, setSelectedUserIndex] = useState(0);
+const LiveChatWindow = ({users, selectedClient, onSelectClient}: LiveChatWindowProps) => {
+  const [messages, setMessages] = useState(MOCK_MESSAGES);
+
   const [message, setMessage] = useState("");
 
-  const selectedUser = users[selectedUserIndex] ?? users[0];
+  const handleMessage = () => {
+    const newMessage = {
+      id: 5,
+      text: message,
+      sender: "me",
+      date: new Date() 
+    };
+
+    setMessages((prevMessages) => [...prevMessages, newMessage]);
+  }
+
+  const dataFormatada = new Intl.DateTimeFormat('pt-BR').format(messages[0].date);
+
+  const handleDoubleClick = async (phoneNumber: string): Promise<void> => {
+    try {
+      // Copia o texto para a área de transferência
+      await navigator.clipboard.writeText(phoneNumber);
+
+      const id = toast.add({
+        type: "info",
+        description: "Telefone copiado!",
+      })
+
+      setTimeout(() => {
+        toast.close(id);
+      }, 2000);
+
+    } catch (error) {
+      console.error("Falha ao copiar texto: ", error);
+        toast.add({
+        type: "error",
+        description: "Falha ao copiar o telefone!",
+      })
+    }
+  };
 
   return (
     <div className="flex h-full w-full overflow-hidden rounded-2xl bg-[#131924] text-white shadow-xl">
       {/* Sidebar - Lista de Conversas */}
-      <div className="flex w-80 flex-col border-r border-[#262c3a] bg-[#161c28]">
+      <div className="flex w-fit flex-col border-r border-[#262c3a] bg-[#161c28]">
         {/* Header Sidebar */}
         <div className="flex h-16 items-center justify-center gap-2 border-b border-[#262c3a] bg-white px-6 text-black">
           <MdOutlineChat className="h-5 w-5" />
@@ -44,37 +81,36 @@ const LiveChatWindow = ({users}: LiveChatWindowProps) => {
         {/* Lista de Contatos */}
         <div className="flex-1 overflow-y-auto p-4 space-y-3">
           {users.map((user, index) => (
-            <div key={index} onClick={() => setSelectedUserIndex(index)}>
-                <AdminItem user={user} isSelected={index === selectedUserIndex}/>                
+            <div key={index} onDoubleClick={() => handleDoubleClick(user.phoneNumber)} onClick={() => onSelectClient(user)}>
+                <AdminItem user={user} isSelected={user === selectedClient}/>                
             </div>
-
           ))}
         </div>
       </div>
 
       {/* Main Chat Area */}
-      <div className="flex flex-1 flex-col bg-[#181e2a]">
+      <div className="flex flex-1 flex-col h-full ">
         {/* Header do Chat Ativo */}
         <div className="flex h-16 items-center justify-center border-b border-[#262c3a] bg-white px-6 text-black">
           <span className="font-light text-sm">
-            {selectedUser?.name} - {selectedUser?.phoneNumber}
+            {selectedClient?.name} - {selectedClient?.phoneNumber}
           </span>
         </div>
 
         {/* Área de Mensagens */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-6">
+        <div className="flex-1 overflow-y-auto p-6 space-y-6 overflow-hidden scrollbar-none">
           {/* Divisor de Data */}
           <div className="flex justify-center">
-            <span className="text-xs text-white/50">--- 21/11/2025 ---</span>
+            <span className="text-xs text-white/50">--- {dataFormatada} ---</span>
           </div>
 
           {/* Balões de Mensagem */}
-          {MOCK_MESSAGES.map((msg) => {
+          {messages.map((msg, index) => {
             const isMe = msg.sender === "me";
 
             return (
               <div
-                key={msg.id}
+                key={index}
                 className={`flex w-full ${
                   isMe ? "justify-end" : "justify-start"
                 }`}
@@ -107,6 +143,7 @@ const LiveChatWindow = ({users}: LiveChatWindowProps) => {
             <Button
               size="icon"
               className="h-12 w-12 rounded-xl bg-[#ce3434] hover:bg-[#b02828] text-white transition-colors"
+              onClick={() => handleMessage()}
             >
               <MdSend className="h-5 w-5" />
             </Button>

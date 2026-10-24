@@ -1,12 +1,9 @@
 "use client";
 
 import { Dispatch, SetStateAction, useState } from "react";
-import { BASE_USERS } from "@/app/features/auth/api/MockData";
-import { Avatar } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { MdOutlineChat, MdOutlineLocalPhone, MdSend } from "react-icons/md";
-import AdminItem from "@/app/client/@chat/_components/AdminItem";
 import { User } from "@/app/features/auth/types/User";
 import ClientItem from "./ClientItem";
 import { toast } from "@/components/ui/toast";

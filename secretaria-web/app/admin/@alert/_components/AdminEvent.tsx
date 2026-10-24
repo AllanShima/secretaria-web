@@ -31,18 +31,12 @@ const AdminEvent = ({event, setEventsSelected}: AdminEventProp) => {
                     </p>
                 </ItemTitle>
                 <ItemDescription className='flex flex-col gap-6'>
-                    <p>
-                        {event.address}
-                    </p>
+                    {event.address}
                 </ItemDescription>
                 <ItemDescription className='flex w-fit text-[10px] font-semibold justify-center items-center'>
-                    <p>
-                        Código: {event.code}
-                    </p>
+                    Código: {event.code}
                     <LuDot />
-                    <p>
-                        {event.status}
-                    </p>
+                    {event.status}
                 </ItemDescription>
             </ItemContent>
             <ItemActions>

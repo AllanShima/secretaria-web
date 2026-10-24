@@ -32,9 +32,7 @@ const ClientNotificationItem = ({event}: ClientNotItemProp) => {
                     </p>
                 </ItemTitle>
                 <ItemDescription className='flex flex-col gap-5'>
-                    <p>
-                        {event.address}
-                    </p>
+                    {event.address}
                 </ItemDescription>
                 <ItemDescription className='flex w-fit text-[10px] font-semibold justify-center items-center'>
                     Código: {event.code}

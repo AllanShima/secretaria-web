@@ -58,7 +58,7 @@ const EventSidebar = ({vehicles, events}: EventSidebarProps) => {
                 <div className='w-full h-full flex flex-col'>
                     <TabsContent value={"rescuers"} className={"flex flex-col w-full h-full m-0 data-[state=inactive]:hidden"}>
                         {/* Content */}
-                        <ToggleGroup className='flex flex-col p-3 w-full h-full items-start gap-3 bg-[#1c2330]/20'>
+                        <ToggleGroup multiple className='flex flex-col p-3 w-full h-full items-start gap-3 bg-[#1c2330]/20'>
                             {drivers.map((user: User) => (
                                 <ClientItem key={user.id} user={user} />
                             ))}

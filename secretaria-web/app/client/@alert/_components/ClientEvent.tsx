@@ -45,7 +45,7 @@ const ClientEvent = ({ event, selectedEventCode, onFinishEvent }: ClientEventPro
             radioRef.current?.click();
           }}
         >
-          <div className="flex w-full h-full items-center justify-between gap-3 pr-6 relative">
+          <div className="flex w-full h-full items-center justify-between gap-3 pr-6">
             {/* Ícone de Localização, Radio e Informações Principais */}
             <div className="flex items-center gap-3 text-left">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#1c2e42] text-[#2980b9]">
@@ -72,7 +72,7 @@ const ClientEvent = ({ event, selectedEventCode, onFinishEvent }: ClientEventPro
             </div>
 
             {/* Badge de Severidade */}
-            <div className="absolute right-0 mr-0 flex h-full items-end shrink-0 ">
+            <div className="absolute right-0 mr-4 mb-8 flex h-full items-end shrink-0 ">
               <SeverityStatus status={event.severity} />
             </div>
           </div>
