@@ -39,6 +39,7 @@ const AdminFormDialog = () => {
                 </div>
                 <DialogFooter className="sm:justify-start">
                     <DialogClose render={<Button type="button">Close</Button>} />
+                    <Button variant={'outline'} type="submit">Atualizar Informações</Button>
                 </DialogFooter>
             </DialogContent>            
         </form>

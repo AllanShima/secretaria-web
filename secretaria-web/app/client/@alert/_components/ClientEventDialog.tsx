@@ -38,6 +38,7 @@ const ClientEventDialog = () => {
                 </div>
                 <DialogFooter className="sm:justify-start">
                     <DialogClose render={<Button type="button">Close</Button>} />
+                    <Button variant={'outline'} type="submit">Save changes</Button>
                 </DialogFooter>
             </DialogContent>            
         </form>
