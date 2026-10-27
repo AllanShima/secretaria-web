@@ -40,3 +40,6 @@ bun dev
 - Ícones react: "bun install react-icons --save"
 - Instalando formatador de datas: 'npm install date-fns'
 - Instalando Axios "bun install axios"
+- Instalando bilbioteca js: "bun install leaflet react-leaflet leaflet-routing-machine"
+- "bun install --save-dev @types/leaflet"
+(Leaflet já possui integração nativa com o OSRM para traçar linhas e toras autoaticamente)

@@ -62,4 +62,3 @@ export interface Event {
 //   "createdAt": "2026-10-26T03:00:46.862Z"
 // }
 
-bun install leaflet react-leaflet leaflet-routing-machine
