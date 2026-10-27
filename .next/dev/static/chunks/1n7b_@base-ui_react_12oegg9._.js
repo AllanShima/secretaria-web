@@ -1,0 +1,2558 @@
+(globalThis["TURBOPACK"] || (globalThis["TURBOPACK"] = [])).push([typeof document === "object" ? document.currentScript : undefined,
+"[project]/secretaria-web/node_modules/@base-ui/react/avatar/fallback/AvatarFallback.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "AvatarFallback",
+    ()=>AvatarFallback
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useTimeout$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/useTimeout.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useRenderElement$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/useRenderElement.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$avatar$2f$root$2f$AvatarRootContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/avatar/root/AvatarRootContext.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$avatar$2f$root$2f$stateAttributesMapping$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/avatar/root/stateAttributesMapping.mjs [app-client] (ecmascript)");
+'use client';
+;
+;
+;
+;
+;
+const AvatarFallback = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](function AvatarFallback(componentProps, forwardedRef) {
+    const { className, render, delay = 0, style, ...elementProps } = componentProps;
+    const { imageLoadingStatus } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$avatar$2f$root$2f$AvatarRootContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAvatarRootContext"])();
+    const [delayPassed, setDelayPassed] = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"](delay === 0);
+    const timeout = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useTimeout$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTimeout"])();
+    __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"]({
+        "AvatarFallback.AvatarFallback.useEffect": ()=>{
+            if (delay > 0) {
+                timeout.start(delay, {
+                    "AvatarFallback.AvatarFallback.useEffect": ()=>setDelayPassed(true)
+                }["AvatarFallback.AvatarFallback.useEffect"]);
+            } else {
+                // Once the fallback is shown without a delay, keep it visible. Otherwise a later
+                // change from no delay to a number would re-hide an already-visible fallback.
+                setDelayPassed(true);
+            }
+            return timeout.clear;
+        }
+    }["AvatarFallback.AvatarFallback.useEffect"], [
+        timeout,
+        delay
+    ]);
+    const state = {
+        imageLoadingStatus
+    };
+    const element = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useRenderElement$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRenderElement"])('span', componentProps, {
+        state,
+        ref: forwardedRef,
+        props: elementProps,
+        stateAttributesMapping: __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$avatar$2f$root$2f$stateAttributesMapping$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["avatarStateAttributesMapping"],
+        enabled: imageLoadingStatus !== 'loaded' && (delay === 0 || delayPassed)
+    });
+    return element;
+});
+if ("TURBOPACK compile-time truthy", 1) AvatarFallback.displayName = "AvatarFallback";
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/avatar/image/AvatarImage.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "AvatarImage",
+    ()=>AvatarImage
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useStableCallback$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/useStableCallback.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useIsoLayoutEffect$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/useIsoLayoutEffect.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useRenderElement$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/useRenderElement.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$avatar$2f$root$2f$AvatarRootContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/avatar/root/AvatarRootContext.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$avatar$2f$root$2f$stateAttributesMapping$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/avatar/root/stateAttributesMapping.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useOpenChangeComplete$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/useOpenChangeComplete.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$stateAttributesMapping$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/stateAttributesMapping.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useTransitionStatus$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/useTransitionStatus.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$avatar$2f$image$2f$useImageLoadingStatus$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/avatar/image/useImageLoadingStatus.mjs [app-client] (ecmascript)");
+'use client';
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+const stateAttributesMapping = {
+    ...__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$avatar$2f$root$2f$stateAttributesMapping$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["avatarStateAttributesMapping"],
+    ...__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$stateAttributesMapping$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["transitionStatusMapping"]
+};
+const AvatarImage = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](function AvatarImage(componentProps, forwardedRef) {
+    const { className, render, onLoadingStatusChange: onLoadingStatusChangeProp, style, ...elementProps } = componentProps;
+    const { setImageLoadingStatus } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$avatar$2f$root$2f$AvatarRootContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAvatarRootContext"])();
+    const imageLoadingStatus = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$avatar$2f$image$2f$useImageLoadingStatus$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useImageLoadingStatus"])(elementProps.src, elementProps);
+    const isVisible = imageLoadingStatus === 'loaded';
+    const { mounted, transitionStatus, setMounted } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useTransitionStatus$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransitionStatus"])(isVisible);
+    const imageRef = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](null);
+    const handleLoadingStatusChange = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useStableCallback$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useStableCallback"])({
+        "AvatarImage.AvatarImage.useStableCallback[handleLoadingStatusChange]": (status)=>{
+            onLoadingStatusChangeProp?.(status);
+            setImageLoadingStatus(status);
+        }
+    }["AvatarImage.AvatarImage.useStableCallback[handleLoadingStatusChange]"]);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useIsoLayoutEffect$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useIsoLayoutEffect"])({
+        "AvatarImage.AvatarImage.useIsoLayoutEffect": ()=>{
+            if (imageLoadingStatus !== 'idle') {
+                handleLoadingStatusChange(imageLoadingStatus);
+            }
+        }
+    }["AvatarImage.AvatarImage.useIsoLayoutEffect"], [
+        imageLoadingStatus,
+        handleLoadingStatusChange
+    ]);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useIsoLayoutEffect$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useIsoLayoutEffect"])({
+        "AvatarImage.AvatarImage.useIsoLayoutEffect": ()=>{
+            return ({
+                "AvatarImage.AvatarImage.useIsoLayoutEffect": ()=>setImageLoadingStatus('idle')
+            })["AvatarImage.AvatarImage.useIsoLayoutEffect"];
+        }
+    }["AvatarImage.AvatarImage.useIsoLayoutEffect"], [
+        setImageLoadingStatus
+    ]);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useOpenChangeComplete$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useOpenChangeComplete"])({
+        open: isVisible,
+        ref: imageRef,
+        onComplete () {
+            if (!isVisible) {
+                setMounted(false);
+            }
+        }
+    });
+    const state = {
+        imageLoadingStatus,
+        transitionStatus
+    };
+    const element = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useRenderElement$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRenderElement"])('img', componentProps, {
+        state,
+        ref: [
+            forwardedRef,
+            imageRef
+        ],
+        props: elementProps,
+        stateAttributesMapping,
+        enabled: mounted
+    });
+    if (!mounted) {
+        return null;
+    }
+    return element;
+});
+if ("TURBOPACK compile-time truthy", 1) AvatarImage.displayName = "AvatarImage";
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/avatar/image/useImageLoadingStatus.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "useImageLoadingStatus",
+    ()=>useImageLoadingStatus
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useIsoLayoutEffect$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/useIsoLayoutEffect.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$empty$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/empty.mjs [app-client] (ecmascript)");
+'use client';
+;
+;
+;
+function useImageLoadingStatus(src, { referrerPolicy, crossOrigin, sizes, srcSet }) {
+    const [loadingStatus, setLoadingStatus] = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"]('idle');
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useIsoLayoutEffect$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useIsoLayoutEffect"])({
+        "useImageLoadingStatus.useIsoLayoutEffect": ()=>{
+            if (!src && !srcSet) {
+                setLoadingStatus('error');
+                return __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$empty$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NOOP"];
+            }
+            let isMounted = true;
+            const image = new window.Image();
+            const updateStatus = {
+                "useImageLoadingStatus.useIsoLayoutEffect.updateStatus": (status)=>({
+                        "useImageLoadingStatus.useIsoLayoutEffect.updateStatus": ()=>{
+                            if (!isMounted) {
+                                return;
+                            }
+                            setLoadingStatus(status);
+                        }
+                    })["useImageLoadingStatus.useIsoLayoutEffect.updateStatus"]
+            }["useImageLoadingStatus.useIsoLayoutEffect.updateStatus"];
+            setLoadingStatus('loading');
+            image.onload = updateStatus('loaded');
+            image.onerror = updateStatus('error');
+            if (referrerPolicy) {
+                image.referrerPolicy = referrerPolicy;
+            }
+            image.crossOrigin = crossOrigin ?? null;
+            if (sizes) {
+                image.sizes = sizes;
+            }
+            if (srcSet) {
+                image.srcset = srcSet;
+            }
+            if (src) {
+                image.src = src;
+            }
+            // Fast path for cached/decoded images
+            if (image.complete) {
+                setLoadingStatus(image.naturalWidth > 0 ? 'loaded' : 'error');
+            }
+            return ({
+                "useImageLoadingStatus.useIsoLayoutEffect": ()=>{
+                    isMounted = false;
+                }
+            })["useImageLoadingStatus.useIsoLayoutEffect"];
+        }
+    }["useImageLoadingStatus.useIsoLayoutEffect"], [
+        src,
+        srcSet,
+        sizes,
+        crossOrigin,
+        referrerPolicy
+    ]);
+    return loadingStatus;
+}
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/avatar/index.parts.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "Fallback",
+    ()=>__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$avatar$2f$fallback$2f$AvatarFallback$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AvatarFallback"],
+    "Image",
+    ()=>__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$avatar$2f$image$2f$AvatarImage$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AvatarImage"],
+    "Root",
+    ()=>__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$avatar$2f$root$2f$AvatarRoot$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AvatarRoot"]
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$avatar$2f$index$2e$parts$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/avatar/index.parts.mjs [app-client] (ecmascript) <locals>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$avatar$2f$root$2f$AvatarRoot$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/avatar/root/AvatarRoot.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$avatar$2f$image$2f$AvatarImage$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/avatar/image/AvatarImage.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$avatar$2f$fallback$2f$AvatarFallback$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/avatar/fallback/AvatarFallback.mjs [app-client] (ecmascript)");
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/avatar/index.parts.mjs [app-client] (ecmascript) <export * as Avatar>", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "Avatar",
+    ()=>__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$avatar$2f$index$2e$parts$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$avatar$2f$index$2e$parts$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/avatar/index.parts.mjs [app-client] (ecmascript)");
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/avatar/index.parts.mjs [app-client] (ecmascript) <locals>", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([]);
+;
+;
+;
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/avatar/root/AvatarRoot.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "AvatarRoot",
+    ()=>AvatarRoot
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useRenderElement$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/useRenderElement.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$avatar$2f$root$2f$AvatarRootContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/avatar/root/AvatarRootContext.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$avatar$2f$root$2f$stateAttributesMapping$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/avatar/root/stateAttributesMapping.mjs [app-client] (ecmascript)");
+/**
+ * Displays a user's profile picture, initials, or fallback icon.
+ * Renders a `<span>` element.
+ *
+ * Documentation: [Base UI Avatar](https://base-ui.com/react/components/avatar)
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)");
+'use client';
+;
+;
+;
+;
+;
+const AvatarRoot = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](function AvatarRoot(componentProps, forwardedRef) {
+    const { className, render, style, ...elementProps } = componentProps;
+    const [imageLoadingStatus, setImageLoadingStatus] = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"]('idle');
+    const state = {
+        imageLoadingStatus
+    };
+    const contextValue = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"]({
+        "AvatarRoot.AvatarRoot.useMemo[contextValue]": ()=>({
+                imageLoadingStatus,
+                setImageLoadingStatus
+            })
+    }["AvatarRoot.AvatarRoot.useMemo[contextValue]"], [
+        imageLoadingStatus,
+        setImageLoadingStatus
+    ]);
+    const element = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useRenderElement$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRenderElement"])('span', componentProps, {
+        state,
+        ref: forwardedRef,
+        props: elementProps,
+        stateAttributesMapping: __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$avatar$2f$root$2f$stateAttributesMapping$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["avatarStateAttributesMapping"]
+    });
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$avatar$2f$root$2f$AvatarRootContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AvatarRootContext"].Provider, {
+        value: contextValue,
+        children: element
+    });
+});
+if ("TURBOPACK compile-time truthy", 1) AvatarRoot.displayName = "AvatarRoot";
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/avatar/root/AvatarRootContext.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "AvatarRootContext",
+    ()=>AvatarRootContext,
+    "useAvatarRootContext",
+    ()=>useAvatarRootContext
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+'use client';
+;
+;
+const AvatarRootContext = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"](undefined);
+if ("TURBOPACK compile-time truthy", 1) AvatarRootContext.displayName = "AvatarRootContext";
+function useAvatarRootContext() {
+    const context = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useContext"](AvatarRootContext);
+    if (context === undefined) {
+        throw new Error(("TURBOPACK compile-time truthy", 1) ? 'Base UI: AvatarRootContext is missing. Avatar parts must be placed within <Avatar.Root>.' : "TURBOPACK unreachable");
+    }
+    return context;
+}
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/avatar/root/stateAttributesMapping.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "avatarStateAttributesMapping",
+    ()=>avatarStateAttributesMapping
+]);
+const avatarStateAttributesMapping = {
+    imageLoadingStatus: ()=>null
+};
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/internals/PrehydrationScript.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "PrehydrationScript",
+    ()=>PrehydrationScript
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$utils$2f$useIsHydrating$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/utils/useIsHydrating.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$csp$2d$context$2f$CSPContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/csp-context/CSPContext.mjs [app-client] (ecmascript)");
+/**
+ * Renders an inline script that runs before React hydrates, used by components that need
+ * to position server-rendered content ahead of hydration (e.g. `Tabs.Indicator`,
+ * `Slider.Thumb`).
+ *
+ * The `script` source is imported by the caller through the package's `#prehydration/*`
+ * subpath import, whose `browser` condition resolves to a stub module exporting an empty
+ * string — so the script body is excluded from client bundles. It only ever executes from
+ * server-rendered HTML.
+ *
+ * Render this only when the script should be emitted (i.e. gate `renderBeforeHydration`
+ * and any structural conditions at the call site). The element is still rendered (with
+ * empty content) on the client during the hydration pass so the React tree matches the
+ * server markup; `suppressHydrationWarning` bridges the content difference and React keeps
+ * the already-executed server script. Once `isHydrating` flips to `false` the element
+ * unmounts.
+ *
+ * The component must stay in client bundles: returning `null` on the client (e.g. by
+ * stubbing the whole component) would drop an element the server emitted and trigger a
+ * recoverable hydration error (React #418) in consumers' apps. Only the script body is
+ * excluded from client bundles, via the `#prehydration/*` `browser` condition.
+ *
+ * When adding a new consumer, register a matching `#prehydration/*` entry (with `browser`
+ * and `default` conditions) in `packages/react/package.json` `imports`; the `browser`
+ * condition reuses the shared `internals/prehydrationScript.stub.ts`.
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)");
+'use client';
+;
+;
+;
+;
+function PrehydrationScript(props) {
+    const { script } = props;
+    const { nonce } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$csp$2d$context$2f$CSPContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCSPContext"])();
+    const isHydrating = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$utils$2f$useIsHydrating$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useIsHydrating"])();
+    if (!isHydrating) {
+        return null;
+    }
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])("script", {
+        nonce: nonce,
+        dangerouslySetInnerHTML: {
+            __html: script
+        },
+        suppressHydrationWarning: true
+    });
+}
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/internals/composite/composite.mjs [app-client] (ecmascript) <locals>", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "ARROW_DOWN",
+    ()=>ARROW_DOWN,
+    "ARROW_LEFT",
+    ()=>ARROW_LEFT,
+    "ARROW_RIGHT",
+    ()=>ARROW_RIGHT,
+    "ARROW_UP",
+    ()=>ARROW_UP,
+    "COMPOSITE_KEYS",
+    ()=>COMPOSITE_KEYS,
+    "END",
+    ()=>END,
+    "HOME",
+    ()=>HOME,
+    "MODIFIER_KEYS",
+    ()=>MODIFIER_KEYS,
+    "PAGE_DOWN",
+    ()=>PAGE_DOWN,
+    "PAGE_UP",
+    ()=>PAGE_UP,
+    "SHIFT",
+    ()=>SHIFT,
+    "isNativeInput",
+    ()=>isNativeInput,
+    "scrollIntoViewIfNeeded",
+    ()=>scrollIntoViewIfNeeded
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@floating-ui/utils/dist/floating-ui.utils.dom.mjs [app-client] (ecmascript)");
+;
+;
+const ARROW_UP = 'ArrowUp';
+const ARROW_DOWN = 'ArrowDown';
+const ARROW_LEFT = 'ArrowLeft';
+const ARROW_RIGHT = 'ArrowRight';
+const HOME = 'Home';
+const END = 'End';
+const PAGE_UP = 'PageUp';
+const PAGE_DOWN = 'PageDown';
+const COMPOSITE_KEYS = new Set([
+    ARROW_UP,
+    ARROW_DOWN,
+    ARROW_LEFT,
+    ARROW_RIGHT,
+    HOME,
+    END
+]);
+const SHIFT = 'Shift';
+const MODIFIER_KEYS = [
+    SHIFT,
+    'Control',
+    'Alt',
+    'Meta'
+];
+function isInputElement(element) {
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isHTMLElement"])(element) && element.tagName === 'INPUT';
+}
+function isNativeInput(element) {
+    if (isInputElement(element) && element.selectionStart != null) {
+        return true;
+    }
+    if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isHTMLElement"])(element) && element.tagName === 'TEXTAREA') {
+        return true;
+    }
+    return false;
+}
+function scrollIntoViewIfNeeded(scrollContainer, element, direction, orientation) {
+    if (!scrollContainer || !element || !element.scrollTo) {
+        return;
+    }
+    let targetX = scrollContainer.scrollLeft;
+    let targetY = scrollContainer.scrollTop;
+    const isOverflowingX = scrollContainer.clientWidth < scrollContainer.scrollWidth;
+    const isOverflowingY = scrollContainer.clientHeight < scrollContainer.scrollHeight;
+    if (isOverflowingX && orientation !== 'vertical') {
+        const elementOffsetLeft = getOffset(scrollContainer, element, 'left');
+        const containerStyles = getStyles(scrollContainer);
+        const elementStyles = getStyles(element);
+        if (direction === 'ltr') {
+            if (elementOffsetLeft + element.offsetWidth + elementStyles.scrollMarginRight > scrollContainer.scrollLeft + scrollContainer.clientWidth - containerStyles.scrollPaddingRight) {
+                // overflow to the right, scroll to align right edges
+                targetX = elementOffsetLeft + element.offsetWidth + elementStyles.scrollMarginRight - scrollContainer.clientWidth + containerStyles.scrollPaddingRight;
+            } else if (elementOffsetLeft - elementStyles.scrollMarginLeft < scrollContainer.scrollLeft + containerStyles.scrollPaddingLeft) {
+                // overflow to the left, scroll to align left edges
+                targetX = elementOffsetLeft - elementStyles.scrollMarginLeft - containerStyles.scrollPaddingLeft;
+            }
+        }
+        if (direction === 'rtl') {
+            if (elementOffsetLeft - elementStyles.scrollMarginLeft < scrollContainer.scrollLeft + containerStyles.scrollPaddingLeft) {
+                // overflow to the left, scroll to align left edges
+                targetX = elementOffsetLeft - elementStyles.scrollMarginLeft - containerStyles.scrollPaddingLeft;
+            } else if (elementOffsetLeft + element.offsetWidth + elementStyles.scrollMarginRight > scrollContainer.scrollLeft + scrollContainer.clientWidth - containerStyles.scrollPaddingRight) {
+                // overflow to the right, scroll to align right edges
+                targetX = elementOffsetLeft + element.offsetWidth + elementStyles.scrollMarginRight - scrollContainer.clientWidth + containerStyles.scrollPaddingRight;
+            }
+        }
+    }
+    if (isOverflowingY && orientation !== 'horizontal') {
+        const elementOffsetTop = getOffset(scrollContainer, element, 'top');
+        const containerStyles = getStyles(scrollContainer);
+        const elementStyles = getStyles(element);
+        if (elementOffsetTop - elementStyles.scrollMarginTop < scrollContainer.scrollTop + containerStyles.scrollPaddingTop) {
+            // overflow upwards, align top edges
+            targetY = elementOffsetTop - elementStyles.scrollMarginTop - containerStyles.scrollPaddingTop;
+        } else if (elementOffsetTop + element.offsetHeight + elementStyles.scrollMarginBottom > scrollContainer.scrollTop + scrollContainer.clientHeight - containerStyles.scrollPaddingBottom) {
+            // overflow downwards, align bottom edges
+            targetY = elementOffsetTop + element.offsetHeight + elementStyles.scrollMarginBottom - scrollContainer.clientHeight + containerStyles.scrollPaddingBottom;
+        }
+    }
+    scrollContainer.scrollTo({
+        left: targetX,
+        top: targetY,
+        behavior: 'auto'
+    });
+}
+function getOffset(ancestor, element, side) {
+    const propName = side === 'left' ? 'offsetLeft' : 'offsetTop';
+    let result = 0;
+    while(element.offsetParent){
+        result += element[propName];
+        if (element.offsetParent === ancestor) {
+            break;
+        }
+        element = element.offsetParent;
+    }
+    return result;
+}
+function getStyles(element) {
+    const styles = getComputedStyle(element);
+    return {
+        scrollMarginTop: parseFloat(styles.scrollMarginTop) || 0,
+        scrollMarginRight: parseFloat(styles.scrollMarginRight) || 0,
+        scrollMarginBottom: parseFloat(styles.scrollMarginBottom) || 0,
+        scrollMarginLeft: parseFloat(styles.scrollMarginLeft) || 0,
+        scrollPaddingTop: parseFloat(styles.scrollPaddingTop) || 0,
+        scrollPaddingRight: parseFloat(styles.scrollPaddingRight) || 0,
+        scrollPaddingBottom: parseFloat(styles.scrollPaddingBottom) || 0,
+        scrollPaddingLeft: parseFloat(styles.scrollPaddingLeft) || 0
+    };
+}
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/internals/composite/constants.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "ACTIVE_COMPOSITE_ITEM",
+    ()=>ACTIVE_COMPOSITE_ITEM
+]);
+const ACTIVE_COMPOSITE_ITEM = 'data-composite-item-active';
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/internals/composite/item/useCompositeItem.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "useCompositeItem",
+    ()=>useCompositeItem
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useMergedRefs$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/useMergedRefs.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$root$2f$CompositeRootContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/composite/root/CompositeRootContext.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$list$2f$useCompositeListItem$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/composite/list/useCompositeListItem.mjs [app-client] (ecmascript)");
+'use client';
+;
+;
+;
+;
+function useCompositeItem(params = {}) {
+    const { highlightItemOnHover, highlightedIndex, onHighlightedIndexChange } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$root$2f$CompositeRootContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCompositeRootContext"])();
+    const { ref, index } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$list$2f$useCompositeListItem$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCompositeListItem"])(params);
+    const isHighlighted = highlightedIndex === index;
+    const itemRef = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](null);
+    const mergedRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useMergedRefs$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMergedRefs"])(ref, itemRef);
+    const compositeProps = {
+        tabIndex: isHighlighted ? 0 : -1,
+        onFocus () {
+            onHighlightedIndexChange(index);
+        },
+        onMouseMove () {
+            const item = itemRef.current;
+            if (!highlightItemOnHover || !item) {
+                return;
+            }
+            const disabled = item.hasAttribute('disabled') || item.ariaDisabled === 'true';
+            if (!isHighlighted && !disabled) {
+                item.focus();
+            }
+        }
+    };
+    return {
+        compositeProps,
+        compositeRef: mergedRef,
+        index
+    };
+}
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/internals/composite/list/CompositeList.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "CompositeList",
+    ()=>CompositeList
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useRefWithInit$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/useRefWithInit.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useStableCallback$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/useStableCallback.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useIsoLayoutEffect$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/useIsoLayoutEffect.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$list$2f$CompositeListContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/composite/list/CompositeListContext.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)");
+/* eslint-disable no-bitwise */ 'use client';
+;
+;
+;
+;
+;
+;
+function CompositeList(props) {
+    const { children, elementsRef, labelsRef, onMapChange: onMapChangeProp } = props;
+    const onMapChange = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useStableCallback$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useStableCallback"])(onMapChangeProp);
+    const [, setMapTick] = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"](false);
+    const listeners = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useRefWithInit$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRefWithInit"])(createListeners).current;
+    const map = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useRefWithInit$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRefWithInit"])(createMap).current;
+    const nextIndexRef = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](0);
+    const isDirtyRef = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](true);
+    const itemsRef = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"]([]);
+    const mutationObserverRef = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](null);
+    // Item effects can run without their parent rendering. Schedule one synchronous
+    // parent update for the whole commit so refs are rebuilt before paint and while
+    // the originating React event is still inside `act()` in tests.
+    const scheduleMapUpdate = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useStableCallback$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useStableCallback"])({
+        "CompositeList.useStableCallback[scheduleMapUpdate]": ()=>{
+            if (isDirtyRef.current) {
+                return;
+            }
+            isDirtyRef.current = true;
+            setMapTick({
+                "CompositeList.useStableCallback[scheduleMapUpdate]": (tick)=>!tick
+            }["CompositeList.useStableCallback[scheduleMapUpdate]"]);
+        }
+    }["CompositeList.useStableCallback[scheduleMapUpdate]"]);
+    const register = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useStableCallback$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useStableCallback"])({
+        "CompositeList.useStableCallback[register]": (node, registration)=>{
+            map.set(node, registration);
+            scheduleMapUpdate();
+        }
+    }["CompositeList.useStableCallback[register]"]);
+    const unregister = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useStableCallback$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useStableCallback"])({
+        "CompositeList.useStableCallback[unregister]": (node)=>{
+            map.delete(node);
+            scheduleMapUpdate();
+        }
+    }["CompositeList.useStableCallback[unregister]"]);
+    const syncRefs = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useStableCallback$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useStableCallback"])({
+        "CompositeList.useStableCallback[syncRefs]": (items)=>{
+            const nextMap = new Map();
+            elementsRef.current.length = 0;
+            if (labelsRef) {
+                labelsRef.current.length = 0;
+            }
+            items.forEach({
+                "CompositeList.useStableCallback[syncRefs]": (item)=>{
+                    nextMap.set(item.element, {
+                        ...item.registration.metadata ?? {},
+                        index: item.index
+                    });
+                    elementsRef.current[item.index] = item.element;
+                    if (labelsRef) {
+                        labelsRef.current[item.index] = item.registration.label !== undefined ? item.registration.label : item.registration.textRef?.current?.textContent ?? item.element.textContent;
+                    }
+                }
+            }["CompositeList.useStableCallback[syncRefs]"]);
+            nextIndexRef.current = elementsRef.current.length;
+            return nextMap;
+        }
+    }["CompositeList.useStableCallback[syncRefs]"]);
+    function observe(sortedNodes) {
+        mutationObserverRef.current?.disconnect();
+        mutationObserverRef.current = null;
+        // A single item can't reorder.
+        if (typeof MutationObserver !== 'function' || sortedNodes.length < 2) {
+            return;
+        }
+        const mutationObserver = new MutationObserver((entries)=>{
+            // Only verify the order after a move: a node that was removed and later
+            // re-added within the same batch. Additions and removals alone can't
+            // change the relative order of the remaining items, and items that mount
+            // or unmount re-sort through `register`/`unregister`.
+            if (!hasMovedNode(entries)) {
+                return;
+            }
+            let previousConnectedNode = null;
+            // If any connected node now appears before the previous connected node,
+            // wrappers/items moved and the index map needs to be rebuilt.
+            for (const node of sortedNodes){
+                if (!node.isConnected) {
+                    continue;
+                }
+                if (previousConnectedNode && sortByDocumentPosition(previousConnectedNode, node) > 0) {
+                    mutationObserver.disconnect();
+                    scheduleMapUpdate();
+                    return;
+                }
+                previousConnectedNode = node;
+            }
+        });
+        mutationObserverRef.current = mutationObserver;
+        // A reorder that changes item indexes must invert at least one adjacent pair
+        // from the previous sorted order. Observing each pair's common parent catches
+        // both direct item moves and ancestor wrapper moves at the boundary.
+        const roots = new Set();
+        for(let i = 1; i < sortedNodes.length; i += 1){
+            const root = getCommonAncestor(sortedNodes[i - 1], sortedNodes[i]);
+            if (root) {
+                roots.add(root);
+            }
+        }
+        roots.forEach((root)=>mutationObserver.observe(root, {
+                childList: true
+            }));
+    }
+    const flush = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useStableCallback$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useStableCallback"])({
+        "CompositeList.useStableCallback[flush]": ()=>{
+            const [items, automaticNodes] = getCompositeListSnapshot(map);
+            const nextMap = syncRefs(items);
+            observe(automaticNodes);
+            itemsRef.current = items;
+            isDirtyRef.current = false;
+            listeners.forEach({
+                "CompositeList.useStableCallback[flush]": (listener)=>listener(nextMap)
+            }["CompositeList.useStableCallback[flush]"]);
+            onMapChange(nextMap);
+        }
+    }["CompositeList.useStableCallback[flush]"]);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useIsoLayoutEffect$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useIsoLayoutEffect"])({
+        "CompositeList.useIsoLayoutEffect": ()=>{
+            // Re-copy the last committed snapshot when the ref objects change or Strict Mode replays
+            // effects without reattaching callback refs.
+            if (!isDirtyRef.current) {
+                syncRefs(itemsRef.current);
+            }
+            return ({
+                "CompositeList.useIsoLayoutEffect": ()=>{
+                    elementsRef.current = [];
+                    if (labelsRef) {
+                        labelsRef.current = [];
+                    }
+                }
+            })["CompositeList.useIsoLayoutEffect"];
+        }
+    }["CompositeList.useIsoLayoutEffect"], [
+        elementsRef,
+        labelsRef,
+        syncRefs
+    ]);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useIsoLayoutEffect$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useIsoLayoutEffect"])({
+        "CompositeList.useIsoLayoutEffect": ()=>{
+            if (isDirtyRef.current) {
+                flush();
+            }
+        }
+    }["CompositeList.useIsoLayoutEffect"]);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useIsoLayoutEffect$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useIsoLayoutEffect"])({
+        "CompositeList.useIsoLayoutEffect": ()=>{
+            return ({
+                "CompositeList.useIsoLayoutEffect": ()=>{
+                    mutationObserverRef.current?.disconnect();
+                    // React 18 Strict Mode replays effects without replaying callback refs.
+                    // Mark the retained map dirty so the replay rebuilds refs and observation.
+                    isDirtyRef.current = true;
+                }
+            })["CompositeList.useIsoLayoutEffect"];
+        }
+    }["CompositeList.useIsoLayoutEffect"], []);
+    const subscribeMapChange = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useStableCallback$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useStableCallback"])({
+        "CompositeList.useStableCallback[subscribeMapChange]": (fn)=>{
+            listeners.add(fn);
+            return ({
+                "CompositeList.useStableCallback[subscribeMapChange]": ()=>{
+                    listeners.delete(fn);
+                }
+            })["CompositeList.useStableCallback[subscribeMapChange]"];
+        }
+    }["CompositeList.useStableCallback[subscribeMapChange]"]);
+    const contextValue = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"]({
+        "CompositeList.useMemo[contextValue]": ()=>({
+                register,
+                unregister,
+                subscribeMapChange,
+                nextIndexRef
+            })
+    }["CompositeList.useMemo[contextValue]"], [
+        register,
+        unregister,
+        subscribeMapChange,
+        nextIndexRef
+    ]);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$list$2f$CompositeListContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CompositeListContext"].Provider, {
+        value: contextValue,
+        children: children
+    });
+}
+function createMap() {
+    return new Map();
+}
+function createListeners() {
+    return new Set();
+}
+function getCompositeListSnapshot(map) {
+    const reservedIndices = new Set();
+    const items = [];
+    const automaticItems = [];
+    map.forEach((registration, node)=>{
+        if (!node.isConnected) {
+            return;
+        }
+        const index = registration.index;
+        const item = {
+            index: index ?? -1,
+            element: node,
+            registration
+        };
+        if (index === null) {
+            automaticItems.push(item);
+        } else if (index >= 0) {
+            reservedIndices.add(index);
+            items.push(item);
+        }
+    });
+    let nextAutomaticIndex = 0;
+    automaticItems.sort((a, b)=>sortByDocumentPosition(a.element, b.element));
+    automaticItems.forEach((item)=>{
+        while(reservedIndices.has(nextAutomaticIndex)){
+            nextAutomaticIndex += 1;
+        }
+        item.index = nextAutomaticIndex;
+        items.push(item);
+        nextAutomaticIndex += 1;
+    });
+    if (reservedIndices.size > 0) {
+        items.sort((a, b)=>a.index - b.index);
+    }
+    return [
+        items,
+        automaticItems.map((item)=>item.element)
+    ];
+}
+function getCommonAncestor(firstNode, lastNode) {
+    let ancestor = firstNode.parentElement;
+    // The `parentElement` walk cannot cross shadow boundaries, so the native
+    // `contains` is sufficient here.
+    while(ancestor && !ancestor.contains(lastNode)){
+        ancestor = ancestor.parentElement;
+    }
+    return ancestor;
+}
+function hasMovedNode(entries) {
+    for (const entry of entries){
+        for(let i = 0; i < entry.removedNodes.length; i += 1){
+            if (entry.removedNodes[i].isConnected) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+function sortByDocumentPosition(a, b) {
+    // `DOCUMENT_POSITION_CONTAINED_BY` is always reported alongside `FOLLOWING`, and `CONTAINS`
+    // alongside `PRECEDING`, so testing `FOLLOWING` alone orders siblings and nested items alike.
+    return a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
+}
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/internals/composite/list/CompositeListContext.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "CompositeListContext",
+    ()=>CompositeListContext,
+    "useCompositeListContext",
+    ()=>useCompositeListContext
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+'use client';
+;
+const CompositeListContext = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"]({
+    register: ()=>{},
+    unregister: ()=>{},
+    subscribeMapChange: ()=>()=>{},
+    nextIndexRef: {
+        current: 0
+    }
+});
+if ("TURBOPACK compile-time truthy", 1) CompositeListContext.displayName = "CompositeListContext";
+function useCompositeListContext() {
+    return __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useContext"](CompositeListContext);
+}
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/internals/composite/list/useCompositeListItem.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "useCompositeListItem",
+    ()=>useCompositeListItem
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useIsoLayoutEffect$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/useIsoLayoutEffect.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$list$2f$CompositeListContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/composite/list/CompositeListContext.mjs [app-client] (ecmascript)");
+'use client';
+;
+;
+;
+function useCompositeListItem(params = {}) {
+    const { guess, label, metadata, textRef, index: externalIndex } = params;
+    const { register, unregister, subscribeMapChange, nextIndexRef } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$list$2f$CompositeListContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCompositeListContext"])();
+    // Guess the index from the render order. This avoids a re-render after mount for
+    // flat lists rendered in DOM order; when the guess is wrong (grouped or out-of-order
+    // rendering), the commit flush corrects it before paint.
+    const indexRef = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](-1);
+    const [internalIndex, setInternalIndex] = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"](externalIndex == null && guess ? ({
+        "useCompositeListItem.useState": ()=>{
+            if (indexRef.current === -1) {
+                const newIndex = nextIndexRef.current;
+                nextIndexRef.current += 1;
+                indexRef.current = newIndex;
+            }
+            return indexRef.current;
+        }
+    })["useCompositeListItem.useState"] : -1);
+    const index = externalIndex ?? internalIndex;
+    const componentRef = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](null);
+    // Deliberately identity-sensitive: nested items sharing one DOM node rely on ref attachment
+    // order to decide which registration wins, and republishing from an effect instead would let
+    // an inner item's later update silently take ownership from the outer one.
+    const ref = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"]({
+        "useCompositeListItem.useCallback[ref]": (node)=>{
+            const previousNode = componentRef.current;
+            if (previousNode) {
+                unregister(previousNode);
+            }
+            componentRef.current = node;
+            if (node) {
+                register(node, {
+                    metadata: metadata ?? null,
+                    index: externalIndex ?? null,
+                    label,
+                    textRef
+                });
+            }
+        }
+    }["useCompositeListItem.useCallback[ref]"], [
+        externalIndex,
+        register,
+        unregister,
+        metadata,
+        label,
+        textRef
+    ]);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useIsoLayoutEffect$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useIsoLayoutEffect"])({
+        "useCompositeListItem.useIsoLayoutEffect": ()=>{
+            if (externalIndex != null) {
+                return undefined;
+            }
+            return subscribeMapChange({
+                "useCompositeListItem.useIsoLayoutEffect": (map)=>{
+                    const i = componentRef.current ? map.get(componentRef.current)?.index : null;
+                    if (i != null) {
+                        setInternalIndex(i);
+                    }
+                }
+            }["useCompositeListItem.useIsoLayoutEffect"]);
+        }
+    }["useCompositeListItem.useIsoLayoutEffect"], [
+        externalIndex,
+        subscribeMapChange
+    ]);
+    return {
+        ref,
+        index
+    };
+}
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/internals/composite/root/CompositeRoot.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "CompositeRoot",
+    ()=>CompositeRoot
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$empty$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/empty.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$list$2f$CompositeList$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/composite/list/CompositeList.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$root$2f$useCompositeRoot$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/composite/root/useCompositeRoot.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$root$2f$CompositeRootContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/composite/root/CompositeRootContext.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useRenderElement$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/useRenderElement.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$direction$2d$context$2f$DirectionContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/direction-context/DirectionContext.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)");
+'use client';
+;
+;
+;
+;
+;
+;
+;
+;
+function CompositeRoot(componentProps) {
+    const { render, className, style, refs = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$empty$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["EMPTY_ARRAY"], props = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$empty$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["EMPTY_ARRAY"], state = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$empty$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["EMPTY_OBJECT"], stateAttributesMapping, highlightedIndex: highlightedIndexProp, onHighlightedIndexChange: onHighlightedIndexChangeProp, orientation, grid, loopFocus, onLoop, enableHomeAndEndKeys, onMapChange: onMapChangeProp, stopEventPropagation = true, rootRef, disabledIndices, modifierKeys, highlightItemOnHover = false, tag = 'div', ...elementProps } = componentProps;
+    const direction = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$direction$2d$context$2f$DirectionContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useDirection"])();
+    const { props: defaultProps, highlightedIndex, onHighlightedIndexChange, elementsRef, onMapChange: onMapChangeUnwrapped, relayKeyboardEvent } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$root$2f$useCompositeRoot$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCompositeRoot"])({
+        grid,
+        loopFocus,
+        onLoop,
+        orientation,
+        highlightedIndex: highlightedIndexProp,
+        onHighlightedIndexChange: onHighlightedIndexChangeProp,
+        rootRef,
+        stopEventPropagation,
+        enableHomeAndEndKeys,
+        direction,
+        disabledIndices,
+        modifierKeys
+    });
+    const element = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useRenderElement$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRenderElement"])(tag, componentProps, {
+        state,
+        ref: refs,
+        props: [
+            defaultProps,
+            ...props,
+            elementProps
+        ],
+        stateAttributesMapping
+    });
+    const contextValue = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"]({
+        "CompositeRoot.useMemo[contextValue]": ()=>({
+                highlightedIndex,
+                onHighlightedIndexChange,
+                highlightItemOnHover,
+                relayKeyboardEvent
+            })
+    }["CompositeRoot.useMemo[contextValue]"], [
+        highlightedIndex,
+        onHighlightedIndexChange,
+        highlightItemOnHover,
+        relayKeyboardEvent
+    ]);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$root$2f$CompositeRootContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CompositeRootContext"].Provider, {
+        value: contextValue,
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$list$2f$CompositeList$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CompositeList"], {
+            elementsRef: elementsRef,
+            onMapChange: (newMap)=>{
+                onMapChangeProp?.(newMap);
+                onMapChangeUnwrapped(newMap);
+            },
+            children: element
+        })
+    });
+}
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/internals/composite/root/useCompositeRoot.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "useCompositeRoot",
+    ()=>useCompositeRoot
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$isElementDisabled$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/isElementDisabled.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useStableCallback$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/useStableCallback.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useMergedRefs$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/useMergedRefs.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useIsoLayoutEffect$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/useIsoLayoutEffect.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/composite/composite.mjs [app-client] (ecmascript) <locals>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$floating$2d$ui$2d$react$2f$utils$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/floating-ui-react/utils/composite.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$constants$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/composite/constants.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$shadowDom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/shadowDom.mjs [app-client] (ecmascript)");
+'use client';
+;
+;
+;
+;
+;
+;
+;
+;
+const EMPTY_ARRAY = [];
+function useCompositeRoot(params) {
+    const { loopFocus = true, orientation = 'both', grid, onLoop, direction, highlightedIndex: externalHighlightedIndex, onHighlightedIndexChange: externalSetHighlightedIndex, rootRef: externalRef, enableHomeAndEndKeys = false, stopEventPropagation, disabledIndices, modifierKeys = EMPTY_ARRAY } = params;
+    const [internalHighlightedIndex, internalSetHighlightedIndex] = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"](0);
+    const isGrid = grid != null;
+    const rootRef = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](null);
+    const mergedRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useMergedRefs$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMergedRefs"])(rootRef, externalRef);
+    const elementsRef = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"]([]);
+    const hasSetDefaultIndexRef = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](false);
+    const highlightedIndex = externalHighlightedIndex ?? internalHighlightedIndex;
+    const onHighlightedIndexChange = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useStableCallback$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useStableCallback"])({
+        "useCompositeRoot.useStableCallback[onHighlightedIndexChange]": (index, shouldScrollIntoView = false)=>{
+            (externalSetHighlightedIndex ?? internalSetHighlightedIndex)(index);
+            if (shouldScrollIntoView) {
+                const newActiveItem = elementsRef.current[index];
+                (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["scrollIntoViewIfNeeded"])(rootRef.current, newActiveItem, direction, orientation);
+            }
+        }
+    }["useCompositeRoot.useStableCallback[onHighlightedIndexChange]"]);
+    const onMapChange = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useStableCallback$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useStableCallback"])({
+        "useCompositeRoot.useStableCallback[onMapChange]": (map)=>{
+            if (map.size === 0 || hasSetDefaultIndexRef.current) {
+                return;
+            }
+            hasSetDefaultIndexRef.current = true;
+            const sortedElements = Array.from(map.keys());
+            const activeItem = sortedElements.find({
+                "useCompositeRoot.useStableCallback[onMapChange]": (compositeElement)=>compositeElement?.hasAttribute(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$constants$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ACTIVE_COMPOSITE_ITEM"])
+            }["useCompositeRoot.useStableCallback[onMapChange]"]) ?? null;
+            // Set the default highlighted index of an arbitrary composite item. The map value carries
+            // the item's own index, which is not its position among the keys once a list mixes explicit
+            // and automatic indexes and leaves gaps.
+            const activeIndex = activeItem ? map.get(activeItem)?.index ?? -1 : -1;
+            if (activeIndex !== -1) {
+                onHighlightedIndexChange(activeIndex);
+            } else if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$floating$2d$ui$2d$react$2f$utils$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isListIndexDisabled"])(sortedElements, highlightedIndex, disabledIndices)) {
+                // The default highlighted item is disabled, so it should not hold the single
+                // roving tab stop: a natively disabled element is removed from the tab order,
+                // and an aria-disabled one should not be the entry point. Move the tab stop
+                // to the first enabled item. If every item is disabled, keep the current
+                // highlighted index.
+                const firstEnabledIndex = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$floating$2d$ui$2d$react$2f$utils$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["findNonDisabledListIndex"])(sortedElements, {
+                    disabledIndices
+                });
+                if (!(0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$floating$2d$ui$2d$react$2f$utils$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isIndexOutOfListBounds"])(sortedElements, firstEnabledIndex)) {
+                    onHighlightedIndexChange(firstEnabledIndex);
+                }
+            }
+            (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["scrollIntoViewIfNeeded"])(rootRef.current, activeItem, direction, orientation);
+        }
+    }["useCompositeRoot.useStableCallback[onMapChange]"]);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useIsoLayoutEffect$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useIsoLayoutEffect"])({
+        "useCompositeRoot.useIsoLayoutEffect": ()=>{
+            // `disabledIndices` can resolve a render after the initial map population
+            // (e.g. Toolbar derives it from item metadata through a state update), so the
+            // default tab stop at index 0 may now point at a disabled item, leaving the
+            // composite without a reachable tab stop. Re-validate and move it to the first
+            // enabled item. Gated on `disabledIndices` being provided so composites that
+            // rely on the DOM disabled fallback keep their existing behavior.
+            if (disabledIndices == null || externalHighlightedIndex != null || !hasSetDefaultIndexRef.current) {
+                return;
+            }
+            const elements = elementsRef.current;
+            if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$floating$2d$ui$2d$react$2f$utils$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isListIndexDisabled"])(elements, highlightedIndex, disabledIndices)) {
+                const firstEnabledIndex = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$floating$2d$ui$2d$react$2f$utils$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["findNonDisabledListIndex"])(elements, {
+                    disabledIndices
+                });
+                if (!(0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$floating$2d$ui$2d$react$2f$utils$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isIndexOutOfListBounds"])(elements, firstEnabledIndex)) {
+                    onHighlightedIndexChange(firstEnabledIndex);
+                }
+            }
+        }
+    }["useCompositeRoot.useIsoLayoutEffect"], [
+        disabledIndices,
+        externalHighlightedIndex,
+        highlightedIndex,
+        elementsRef,
+        onHighlightedIndexChange
+    ]);
+    const wrappedOnLoop = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useStableCallback$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useStableCallback"])({
+        "useCompositeRoot.useStableCallback[wrappedOnLoop]": (event, prevIndex, nextIndex)=>{
+            if (!onLoop) {
+                return nextIndex;
+            }
+            return onLoop(event, prevIndex, nextIndex, elementsRef);
+        }
+    }["useCompositeRoot.useStableCallback[wrappedOnLoop]"]);
+    // Stable so that `relayKeyboardEvent` does not invalidate identity-sensitive
+    // consumers (the `CompositeRootContext` value and trigger data forwarding).
+    const onKeyDown = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useStableCallback$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useStableCallback"])({
+        "useCompositeRoot.useStableCallback[onKeyDown]": (event)=>{
+            const isHomeOrEnd = event.key === __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["HOME"] || event.key === __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["END"];
+            if (!__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["COMPOSITE_KEYS"].has(event.key) || !enableHomeAndEndKeys && isHomeOrEnd) {
+                return;
+            }
+            if (isModifierKeySet(event, modifierKeys)) {
+                return;
+            }
+            const element = rootRef.current;
+            if (!element) {
+                return;
+            }
+            const isRtl = direction === 'rtl';
+            const horizontalForwardKey = isRtl ? __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["ARROW_LEFT"] : __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["ARROW_RIGHT"];
+            const horizontalBackwardKey = isRtl ? __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["ARROW_RIGHT"] : __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["ARROW_LEFT"];
+            const forwardKey = orientation === 'vertical' ? __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["ARROW_DOWN"] : horizontalForwardKey;
+            const backwardKey = orientation === 'vertical' ? __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["ARROW_UP"] : horizontalBackwardKey;
+            const target = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$shadowDom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getTarget"])(event.nativeEvent);
+            if (target != null && (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["isNativeInput"])(target) && !(0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$isElementDisabled$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isElementDisabled"])(target)) {
+                const selectionStart = target.selectionStart;
+                const selectionEnd = target.selectionEnd;
+                const textContent = target.value;
+                // return to native textbox behavior when
+                // 1 - Shift is held to make a text selection, or if there already is a text selection
+                if (selectionStart == null || event.shiftKey || selectionStart !== selectionEnd) {
+                    return;
+                }
+                // 2 - arrow-ing forward and not in the last position of the text
+                if (event.key !== backwardKey && selectionStart < textContent.length) {
+                    return;
+                }
+                // 3 -arrow-ing backward and not in the first position of the text
+                if (event.key !== forwardKey && selectionStart > 0) {
+                    return;
+                }
+            }
+            let nextIndex = highlightedIndex;
+            const minIndex = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$floating$2d$ui$2d$react$2f$utils$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getMinListIndex"])(elementsRef, disabledIndices);
+            const maxIndex = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$floating$2d$ui$2d$react$2f$utils$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getMaxListIndex"])(elementsRef, disabledIndices);
+            if (grid != null) {
+                nextIndex = grid({
+                    disabledIndices,
+                    elementsRef,
+                    event,
+                    highlightedIndex,
+                    loopFocus,
+                    maxIndex,
+                    minIndex,
+                    onLoop: wrappedOnLoop,
+                    orientation,
+                    rtl: isRtl
+                });
+            }
+            const isForwardKey = orientation !== 'vertical' && event.key === horizontalForwardKey || orientation !== 'horizontal' && event.key === __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["ARROW_DOWN"];
+            const isBackwardKey = orientation !== 'vertical' && event.key === horizontalBackwardKey || orientation !== 'horizontal' && event.key === __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["ARROW_UP"];
+            if (enableHomeAndEndKeys) {
+                if (event.key === __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["HOME"]) {
+                    nextIndex = minIndex;
+                } else if (event.key === __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["END"]) {
+                    nextIndex = maxIndex;
+                }
+            }
+            if (nextIndex === highlightedIndex && (isForwardKey || isBackwardKey)) {
+                if (loopFocus && nextIndex === maxIndex && isForwardKey) {
+                    nextIndex = minIndex;
+                    if (onLoop) {
+                        nextIndex = onLoop(event, highlightedIndex, nextIndex, elementsRef);
+                    }
+                } else if (loopFocus && nextIndex === minIndex && isBackwardKey) {
+                    nextIndex = maxIndex;
+                    if (onLoop) {
+                        nextIndex = onLoop(event, highlightedIndex, nextIndex, elementsRef);
+                    }
+                } else {
+                    nextIndex = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$floating$2d$ui$2d$react$2f$utils$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["findNonDisabledListIndex"])(elementsRef.current, {
+                        startingIndex: nextIndex,
+                        decrement: isBackwardKey,
+                        disabledIndices
+                    });
+                }
+            }
+            if (nextIndex !== highlightedIndex && !(0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$floating$2d$ui$2d$react$2f$utils$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isIndexOutOfListBounds"])(elementsRef.current, nextIndex)) {
+                if (stopEventPropagation) {
+                    event.stopPropagation();
+                }
+                if (isGrid || isHomeOrEnd || isForwardKey || isBackwardKey) {
+                    event.preventDefault();
+                }
+                onHighlightedIndexChange(nextIndex, true);
+                // Wait for FocusManager `returnFocus` to execute.
+                queueMicrotask({
+                    "useCompositeRoot.useStableCallback[onKeyDown]": ()=>{
+                        elementsRef.current[nextIndex]?.focus();
+                    }
+                }["useCompositeRoot.useStableCallback[onKeyDown]"]);
+            }
+        }
+    }["useCompositeRoot.useStableCallback[onKeyDown]"]);
+    const props = {
+        ref: mergedRef,
+        onFocus (event) {
+            const element = rootRef.current;
+            const target = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$shadowDom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getTarget"])(event.nativeEvent);
+            if (!element || target == null || !(0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["isNativeInput"])(target)) {
+                return;
+            }
+            target.setSelectionRange(0, target.value.length);
+        },
+        onKeyDown
+    };
+    return {
+        props,
+        highlightedIndex,
+        onHighlightedIndexChange,
+        elementsRef,
+        onMapChange,
+        relayKeyboardEvent: onKeyDown
+    };
+}
+function isModifierKeySet(event, ignoredModifierKeys) {
+    for (const key of __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$composite$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["MODIFIER_KEYS"]){
+        if (ignoredModifierKeys.includes(key)) {
+            continue;
+        }
+        if (event.getModifierState(key)) {
+            return true;
+        }
+    }
+    return false;
+}
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/internals/csp-context/CSPContext.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "CSPContext",
+    ()=>CSPContext,
+    "useCSPContext",
+    ()=>useCSPContext
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+'use client';
+;
+const CSPContext = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"](undefined);
+if ("TURBOPACK compile-time truthy", 1) CSPContext.displayName = "CSPContext";
+const DEFAULT_CSP_CONTEXT_VALUE = {
+    disableStyleElements: false
+};
+function useCSPContext() {
+    return __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useContext"](CSPContext) ?? DEFAULT_CSP_CONTEXT_VALUE;
+}
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/internals/prehydrationScript.stub.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+// Shared browser-bundle replacement for the per-component `prehydrationScript.min.ts` files,
+// selected via the `browser` condition of every `#prehydration/*` entry in package.json
+// `imports`. The real scripts only ever execute from server-rendered HTML, so client bundles
+// don't need their contents. See `internals/PrehydrationScript.tsx` for why an empty script is
+// still rendered during hydration.
+__turbopack_context__.s([
+    "script",
+    ()=>script
+]);
+const script = '';
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/internals/useBaseUiId.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "useBaseUiId",
+    ()=>useBaseUiId
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useId$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/useId.mjs [app-client] (ecmascript)");
+'use client';
+;
+function useBaseUiId(idOverride) {
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useId$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useId"])(idOverride, 'base-ui');
+}
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/internals/useTransitionStatus.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "useTransitionStatus",
+    ()=>useTransitionStatus
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useIsoLayoutEffect$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/useIsoLayoutEffect.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useAnimationFrame$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/useAnimationFrame.mjs [app-client] (ecmascript)");
+'use client';
+;
+;
+;
+function useTransitionStatus(open, enableIdleState = false, deferEndingState = false) {
+    const [transitionStatus, setTransitionStatus] = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"](open && enableIdleState ? 'idle' : undefined);
+    const [mounted, setMounted] = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"](open);
+    if (open && !mounted) {
+        setMounted(true);
+        setTransitionStatus('starting');
+    }
+    if (!open && mounted && transitionStatus !== 'ending' && !deferEndingState) {
+        setTransitionStatus('ending');
+    }
+    if (!open && !mounted && transitionStatus === 'ending') {
+        setTransitionStatus(undefined);
+    }
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useIsoLayoutEffect$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useIsoLayoutEffect"])({
+        "useTransitionStatus.useIsoLayoutEffect": ()=>{
+            if (!open && mounted && transitionStatus !== 'ending' && deferEndingState) {
+                const frame = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useAnimationFrame$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimationFrame"].request({
+                    "useTransitionStatus.useIsoLayoutEffect.frame": ()=>{
+                        setTransitionStatus('ending');
+                    }
+                }["useTransitionStatus.useIsoLayoutEffect.frame"]);
+                return ({
+                    "useTransitionStatus.useIsoLayoutEffect": ()=>{
+                        __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useAnimationFrame$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimationFrame"].cancel(frame);
+                    }
+                })["useTransitionStatus.useIsoLayoutEffect"];
+            }
+            return undefined;
+        }
+    }["useTransitionStatus.useIsoLayoutEffect"], [
+        open,
+        mounted,
+        transitionStatus,
+        deferEndingState
+    ]);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useIsoLayoutEffect$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useIsoLayoutEffect"])({
+        "useTransitionStatus.useIsoLayoutEffect": ()=>{
+            if (!open || enableIdleState) {
+                return undefined;
+            }
+            const frame = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useAnimationFrame$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimationFrame"].request({
+                "useTransitionStatus.useIsoLayoutEffect.frame": ()=>{
+                    // Avoid `flushSync` here due to Firefox.
+                    // See https://github.com/mui/base-ui/pull/3424
+                    setTransitionStatus(undefined);
+                }
+            }["useTransitionStatus.useIsoLayoutEffect.frame"]);
+            return ({
+                "useTransitionStatus.useIsoLayoutEffect": ()=>{
+                    __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useAnimationFrame$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimationFrame"].cancel(frame);
+                }
+            })["useTransitionStatus.useIsoLayoutEffect"];
+        }
+    }["useTransitionStatus.useIsoLayoutEffect"], [
+        enableIdleState,
+        open
+    ]);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useIsoLayoutEffect$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useIsoLayoutEffect"])({
+        "useTransitionStatus.useIsoLayoutEffect": ()=>{
+            if (!open || !enableIdleState) {
+                return undefined;
+            }
+            if (open && mounted && transitionStatus !== 'idle') {
+                setTransitionStatus('starting');
+            }
+            const frame = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useAnimationFrame$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimationFrame"].request({
+                "useTransitionStatus.useIsoLayoutEffect.frame": ()=>{
+                    setTransitionStatus('idle');
+                }
+            }["useTransitionStatus.useIsoLayoutEffect.frame"]);
+            return ({
+                "useTransitionStatus.useIsoLayoutEffect": ()=>{
+                    __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useAnimationFrame$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimationFrame"].cancel(frame);
+                }
+            })["useTransitionStatus.useIsoLayoutEffect"];
+        }
+    }["useTransitionStatus.useIsoLayoutEffect"], [
+        enableIdleState,
+        open,
+        mounted,
+        transitionStatus
+    ]);
+    return {
+        mounted,
+        setMounted,
+        transitionStatus
+    };
+}
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/tabs/index.parts.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "Indicator",
+    ()=>__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$indicator$2f$TabsIndicator$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsIndicator"],
+    "List",
+    ()=>__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$list$2f$TabsList$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsList"],
+    "Panel",
+    ()=>__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$panel$2f$TabsPanel$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsPanel"],
+    "Root",
+    ()=>__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$root$2f$TabsRoot$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsRoot"],
+    "Tab",
+    ()=>__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$tab$2f$TabsTab$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsTab"]
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$index$2e$parts$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/tabs/index.parts.mjs [app-client] (ecmascript) <locals>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$root$2f$TabsRoot$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/tabs/root/TabsRoot.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$tab$2f$TabsTab$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/tabs/tab/TabsTab.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$indicator$2f$TabsIndicator$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/tabs/indicator/TabsIndicator.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$panel$2f$TabsPanel$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/tabs/panel/TabsPanel.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$list$2f$TabsList$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/tabs/list/TabsList.mjs [app-client] (ecmascript)");
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/tabs/index.parts.mjs [app-client] (ecmascript) <export * as Tabs>", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "Tabs",
+    ()=>__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$index$2e$parts$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$index$2e$parts$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/tabs/index.parts.mjs [app-client] (ecmascript)");
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/tabs/index.parts.mjs [app-client] (ecmascript) <locals>", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([]);
+;
+;
+;
+;
+;
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/tabs/indicator/TabsIndicator.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "TabsIndicator",
+    ()=>TabsIndicator
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useForcedRerendering$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/useForcedRerendering.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$prehydrationScript$2e$stub$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/prehydrationScript.stub.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useRenderElement$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/useRenderElement.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$utils$2f$getCssDimensions$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/utils/getCssDimensions.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$PrehydrationScript$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/PrehydrationScript.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$root$2f$TabsRootContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/tabs/root/TabsRootContext.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$root$2f$stateAttributesMapping$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/tabs/root/stateAttributesMapping.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$list$2f$TabsListContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/tabs/list/TabsListContext.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)");
+'use client';
+var _PrehydrationScript;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+const stateAttributesMapping = {
+    ...__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$root$2f$stateAttributesMapping$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["tabsStateAttributesMapping"],
+    activeTabPosition: ()=>null,
+    activeTabSize: ()=>null
+};
+const TabsIndicator = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](function TabsIndicator(componentProps, forwardedRef) {
+    const { className, render, renderBeforeHydration = false, style: styleProp, ...elementProps } = componentProps;
+    const { getTabElementBySelectedValue, orientation, tabActivationDirection, value } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$root$2f$TabsRootContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTabsRootContext"])();
+    const { tabsListElement, registerIndicatorUpdateListener } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$list$2f$TabsListContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTabsListContext"])();
+    const rerender = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useForcedRerendering$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useForcedRerendering"])();
+    __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"]({
+        "TabsIndicator.TabsIndicator.useEffect": ()=>{
+            return registerIndicatorUpdateListener(rerender);
+        }
+    }["TabsIndicator.TabsIndicator.useEffect"], [
+        registerIndicatorUpdateListener,
+        rerender
+    ]);
+    let left = 0;
+    let right = 0;
+    let top = 0;
+    let bottom = 0;
+    let width = 0;
+    let height = 0;
+    let isTabSelected = false;
+    if (value != null && tabsListElement != null) {
+        const activeTab = getTabElementBySelectedValue(value);
+        if (activeTab != null) {
+            isTabSelected = true;
+            const { width: computedWidth, height: computedHeight } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$utils$2f$getCssDimensions$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCssDimensions"])(activeTab);
+            const { width: tabListWidth, height: tabListHeight } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$utils$2f$getCssDimensions$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCssDimensions"])(tabsListElement);
+            const tabRect = activeTab.getBoundingClientRect();
+            const tabsListRect = tabsListElement.getBoundingClientRect();
+            const scaleX = tabListWidth > 0 ? tabsListRect.width / tabListWidth : 1;
+            const scaleY = tabListHeight > 0 ? tabsListRect.height / tabListHeight : 1;
+            const hasNonZeroScale = scaleX > Number.EPSILON && scaleY > Number.EPSILON;
+            if (hasNonZeroScale) {
+                const tabLeftDelta = tabRect.left - tabsListRect.left;
+                const tabTopDelta = tabRect.top - tabsListRect.top;
+                left = tabLeftDelta / scaleX + tabsListElement.scrollLeft - tabsListElement.clientLeft;
+                top = tabTopDelta / scaleY + tabsListElement.scrollTop - tabsListElement.clientTop;
+            } else {
+                left = activeTab.offsetLeft;
+                top = activeTab.offsetTop;
+            }
+            width = computedWidth;
+            height = computedHeight;
+            right = tabsListElement.scrollWidth - left - width;
+            bottom = tabsListElement.scrollHeight - top - height;
+        }
+    }
+    const activeTabPosition = isTabSelected ? {
+        left,
+        right,
+        top,
+        bottom
+    } : null;
+    const activeTabSize = isTabSelected ? {
+        width,
+        height
+    } : null;
+    const style = isTabSelected ? {
+        '--active-tab-left': `${left}px`,
+        '--active-tab-right': `${right}px`,
+        '--active-tab-top': `${top}px`,
+        '--active-tab-bottom': `${bottom}px`,
+        '--active-tab-width': `${width}px`,
+        '--active-tab-height': `${height}px`
+    } : undefined;
+    const displayIndicator = isTabSelected && width > 0 && height > 0;
+    const state = {
+        orientation,
+        activeTabPosition,
+        activeTabSize,
+        tabActivationDirection
+    };
+    const element = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useRenderElement$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRenderElement"])('span', componentProps, {
+        state,
+        ref: forwardedRef,
+        props: [
+            {
+                role: 'presentation',
+                style,
+                hidden: !displayIndicator // do not display the indicator before the layout is settled
+            },
+            elementProps,
+            {
+                suppressHydrationWarning: true
+            }
+        ],
+        stateAttributesMapping
+    });
+    if (value == null) {
+        return null;
+    }
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+        children: [
+            element,
+            renderBeforeHydration && (_PrehydrationScript || (_PrehydrationScript = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$PrehydrationScript$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PrehydrationScript"], {
+                script: __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$prehydrationScript$2e$stub$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["script"]
+            })))
+        ]
+    });
+});
+if ("TURBOPACK compile-time truthy", 1) TabsIndicator.displayName = "TabsIndicator";
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/tabs/list/TabsList.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "TabsList",
+    ()=>TabsList
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useStableCallback$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/useStableCallback.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useIsoLayoutEffect$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/useIsoLayoutEffect.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$empty$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/empty.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$root$2f$CompositeRoot$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/composite/root/CompositeRoot.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$root$2f$stateAttributesMapping$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/tabs/root/stateAttributesMapping.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$root$2f$TabsRootContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/tabs/root/TabsRootContext.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$list$2f$TabsListContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/tabs/list/TabsListContext.mjs [app-client] (ecmascript)");
+/**
+ * Groups the individual tab buttons.
+ * Renders a `<div>` element.
+ *
+ * Documentation: [Base UI Tabs](https://base-ui.com/react/components/tabs)
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)");
+'use client';
+;
+;
+;
+;
+;
+;
+;
+;
+;
+const TabsList = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](function TabsList(componentProps, forwardedRef) {
+    const { activateOnFocus = false, className, loopFocus = true, render, style, ...elementProps } = componentProps;
+    const { orientation, setTabMap, tabActivationDirection } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$root$2f$TabsRootContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTabsRootContext"])();
+    const [highlightedTabIndex, setHighlightedTabIndex] = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"](0);
+    const [tabsListElement, setTabsListElement] = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"](null);
+    const indicatorUpdateListenersRef = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](new Set());
+    const tabResizeObserverElementsRef = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](new Set());
+    const resizeObserverRef = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](null);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useIsoLayoutEffect$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useIsoLayoutEffect"])({
+        "TabsList.TabsList.useIsoLayoutEffect": ()=>{
+            if (typeof ResizeObserver === 'undefined') {
+                return undefined;
+            }
+            const resizeObserver = new ResizeObserver({
+                "TabsList.TabsList.useIsoLayoutEffect": ()=>{
+                    indicatorUpdateListenersRef.current.forEach({
+                        "TabsList.TabsList.useIsoLayoutEffect": (listener)=>{
+                            listener();
+                        }
+                    }["TabsList.TabsList.useIsoLayoutEffect"]);
+                }
+            }["TabsList.TabsList.useIsoLayoutEffect"]);
+            resizeObserverRef.current = resizeObserver;
+            if (tabsListElement) {
+                resizeObserver.observe(tabsListElement);
+            }
+            tabResizeObserverElementsRef.current.forEach({
+                "TabsList.TabsList.useIsoLayoutEffect": (element)=>{
+                    resizeObserver.observe(element);
+                }
+            }["TabsList.TabsList.useIsoLayoutEffect"]);
+            return ({
+                "TabsList.TabsList.useIsoLayoutEffect": ()=>{
+                    resizeObserver.disconnect();
+                    resizeObserverRef.current = null;
+                }
+            })["TabsList.TabsList.useIsoLayoutEffect"];
+        }
+    }["TabsList.TabsList.useIsoLayoutEffect"], [
+        tabsListElement
+    ]);
+    const registerIndicatorUpdateListener = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useStableCallback$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useStableCallback"])({
+        "TabsList.TabsList.useStableCallback[registerIndicatorUpdateListener]": (listener)=>{
+            indicatorUpdateListenersRef.current.add(listener);
+            return ({
+                "TabsList.TabsList.useStableCallback[registerIndicatorUpdateListener]": ()=>{
+                    indicatorUpdateListenersRef.current.delete(listener);
+                }
+            })["TabsList.TabsList.useStableCallback[registerIndicatorUpdateListener]"];
+        }
+    }["TabsList.TabsList.useStableCallback[registerIndicatorUpdateListener]"]);
+    const registerTabResizeObserverElement = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useStableCallback$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useStableCallback"])({
+        "TabsList.TabsList.useStableCallback[registerTabResizeObserverElement]": (element)=>{
+            tabResizeObserverElementsRef.current.add(element);
+            resizeObserverRef.current?.observe(element);
+            return ({
+                "TabsList.TabsList.useStableCallback[registerTabResizeObserverElement]": ()=>{
+                    tabResizeObserverElementsRef.current.delete(element);
+                    resizeObserverRef.current?.unobserve(element);
+                }
+            })["TabsList.TabsList.useStableCallback[registerTabResizeObserverElement]"];
+        }
+    }["TabsList.TabsList.useStableCallback[registerTabResizeObserverElement]"]);
+    const state = {
+        orientation,
+        tabActivationDirection
+    };
+    const defaultProps = {
+        'aria-orientation': orientation === 'vertical' ? 'vertical' : undefined,
+        role: 'tablist'
+    };
+    const tabsListContextValue = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"]({
+        "TabsList.TabsList.useMemo[tabsListContextValue]": ()=>({
+                activateOnFocus,
+                registerIndicatorUpdateListener,
+                registerTabResizeObserverElement,
+                tabsListElement
+            })
+    }["TabsList.TabsList.useMemo[tabsListContextValue]"], [
+        activateOnFocus,
+        registerIndicatorUpdateListener,
+        registerTabResizeObserverElement,
+        tabsListElement
+    ]);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$list$2f$TabsListContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsListContext"].Provider, {
+        value: tabsListContextValue,
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$root$2f$CompositeRoot$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CompositeRoot"], {
+            render: render,
+            className: className,
+            style: style,
+            state: state,
+            refs: [
+                forwardedRef,
+                setTabsListElement
+            ],
+            props: [
+                defaultProps,
+                elementProps
+            ],
+            stateAttributesMapping: __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$root$2f$stateAttributesMapping$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["tabsStateAttributesMapping"],
+            highlightedIndex: highlightedTabIndex,
+            enableHomeAndEndKeys: true,
+            loopFocus: loopFocus,
+            orientation: orientation,
+            onHighlightedIndexChange: setHighlightedTabIndex,
+            onMapChange: setTabMap,
+            disabledIndices: __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$empty$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["EMPTY_ARRAY"]
+        })
+    });
+});
+if ("TURBOPACK compile-time truthy", 1) TabsList.displayName = "TabsList";
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/tabs/list/TabsListContext.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "TabsListContext",
+    ()=>TabsListContext,
+    "useTabsListContext",
+    ()=>useTabsListContext
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+'use client';
+;
+;
+const TabsListContext = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"](undefined);
+if ("TURBOPACK compile-time truthy", 1) TabsListContext.displayName = "TabsListContext";
+function useTabsListContext() {
+    const context = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useContext"](TabsListContext);
+    if (context === undefined) {
+        throw new Error(("TURBOPACK compile-time truthy", 1) ? 'Base UI: TabsListContext is missing. TabsList parts must be placed within <Tabs.List>.' : "TURBOPACK unreachable");
+    }
+    return context;
+}
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/tabs/panel/TabsPanel.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "TabsPanel",
+    ()=>TabsPanel
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$inertValue$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/inertValue.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useIsoLayoutEffect$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/useIsoLayoutEffect.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useBaseUiId$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/useBaseUiId.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$stateAttributesMapping$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/stateAttributesMapping.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useOpenChangeComplete$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/useOpenChangeComplete.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useTransitionStatus$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/useTransitionStatus.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useRenderElement$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/useRenderElement.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$list$2f$useCompositeListItem$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/composite/list/useCompositeListItem.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$root$2f$stateAttributesMapping$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/tabs/root/stateAttributesMapping.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$root$2f$TabsRootContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/tabs/root/TabsRootContext.mjs [app-client] (ecmascript)");
+'use client';
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+const stateAttributesMapping = {
+    ...__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$root$2f$stateAttributesMapping$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["tabsStateAttributesMapping"],
+    ...__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$stateAttributesMapping$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["transitionStatusMapping"]
+};
+const TabsPanel = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](function TabsPanel(componentProps, forwardedRef) {
+    const { className, value, render, keepMounted = false, style, ...elementProps } = componentProps;
+    const { value: selectedValue, getTabIdByPanelValue, orientation, tabActivationDirection, registerMountedTabPanel } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$root$2f$TabsRootContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTabsRootContext"])();
+    const id = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useBaseUiId$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useBaseUiId"])();
+    const { ref: listItemRef, index } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$list$2f$useCompositeListItem$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCompositeListItem"])();
+    const open = value === selectedValue;
+    const { mounted, transitionStatus, setMounted } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useTransitionStatus$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransitionStatus"])(open);
+    const hidden = !mounted;
+    const correspondingTabId = getTabIdByPanelValue(value);
+    const state = {
+        hidden,
+        orientation,
+        tabActivationDirection,
+        transitionStatus
+    };
+    const panelRef = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](null);
+    const element = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useRenderElement$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRenderElement"])('div', componentProps, {
+        state,
+        ref: [
+            forwardedRef,
+            listItemRef,
+            panelRef
+        ],
+        props: [
+            {
+                'aria-labelledby': correspondingTabId,
+                hidden,
+                id,
+                role: 'tabpanel',
+                tabIndex: open ? 0 : -1,
+                inert: (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$inertValue$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["inertValue"])(!open),
+                // Computed key: a plain literal key fails the DOM-props excess property check.
+                ['data-index']: index
+            },
+            elementProps
+        ],
+        stateAttributesMapping
+    });
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useOpenChangeComplete$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useOpenChangeComplete"])({
+        open,
+        ref: panelRef,
+        onComplete () {
+            if (!open) {
+                setMounted(false);
+            }
+        }
+    });
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useIsoLayoutEffect$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useIsoLayoutEffect"])({
+        "TabsPanel.TabsPanel.useIsoLayoutEffect": ()=>{
+            // On React 17 `useId` resolves in a passive effect, so `id` is still
+            // undefined during this layout effect on the first commit. Skip the
+            // registration until the effect re-runs with the resolved id.
+            if (id == null || hidden && !keepMounted) {
+                return undefined;
+            }
+            return registerMountedTabPanel(value, id);
+        }
+    }["TabsPanel.TabsPanel.useIsoLayoutEffect"], [
+        hidden,
+        keepMounted,
+        value,
+        id,
+        registerMountedTabPanel
+    ]);
+    const shouldRender = keepMounted || mounted;
+    if (!shouldRender) {
+        return null;
+    }
+    return element;
+});
+if ("TURBOPACK compile-time truthy", 1) TabsPanel.displayName = "TabsPanel";
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/tabs/root/TabsRoot.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "TabsRoot",
+    ()=>TabsRoot
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useControlled$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/useControlled.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useIsoLayoutEffect$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/useIsoLayoutEffect.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useStableCallback$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/useStableCallback.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useRenderElement$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/useRenderElement.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$list$2f$CompositeList$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/composite/list/CompositeList.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$root$2f$TabsRootContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/tabs/root/TabsRootContext.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$root$2f$stateAttributesMapping$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/tabs/root/stateAttributesMapping.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$createBaseUIEventDetails$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/createBaseUIEventDetails.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$reason$2d$parts$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__REASONS$3e$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/reason-parts.mjs [app-client] (ecmascript) <export * as REASONS>");
+/**
+ * Groups the tabs and the corresponding panels.
+ * Renders a `<div>` element.
+ *
+ * Documentation: [Base UI Tabs](https://base-ui.com/react/components/tabs)
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)");
+'use client';
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+const TabsRoot = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](function TabsRoot(componentProps, forwardedRef) {
+    const { className, defaultValue: defaultValueProp = 0, onValueChange: onValueChangeProp, orientation = 'horizontal', render, value: valueProp, style, ...elementProps } = componentProps;
+    // Track whether the user explicitly provided a defined `defaultValue` prop.
+    // Used to determine if we should honor a disabled tab selection.
+    const hasExplicitDefaultValueProp = componentProps.defaultValue !== undefined;
+    const tabPanelRefs = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"]([]);
+    const [mountedTabPanels, setMountedTabPanels] = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"]({
+        "TabsRoot.TabsRoot.useState": ()=>new Map()
+    }["TabsRoot.TabsRoot.useState"]);
+    const [value, setValue] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useControlled$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useControlled"])({
+        controlled: valueProp,
+        default: defaultValueProp,
+        name: 'Tabs',
+        state: 'value'
+    });
+    const isControlled = valueProp !== undefined;
+    const [tabMap, setTabMap] = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"]({
+        "TabsRoot.TabsRoot.useState": ()=>new Map()
+    }["TabsRoot.TabsRoot.useState"]);
+    const lastKnownTabElementRef = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](undefined);
+    // Used for activation direction detection via tab element positions.
+    const getTabElementBySelectedValue = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"]({
+        "TabsRoot.TabsRoot.useCallback[getTabElementBySelectedValue]": (selectedValue)=>findTabElement(tabMap, selectedValue)
+    }["TabsRoot.TabsRoot.useCallback[getTabElementBySelectedValue]"], [
+        tabMap
+    ]);
+    const [activationDirectionState, setActivationDirectionState] = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"]({
+        "TabsRoot.TabsRoot.useState": ()=>({
+                previousValue: value,
+                tabActivationDirection: 'none'
+            })
+    }["TabsRoot.TabsRoot.useState"]);
+    const { previousValue, tabActivationDirection: committedTabActivationDirection } = activationDirectionState;
+    let tabActivationDirection = committedTabActivationDirection;
+    let directionComputationIncomplete = false;
+    // Compute activation direction during render when value changes so children see
+    // the correct direction on their very first render after the selection update.
+    // The previous value snapshot is stored in state and synced after commit.
+    // https://github.com/mui/base-ui/issues/3873
+    if (previousValue !== value) {
+        tabActivationDirection = computeActivationDirection(previousValue, value, orientation, tabMap);
+        // When a new tab is added and selected in the same controlled update,
+        // the tab element may not yet be registered in tabMap, so direction was
+        // computed from a value-based fallback. Keep the previous value snapshot
+        // stale so we re-compute from DOM positions once tabMap is up to date.
+        directionComputationIncomplete = previousValue != null && value != null && getTabElementBySelectedValue(value) == null;
+    }
+    const nextPreviousValue = directionComputationIncomplete ? previousValue : value;
+    const shouldSyncActivationDirectionState = previousValue !== nextPreviousValue || committedTabActivationDirection !== tabActivationDirection;
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useIsoLayoutEffect$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useIsoLayoutEffect"])({
+        "TabsRoot.TabsRoot.useIsoLayoutEffect": ()=>{
+            if (!shouldSyncActivationDirectionState) {
+                return;
+            }
+            setActivationDirectionState({
+                previousValue: nextPreviousValue,
+                tabActivationDirection
+            });
+        }
+    }["TabsRoot.TabsRoot.useIsoLayoutEffect"], [
+        nextPreviousValue,
+        shouldSyncActivationDirectionState,
+        tabActivationDirection
+    ]);
+    const onValueChange = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useStableCallback$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useStableCallback"])({
+        "TabsRoot.TabsRoot.useStableCallback[onValueChange]": (newValue, eventDetails)=>{
+            const activationDirection = computeActivationDirection(value, newValue, orientation, tabMap);
+            eventDetails.activationDirection = activationDirection;
+            onValueChangeProp?.(newValue, eventDetails);
+            if (eventDetails.isCanceled) {
+                return;
+            }
+            setValue(newValue);
+        }
+    }["TabsRoot.TabsRoot.useStableCallback[onValueChange]"]);
+    const notifyAutomaticValueChange = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useStableCallback$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useStableCallback"])({
+        "TabsRoot.TabsRoot.useStableCallback[notifyAutomaticValueChange]": (nextValue, reason)=>{
+            onValueChangeProp?.(nextValue, (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$createBaseUIEventDetails$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createChangeEventDetails"])(reason, undefined, undefined, {
+                activationDirection: 'none'
+            }));
+        }
+    }["TabsRoot.TabsRoot.useStableCallback[notifyAutomaticValueChange]"]);
+    const registerMountedTabPanel = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useStableCallback$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useStableCallback"])({
+        "TabsRoot.TabsRoot.useStableCallback[registerMountedTabPanel]": (panelValue, panelId)=>{
+            setMountedTabPanels({
+                "TabsRoot.TabsRoot.useStableCallback[registerMountedTabPanel]": (prev)=>{
+                    const next = new Map(prev);
+                    next.set(panelValue, panelId);
+                    return next;
+                }
+            }["TabsRoot.TabsRoot.useStableCallback[registerMountedTabPanel]"]);
+            return ({
+                "TabsRoot.TabsRoot.useStableCallback[registerMountedTabPanel]": ()=>{
+                    setMountedTabPanels({
+                        "TabsRoot.TabsRoot.useStableCallback[registerMountedTabPanel]": (prev)=>{
+                            // Another panel with the same value took ownership in the meantime;
+                            // leave its registration in place.
+                            if (prev.get(panelValue) !== panelId) {
+                                return prev;
+                            }
+                            const next = new Map(prev);
+                            next.delete(panelValue);
+                            return next;
+                        }
+                    }["TabsRoot.TabsRoot.useStableCallback[registerMountedTabPanel]"]);
+                }
+            })["TabsRoot.TabsRoot.useStableCallback[registerMountedTabPanel]"];
+        }
+    }["TabsRoot.TabsRoot.useStableCallback[registerMountedTabPanel]"]);
+    // get the `id` attribute of <Tabs.Panel> to set as the value of `aria-controls` on <Tabs.Tab>
+    const getTabPanelIdByValue = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"]({
+        "TabsRoot.TabsRoot.useCallback[getTabPanelIdByValue]": (tabValue)=>{
+            return mountedTabPanels.get(tabValue);
+        }
+    }["TabsRoot.TabsRoot.useCallback[getTabPanelIdByValue]"], [
+        mountedTabPanels
+    ]);
+    // get the `id` attribute of <Tabs.Tab> to set as the value of `aria-labelledby` on <Tabs.Panel>
+    const getTabIdByPanelValue = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"]({
+        "TabsRoot.TabsRoot.useCallback[getTabIdByPanelValue]": (tabPanelValue)=>{
+            for (const tabMetadata of tabMap.values()){
+                if (tabPanelValue === tabMetadata.value) {
+                    return tabMetadata.id;
+                }
+            }
+            return undefined;
+        }
+    }["TabsRoot.TabsRoot.useCallback[getTabIdByPanelValue]"], [
+        tabMap
+    ]);
+    const tabsContextValue = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"]({
+        "TabsRoot.TabsRoot.useMemo[tabsContextValue]": ()=>({
+                getTabElementBySelectedValue,
+                getTabIdByPanelValue,
+                getTabPanelIdByValue,
+                onValueChange,
+                orientation,
+                registerMountedTabPanel,
+                setTabMap,
+                tabActivationDirection,
+                value
+            })
+    }["TabsRoot.TabsRoot.useMemo[tabsContextValue]"], [
+        getTabElementBySelectedValue,
+        getTabIdByPanelValue,
+        getTabPanelIdByValue,
+        onValueChange,
+        orientation,
+        registerMountedTabPanel,
+        setTabMap,
+        tabActivationDirection,
+        value
+    ]);
+    const selectedTabMetadata = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"]({
+        "TabsRoot.TabsRoot.useMemo[selectedTabMetadata]": ()=>{
+            for (const tabMetadata of tabMap.values()){
+                if (tabMetadata.value === value) {
+                    return tabMetadata;
+                }
+            }
+            return undefined;
+        }
+    }["TabsRoot.TabsRoot.useMemo[selectedTabMetadata]"], [
+        tabMap,
+        value
+    ]);
+    // Find the first non-disabled tab value.
+    // Used as a fallback when the current selection is disabled or missing.
+    const firstEnabledTabValue = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"]({
+        "TabsRoot.TabsRoot.useMemo[firstEnabledTabValue]": ()=>{
+            for (const tabMetadata of tabMap.values()){
+                if (!tabMetadata.disabled) {
+                    return tabMetadata.value;
+                }
+            }
+            return undefined;
+        }
+    }["TabsRoot.TabsRoot.useMemo[firstEnabledTabValue]"], [
+        tabMap
+    ]);
+    // Implicit uncontrolled selections are still automatic changes, so notify
+    // once when the tabs first register. Explicit defaults are treated as user-owned.
+    const shouldNotifyInitialValueChangeRef = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](!hasExplicitDefaultValueProp);
+    // useControlled warns if defaultValue changes after mount, but the
+    // disabled-default honor policy below still needs a stable initial value.
+    const initialDefaultValueRef = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](defaultValueProp);
+    // An explicit defaultValue can intentionally point at a disabled tab on mount.
+    // Once that selection becomes valid, later disabled states should fall back.
+    const shouldHonorDisabledDefaultValueRef = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](hasExplicitDefaultValueProp);
+    const didRegisterTabsRef = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](false);
+    // Uncontrolled roots own automatic fallback. Controlled roots keep the exact
+    // value supplied by the parent, even when that tab is disabled or missing.
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useIsoLayoutEffect$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useIsoLayoutEffect"])({
+        "TabsRoot.TabsRoot.useIsoLayoutEffect": ()=>{
+            if (isControlled) {
+                return;
+            }
+            function commitAutomaticValueChange(fallbackValue, fallbackReason) {
+                setValue(fallbackValue);
+                // Automatic fallbacks are not directional transitions; reset the direction
+                // alongside the value so the batched commit keeps both in sync.
+                setActivationDirectionState({
+                    previousValue: fallbackValue,
+                    tabActivationDirection: 'none'
+                });
+                notifyAutomaticValueChange(fallbackValue, fallbackReason);
+                // Mark the initial notification as delivered only after the consumer
+                // callback returns. The fallback value is queued first so automatic
+                // consistency updates are not cancelable through a throwing handler.
+                shouldNotifyInitialValueChangeRef.current = false;
+            }
+            if (tabMap.size === 0) {
+                // A Suspense boundary outside the root can clean up layout effects while
+                // keeping the previous tabs connected. Don't treat that as removal.
+                if (didRegisterTabsRef.current && value !== null && !lastKnownTabElementRef.current?.isConnected) {
+                    commitAutomaticValueChange(null, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$reason$2d$parts$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__REASONS$3e$__["REASONS"].missing);
+                }
+                return;
+            }
+            didRegisterTabsRef.current = true;
+            lastKnownTabElementRef.current = tabMap.keys().next().value;
+            const selectionIsDisabled = selectedTabMetadata?.disabled;
+            const selectionIsMissing = selectedTabMetadata == null && value !== null;
+            if (!selectionIsDisabled && value === initialDefaultValueRef.current) {
+                shouldHonorDisabledDefaultValueRef.current = false;
+            }
+            if (shouldHonorDisabledDefaultValueRef.current && selectionIsDisabled && value === initialDefaultValueRef.current) {
+                return;
+            }
+            const shouldNotifyInitialValueChange = shouldNotifyInitialValueChangeRef.current;
+            if (selectionIsDisabled || selectionIsMissing) {
+                const fallbackValue = firstEnabledTabValue ?? null;
+                if (value === fallbackValue) {
+                    // Already at the fallback value; no commit or notification needed,
+                    // but record that the implicit-initial transition has resolved.
+                    shouldNotifyInitialValueChangeRef.current = false;
+                    return;
+                }
+                let fallbackReason = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$reason$2d$parts$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__REASONS$3e$__["REASONS"].missing;
+                if (shouldNotifyInitialValueChange) {
+                    fallbackReason = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$reason$2d$parts$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__REASONS$3e$__["REASONS"].initial;
+                } else if (selectionIsDisabled) {
+                    fallbackReason = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$reason$2d$parts$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__REASONS$3e$__["REASONS"].disabled;
+                }
+                commitAutomaticValueChange(fallbackValue, fallbackReason);
+                return;
+            }
+            if (shouldNotifyInitialValueChange && selectedTabMetadata != null) {
+                notifyAutomaticValueChange(value, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$reason$2d$parts$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__REASONS$3e$__["REASONS"].initial);
+                shouldNotifyInitialValueChangeRef.current = false;
+            }
+        }
+    }["TabsRoot.TabsRoot.useIsoLayoutEffect"], [
+        firstEnabledTabValue,
+        isControlled,
+        notifyAutomaticValueChange,
+        selectedTabMetadata,
+        setValue,
+        tabMap,
+        value
+    ]);
+    const state = {
+        orientation,
+        tabActivationDirection
+    };
+    const element = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useRenderElement$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRenderElement"])('div', componentProps, {
+        state,
+        ref: forwardedRef,
+        props: elementProps,
+        stateAttributesMapping: __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$root$2f$stateAttributesMapping$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["tabsStateAttributesMapping"]
+    });
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$root$2f$TabsRootContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsRootContext"].Provider, {
+        value: tabsContextValue,
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$list$2f$CompositeList$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CompositeList"], {
+            elementsRef: tabPanelRefs,
+            children: element
+        })
+    });
+});
+if ("TURBOPACK compile-time truthy", 1) TabsRoot.displayName = "TabsRoot";
+function findTabElement(tabMap, value) {
+    for (const [tabElement, tabMetadata] of tabMap.entries()){
+        if (value === tabMetadata.value) {
+            return tabElement;
+        }
+    }
+    return null;
+}
+function computeActivationDirection(oldValue, newValue, orientation, tabMap) {
+    if (oldValue == null || newValue == null) {
+        return 'none';
+    }
+    const [positionProp, backward, forward] = orientation === 'horizontal' ? [
+        'left',
+        'left',
+        'right'
+    ] : [
+        'top',
+        'up',
+        'down'
+    ];
+    const oldTab = findTabElement(tabMap, oldValue);
+    const newTab = findTabElement(tabMap, newValue);
+    if (oldTab == null || newTab == null) {
+        // Fallback for dynamic tabs: when a tab element isn't registered yet
+        // (e.g. added and selected in the same update), infer direction from
+        // the values themselves. Works for comparable types (numbers, strings).
+        if (oldTab !== newTab && (typeof oldValue === 'number' || typeof oldValue === 'string') && typeof oldValue === typeof newValue) {
+            return newValue > oldValue ? forward : backward;
+        }
+        return 'none';
+    }
+    const oldPosition = oldTab.getBoundingClientRect()[positionProp];
+    const newPosition = newTab.getBoundingClientRect()[positionProp];
+    if (newPosition < oldPosition) {
+        return backward;
+    }
+    if (newPosition > oldPosition) {
+        return forward;
+    }
+    return 'none';
+}
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/tabs/root/TabsRootContext.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "TabsRootContext",
+    ()=>TabsRootContext,
+    "useTabsRootContext",
+    ()=>useTabsRootContext
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+'use client';
+;
+;
+const TabsRootContext = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"](undefined);
+if ("TURBOPACK compile-time truthy", 1) TabsRootContext.displayName = "TabsRootContext";
+function useTabsRootContext() {
+    const context = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useContext"](TabsRootContext);
+    if (context === undefined) {
+        throw new Error(("TURBOPACK compile-time truthy", 1) ? 'Base UI: TabsRootContext is missing. Tabs parts must be placed within <Tabs.Root>.' : "TURBOPACK unreachable");
+    }
+    return context;
+}
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/tabs/root/stateAttributesMapping.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "tabsStateAttributesMapping",
+    ()=>tabsStateAttributesMapping
+]);
+const tabsStateAttributesMapping = {
+    tabActivationDirection: (dir)=>({
+            'data-activation-direction': dir
+        })
+};
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/tabs/tab/TabsTab.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "TabsTab",
+    ()=>TabsTab
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$owner$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/owner.mjs [app-client] (ecmascript) <locals>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useIsoLayoutEffect$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/useIsoLayoutEffect.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useStableCallback$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/useStableCallback.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useBaseUiId$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/useBaseUiId.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useRenderElement$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/useRenderElement.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$use$2d$button$2f$useButton$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/use-button/useButton.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$constants$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/composite/constants.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$item$2f$useCompositeItem$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/composite/item/useCompositeItem.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$root$2f$CompositeRootContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/composite/root/CompositeRootContext.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$root$2f$TabsRootContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/tabs/root/TabsRootContext.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$root$2f$stateAttributesMapping$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/tabs/root/stateAttributesMapping.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$list$2f$TabsListContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/tabs/list/TabsListContext.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$createBaseUIEventDetails$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/createBaseUIEventDetails.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$reason$2d$parts$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__REASONS$3e$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/reason-parts.mjs [app-client] (ecmascript) <export * as REASONS>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$shadowDom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/react/internals/shadowDom.mjs [app-client] (ecmascript)");
+'use client';
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+const TabsTab = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](function TabsTab(componentProps, forwardedRef) {
+    const { className, disabled = false, render, value, id: idProp, nativeButton = true, style, ...elementProps } = componentProps;
+    const { value: activeTabValue, getTabPanelIdByValue, onValueChange, orientation, tabActivationDirection } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$root$2f$TabsRootContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTabsRootContext"])();
+    const { activateOnFocus, registerTabResizeObserverElement, tabsListElement } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$list$2f$TabsListContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTabsListContext"])();
+    const { highlightedIndex, onHighlightedIndexChange } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$root$2f$CompositeRootContext$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCompositeRootContext"])();
+    const id = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useBaseUiId$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useBaseUiId"])(idProp);
+    const tabMetadata = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"]({
+        "TabsTab.TabsTab.useMemo[tabMetadata]": ()=>({
+                disabled,
+                id,
+                value
+            })
+    }["TabsTab.TabsTab.useMemo[tabMetadata]"], [
+        disabled,
+        id,
+        value
+    ]);
+    const { compositeProps, compositeRef, index } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$item$2f$useCompositeItem$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCompositeItem"])({
+        metadata: tabMetadata
+    });
+    const active = value === activeTabValue;
+    const isNavigatingRef = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](false);
+    const unobserveTabElementRef = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](null);
+    // Registered from the ref callback rather than an effect so the observer
+    // follows the rendered element when the `render` prop swaps the host element.
+    const observeTabElement = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useStableCallback$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useStableCallback"])({
+        "TabsTab.TabsTab.useStableCallback[observeTabElement]": (element)=>{
+            unobserveTabElementRef.current?.();
+            unobserveTabElementRef.current = element ? registerTabResizeObserverElement(element) : null;
+        }
+    }["TabsTab.TabsTab.useStableCallback[observeTabElement]"]);
+    // Keep the highlighted item in sync with the currently active tab
+    // when the value prop changes externally (controlled mode)
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$useIsoLayoutEffect$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useIsoLayoutEffect"])({
+        "TabsTab.TabsTab.useIsoLayoutEffect": ()=>{
+            if (isNavigatingRef.current) {
+                isNavigatingRef.current = false;
+                return;
+            }
+            if (!(active && index > -1 && highlightedIndex !== index)) {
+                return;
+            }
+            // If focus is currently within the tabs list, don't override the roving
+            // focus highlight. This keeps keyboard navigation relative to the focused
+            // item after an external/asynchronous selection change.
+            const listElement = tabsListElement;
+            if (listElement != null) {
+                const activeEl = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$shadowDom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["activeElement"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$owner$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["ownerDocument"])(listElement));
+                if (activeEl && (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$shadowDom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["contains"])(listElement, activeEl)) {
+                    return;
+                }
+            }
+            // Don't highlight disabled tabs to prevent them from interfering with keyboard navigation.
+            // Keyboard focus (tabIndex) should remain on an enabled tab even when a disabled tab is selected.
+            if (!disabled) {
+                onHighlightedIndexChange(index);
+            }
+        }
+    }["TabsTab.TabsTab.useIsoLayoutEffect"], [
+        active,
+        index,
+        highlightedIndex,
+        onHighlightedIndexChange,
+        disabled,
+        tabsListElement
+    ]);
+    const { getButtonProps, buttonRef } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$use$2d$button$2f$useButton$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useButton"])({
+        disabled,
+        native: nativeButton,
+        focusableWhenDisabled: true
+    });
+    const tabPanelId = getTabPanelIdByValue(value);
+    const isPressingRef = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](false);
+    const isMainButtonRef = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](false);
+    // Both callers guard on `!active`, so the current value is never re-committed.
+    function activate(event) {
+        onValueChange(value, (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$createBaseUIEventDetails$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createChangeEventDetails"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$reason$2d$parts$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__REASONS$3e$__["REASONS"].none, event.nativeEvent, undefined, {
+            activationDirection: 'none'
+        }));
+    }
+    function onClick(event) {
+        if (active || disabled) {
+            return;
+        }
+        activate(event);
+    }
+    function onFocus(event) {
+        if (active || disabled) {
+            return;
+        }
+        if (activateOnFocus && (!isPressingRef.current || // keyboard or touch focus
+        isMainButtonRef.current) // main mouse button focus
+        ) {
+            activate(event);
+        }
+    }
+    function onPointerDown(event) {
+        if (active || disabled) {
+            return;
+        }
+        isPressingRef.current = true;
+        // Secondary presses (context menu, middle click) may focus the tab, but
+        // must not activate it with `activateOnFocus`.
+        isMainButtonRef.current = event.button === 0;
+        // Registered for every button so a secondary press doesn't leave the tab
+        // stuck in the pressing state, which would suppress later focus activation.
+        const doc = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$owner$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["ownerDocument"])(event.currentTarget);
+        function handlePointerEnd() {
+            isPressingRef.current = false;
+            isMainButtonRef.current = false;
+            doc.removeEventListener('pointerup', handlePointerEnd);
+            doc.removeEventListener('pointercancel', handlePointerEnd);
+        }
+        doc.addEventListener('pointerup', handlePointerEnd);
+        doc.addEventListener('pointercancel', handlePointerEnd);
+    }
+    const state = {
+        disabled,
+        active,
+        orientation,
+        tabActivationDirection
+    };
+    const element = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$useRenderElement$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRenderElement"])('button', componentProps, {
+        state,
+        ref: [
+            forwardedRef,
+            buttonRef,
+            compositeRef,
+            observeTabElement
+        ],
+        props: [
+            compositeProps,
+            {
+                role: 'tab',
+                'aria-controls': tabPanelId,
+                'aria-selected': active,
+                id,
+                onClick,
+                onFocus,
+                onPointerDown,
+                [__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$internals$2f$composite$2f$constants$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ACTIVE_COMPOSITE_ITEM"]]: active ? '' : undefined,
+                onKeyDownCapture () {
+                    isNavigatingRef.current = true;
+                }
+            },
+            elementProps,
+            getButtonProps
+        ],
+        stateAttributesMapping: __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$tabs$2f$root$2f$stateAttributesMapping$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["tabsStateAttributesMapping"]
+    });
+    return element;
+});
+if ("TURBOPACK compile-time truthy", 1) TabsTab.displayName = "TabsTab";
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/utils/getCssDimensions.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "getCssDimensions",
+    ()=>getCssDimensions
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@floating-ui/utils/dist/floating-ui.utils.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@floating-ui/utils/dist/floating-ui.utils.dom.mjs [app-client] (ecmascript)");
+;
+;
+function getCssDimensions(element) {
+    const css = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getComputedStyle"])(element);
+    // In testing environments, the `width` and `height` properties are empty
+    // strings for SVG elements, returning NaN. Fallback to `0` in this case.
+    let width = parseFloat(css.width) || 0;
+    let height = parseFloat(css.height) || 0;
+    const hasOffset = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isHTMLElement"])(element);
+    const offsetWidth = hasOffset ? element.offsetWidth : width;
+    const offsetHeight = hasOffset ? element.offsetHeight : height;
+    const shouldFallback = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["round"])(width) !== offsetWidth || (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["round"])(height) !== offsetHeight;
+    if (shouldFallback) {
+        width = offsetWidth;
+        height = offsetHeight;
+    }
+    return {
+        width,
+        height
+    };
+}
+}),
+"[project]/secretaria-web/node_modules/@base-ui/react/utils/useIsHydrating.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "useIsHydrating",
+    ()=>useIsHydrating
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$use$2d$sync$2d$external$2d$store$2f$shim$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/use-sync-external-store/shim/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$empty$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/@base-ui/utils/empty.mjs [app-client] (ecmascript)");
+;
+;
+function subscribe() {
+    return __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$utils$2f$empty$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NOOP"];
+}
+function getSnapshot() {
+    return false;
+}
+function getServerSnapshot() {
+    return true;
+}
+function useIsHydrating() {
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$use$2d$sync$2d$external$2d$store$2f$shim$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSyncExternalStore"])(subscribe, getSnapshot, getServerSnapshot);
+}
+}),
+]);
+
+//# sourceMappingURL=1n7b_%40base-ui_react_12oegg9._.js.map

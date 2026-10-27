@@ -17,6 +17,7 @@
 /.next/
 /out/
 .next/
+**/secretaria-web/.next/
 
 # production
 /build
