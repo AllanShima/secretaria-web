@@ -11,7 +11,7 @@ export interface Event {
   injuryLocations: string[];    // Locais de lesões
   createdByUser: User;          // Atendente que registrou
   status: "Em Andamento" | "Não Iniciado" | "Finalizado";
-  operatorUser?: User[];          // Telefonista
+  operatorUser?: User;          // Telefonista
   assignedVehicle?: Vehicle;    // Socorrista / Veículo
   createdAt: Date;
 

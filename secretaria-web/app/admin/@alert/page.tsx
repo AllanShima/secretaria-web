@@ -94,7 +94,7 @@ const AdminHomepageAlert = () => {
 
 
               {/* Container do mapa com flex-1 e min-h-0 para respeitar o espaço livre e não estourar */}
-              <div className='w-full flex-1 min-h-0 rounded-b-lg bg-amber-600 relative overflow-hidden'>
+              <div className='z-0 w-full flex-1 min-h-0 rounded-b-lg bg-amber-600 relative overflow-hidden'>
                 <CustomMap routeCords={currentCoords} />
               </div>
             </div>

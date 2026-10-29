@@ -6,6 +6,9 @@ import { User } from "@/app/features/auth/types/User";
 // import { getUsersFromApi } from "@/services/user-service"; // função fetch
 import { BASE_USERS } from "@/app/features/auth/api/MockData";
 import LoadingPage from "@/components/LoadingPage";
+import CustomMap from "@/app/features/map/components/CustomMap";
+import { searchCoordenateFromAddress } from "@/app/features/map/api/NominatimAPI";
+import { toast } from "@/components/ui/toast";
 
 const AdminHomepageChat = () => {
   const users = BASE_USERS;
@@ -13,6 +16,8 @@ const AdminHomepageChat = () => {
   const [clients, setClients] = useState<User[]>(users.filter(user => user.type == "Client"));
   const [selectedClient, setSelectedClient] = useState<User>(clients[0]);
   const [isLoading, setIsLoading] = useState(false);
+  
+  const [locationCoords, setLocationCoords] = useState<[number, number][]>([[0, 0]]);
 
   const location = selectedClient.address;
 
@@ -31,6 +36,14 @@ const AdminHomepageChat = () => {
 
   //   loadClients();
   // }, []);
+
+  useEffect(() => {
+    async function loadCoordinates() {
+      const coords = await searchCoordenateFromAddress(location);
+      setLocationCoords(coords ? [[coords.lat, coords.lng]] : []);
+    }
+    loadCoordinates();
+  }, [location])
 
   if (isLoading) {
     return <LoadingPage/>;
@@ -56,12 +69,14 @@ const AdminHomepageChat = () => {
             <div className='flex absolute shadow-lg border-black/30 justify-center items-center bg-white text-black rounded-xl h-fit w-fit max-w-5/6 py-3 px-5 mb-5 border-1 z-10'>
               <p>{location}</p>
             </div>
-            <div className='flex w-full h-auto rounded-b-lg '>
-              <img
+            
+            <div className='flex w-full h-full rounded-b-lg z-0'>
+              <CustomMap routeCords={locationCoords}/>
+              {/* <img
                 className='w-full h-full rounded-b-lg'
                 src="https://developers.google.com/static/maps/documentation/mobility/operations/images/fleet_tracking_example.png?hl=pt-br"
                 alt="GPS Tracking"
-              />
+              /> */}
             </div>
           </div>
         </div>

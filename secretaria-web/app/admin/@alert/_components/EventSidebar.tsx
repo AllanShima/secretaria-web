@@ -24,7 +24,7 @@ const EventSidebar = ({users, events, locationValue}: EventSidebarProps) => {
 
     const [tabSelected, setTabSelected] = useState("rescuers");
 
-    const [clientsSelected, setClientsSelected] = useState<User[]>([]);
+    const [clientSelected, setClientSelected] = useState<User|null>(null);
 
     const clients: User[] = users.filter((user) => user.type == "Client");
     const [eventList, setEventList] = useState<Event[]>(events);
@@ -32,7 +32,7 @@ const EventSidebar = ({users, events, locationValue}: EventSidebarProps) => {
     const handleSend = () => {
         if (!user) return;
 
-        if (locationValue == "" || clientsSelected.length === 0) {
+        if (locationValue == "" || clientSelected == null) {
             toast.add({
                 type: "error",
                 description: "Insira a localização ou ambulâncias!",
@@ -49,12 +49,12 @@ const EventSidebar = ({users, events, locationValue}: EventSidebarProps) => {
             injuryLocations: ["Membro Superior Esquerdo"],
             createdByUser: user,
             status: "Em Andamento",
-            operatorUser: clientsSelected, // Mariana Souza
+            operatorUser: clientSelected, // Mariana Souza
             createdAt: new Date("2024-03-05T09:00:00Z")
         }
         setEventList((prevEvents) => [...prevEvents, newEvent]);
         setTabSelected("alerts-sent");
-        setClientsSelected([]);
+        setClientSelected(null);
         toast.add({
             type: "success",
             description: "Alerta enviado com sucesso!",
@@ -92,9 +92,9 @@ const EventSidebar = ({users, events, locationValue}: EventSidebarProps) => {
                 <div className='w-full h-full flex flex-col'>
                     <TabsContent value={"rescuers"} className={"flex flex-col w-full h-full m-0 data-[state=inactive]:hidden"}>
                         {/* Content */}
-                        <ToggleGroup multiple className='flex flex-col p-3 w-full h-full items-start gap-3 bg-[#1c2330]/20'>
+                        <ToggleGroup className='flex flex-col p-3 w-full h-full items-start gap-3 bg-[#1c2330]/20'>
                             {clients.map((user: User) => (
-                                <ClientItem key={user.id} user={user} setClientsSelected={setClientsSelected}/>
+                                <ClientItem key={user.id} user={user} setClientSelected={setClientSelected} clientSelected={clientSelected}/>
                             ))}
                         </ToggleGroup>
                         {/* Button */}

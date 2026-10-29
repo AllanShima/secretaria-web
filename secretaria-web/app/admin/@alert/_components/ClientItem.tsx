@@ -9,28 +9,19 @@ import { ToggleGroupItem } from '@/components/ui/toggle-group';
 
 interface RescuerItemProp {
     user: User
-    setClientsSelected: Dispatch<SetStateAction<User[]>>
+    setClientSelected: Dispatch<SetStateAction<User | null>>,
+    clientSelected: User | null
 }
 
-const ClientItem = ({user, setClientsSelected}: RescuerItemProp) => {
+const ClientItem = ({user, setClientSelected, clientSelected}: RescuerItemProp) => {
     const status = user.status == false ? "Offline" : "Online";
     const statusStyle = user.status == false ? "bg-[#4c1f1f] border-red-600 text-red-500" : "bg-[#1f4c2a] border-[#1c7f2a] text-green-500"
-    
+    const isAlreadySelected = clientSelected !== null
+
     return (
         <ToggleGroupItem
         onClick={() => {
-            setClientsSelected((prevClients) => {
-                // Verifica se o usuário já existe na lista selecionada
-                const isAlreadySelected = prevClients.some((client) => client.id === user.id);
-
-                if (isAlreadySelected) {
-                    // Se já está selecionado, remove ele da lista
-                    return prevClients.filter((client) => client.id !== user.id);
-                } else {
-                    // Se não está selecionado, adiciona ele na lista
-                    return [...prevClients, user];
-                }
-            });
+            setClientSelected(isAlreadySelected ? null : user);
         }}
         value={user.id}
         disabled={user.status === false} aria-label="Toggle bookmark" size="sm" variant="outline" 

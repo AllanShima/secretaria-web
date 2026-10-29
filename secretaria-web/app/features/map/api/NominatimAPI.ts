@@ -1,15 +1,41 @@
-export async function searchCoordenateFromAddress(endereco: string) {
-    // O Nominatim exige um formato URL-encoded e um User-Agent válido por questões de política de uso
-    const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(endereco)}`;
+import { toast } from "@/components/ui/toast";
 
-    try {
+let ultimaRequisicao = 0;
+
+export async function searchCoordenateFromAddress(endereco: string) {
+    const agora = Date.now();
+    const tempoMinimoEntreRequisicoes = 1000; // 1 segundo exato
+
+    // Se passou menos de 1 segundo desde a última chamada, aguarda o resto do tempo
+    if (agora - ultimaRequisicao < tempoMinimoEntreRequisicoes) {
+        const espera = tempoMinimoEntreRequisicoes - (agora - ultimaRequisicao);
+        await new Promise(resolve => setTimeout(resolve, espera));
+    }
+
+    ultimaRequisicao = Date.now();
+
+    async function fetchNominatim(query: string) {
+        const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`;
         const response = await fetch(url, {
             headers: {
-                'User-Agent': 'SuaAplicacao-SecretariaWeb' // Coloque o nome da sua aplicação/projeto aqui
+                'User-Agent': 'SecretariaWeb-SecretariaWebMap'
             }
         });
+        return await response.json();
+    }
 
-        const data = await response.json();
+    try {
+        // 1. Tenta buscar o endereço completo exatamente como o usuário digitou
+        let data = await fetchNominatim(endereco);
+
+        // 2. SE FALHAR E TIVER HÍFEN/NÚMERO: Tenta limpar o número e buscar só a rua/bairro/cidade
+        if ((!data || data.length === 0) && endereco.includes('-')) {
+            // Ex: Transforma "R. Pres. Eurico Gaspar Dutra, 14-56 - Pompéia" em "R. Pres. Eurico Gaspar Dutra, Pompéia"
+            const enderecoSimplificado = endereco.replace(/,\s*\d+-\d+/, '');
+            console.warn(`Endereço exato não encontrado. Tentando busca simplificada: ${enderecoSimplificado}`);
+            
+            data = await fetchNominatim(enderecoSimplificado);
+        }
 
         if (data && data.length > 0) {
             const primeiroResultado = data[0];
@@ -17,22 +43,32 @@ export async function searchCoordenateFromAddress(endereco: string) {
             const coordenadas = {
                 lat: parseFloat(primeiroResultado.lat),
                 lng: parseFloat(primeiroResultado.lon),
-                displayName: primeiroResultado.display_name // Nome completo formatado que o OSM encontrou
+                displayName: primeiroResultado.display_name
             };
 
             console.log("Coordenadas encontradas:", coordenadas);
             return coordenadas;
         } else {
-            console.warn("Nenhum resultado encontrado para este endereço.");
+            toast.add({
+                type: "info",
+                description: "Endereço não encontrado!",
+                priority: "high",
+            })
+            console.warn("Nenhum resultado encontrado nem na busca simplificada.");
             return null;
         }
     } catch (error) {
+        toast.add({
+          type: "error",
+          description: "Erro ao procurar o endereço...",
+          priority: "high",
+        })
         console.error("Erro ao buscar geocodificação:", error);
         return null;
     }
 }
 
-export const obterLocalizacaoAtual = () => {
+export const getCurrentPosition = () => {
     if (!navigator.geolocation) {
         alert("A geolocalização não é suportada pelo seu navegador.");
         return;
