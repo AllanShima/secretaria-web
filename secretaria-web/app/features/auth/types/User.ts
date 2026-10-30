@@ -12,6 +12,17 @@ export interface User {
     createdAt?: Date;
 }
 
+export interface BaseUser {
+    id?: string;
+    name: string;
+    email: string;
+    password: string;
+    phone: string;
+    role: "ATTENDANT" | "DRIVER";
+    status: "OFFLINE" | "ONLINE";
+    createdAt?: Date;
+}
+
 // Attendant
 // {
 //   "id": "06351f02-5052-48a1-9ca4-c148e2eacc8a",

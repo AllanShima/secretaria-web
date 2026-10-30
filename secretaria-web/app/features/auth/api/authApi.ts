@@ -1,15 +1,35 @@
 import { apiFetch } from "@/lib/apiClient";
-import { User } from "../types/User";
+import { BaseUser, User } from "../types/User";
+import { CreateAttendantRequest, CreateDriverRequest } from "../requests/UsersRequests";
 
-
-export async function getUsers(): Promise<User[]> {
-    // Substitua '/events' pela rota exata da sua API backend
-    return apiFetch<User[]>('/events'); 
+// GetAll
+export async function getDrivers(): Promise<BaseUser[]> {
+    return apiFetch<BaseUser[]>('/drivers/', { method: 'GET' }); 
 }
 
-export async function createEventInDatabase(eventData: Partial<User>) {
-    return apiFetch('/events', {
+// ----------
+// GetById
+
+export async function getAttendantById(id: string): Promise<BaseUser> {
+    return apiFetch<BaseUser>(`/attendants/${id}`);
+}
+
+export async function getDriverById(id: string): Promise<BaseUser> {
+    return apiFetch<BaseUser>(`/drivers/${id}`);
+}
+
+// ----------- POST
+
+export async function createAttendant(attendantBody: CreateAttendantRequest) {
+    return apiFetch('/attendants/', {
         method: 'POST',
-        body: JSON.stringify(eventData),
+        body: JSON.stringify(attendantBody),
+    });
+}
+
+export async function createDriver(driverBody: CreateDriverRequest) {
+    return apiFetch('/drivers/', {
+        method: 'POST',
+        body: JSON.stringify(driverBody),
     });
 }

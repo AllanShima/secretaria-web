@@ -32,8 +32,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col w-full h-full" suppressHydrationWarning={true}>
         <AuthProvider>{children}</AuthProvider>
+        {/* @ts-ignore */}
+        <Toaster/>
       </body>
-      <Toaster/>
     </html>
   );
 }

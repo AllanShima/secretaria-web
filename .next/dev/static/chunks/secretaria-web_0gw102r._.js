@@ -201,7 +201,7 @@ _c2 = ToastViewport;
 function Toast({ className, ...props }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$toast$2f$index$2e$parts$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__Toast$3e$__["Toast"].Root, {
         "data-slot": "toast",
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$cn$2f$dist$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["cn"])("group/toast pointer-events-auto absolute right-0 bottom-0 z-[calc(1000-var(--toast-index))] w-full origin-bottom rounded-2xl border bg-popover text-popover-foreground shadow-lg will-change-transform outline-none select-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50", "[--gap:0.75rem] [--height:var(--toast-frontmost-height,var(--toast-height))] [--offset-y:calc(var(--toast-offset-y)*-1+calc(var(--toast-index)*var(--gap)*-1)+var(--toast-swipe-movement-y))] [--peek:0.75rem] [--scale:calc(max(0,1-(var(--toast-index)*0.1)))] [--shrink:calc(1-var(--scale))]", "h-(--height) [transform:translateX(var(--toast-swipe-movement-x))_translateY(calc(var(--toast-swipe-movement-y)-(var(--toast-index)*var(--peek))-(var(--shrink)*var(--height))))_scale(var(--scale))] [transition:transform_500ms_cubic-bezier(0.22,1,0.36,1),opacity_500ms,height_150ms]", "after:absolute after:top-full after:left-0 after:h-[calc(var(--gap)+1px)] after:w-full after:content-['']", "data-expanded:h-(--toast-height) data-expanded:[transform:translateX(var(--toast-swipe-movement-x))_translateY(var(--offset-y))]", "data-limited:opacity-0 data-starting-style:[transform:translateY(150%)]", "[&[data-ending-style]:not([data-limited]):not([data-swipe-direction])]:[transform:translateY(150%)]", "data-ending-style:data-[swipe-direction=down]:[transform:translateY(calc(var(--toast-swipe-movement-y)+150%))]", "data-ending-style:data-[swipe-direction=left]:[transform:translateX(calc(var(--toast-swipe-movement-x)-150%))_translateY(var(--offset-y))]", "data-ending-style:data-[swipe-direction=right]:[transform:translateX(calc(var(--toast-swipe-movement-x)+150%))_translateY(var(--offset-y))]", "data-ending-style:data-[swipe-direction=up]:[transform:translateY(calc(var(--toast-swipe-movement-y)-150%))]", "data-expanded:data-ending-style:data-[swipe-direction=down]:[transform:translateY(calc(var(--toast-swipe-movement-y)+150%))]", "data-expanded:data-ending-style:data-[swipe-direction=left]:[transform:translateX(calc(var(--toast-swipe-movement-x)-150%))_translateY(var(--offset-y))]", "data-expanded:data-ending-style:data-[swipe-direction=right]:[transform:translateX(calc(var(--toast-swipe-movement-x)+150%))_translateY(var(--offset-y))]", "data-expanded:data-ending-style:data-[swipe-direction=up]:[transform:translateY(calc(var(--toast-swipe-movement-y)-150%))]", className),
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$cn$2f$dist$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["cn"])("dark", "group/toast pointer-events-auto absolute right-0 bottom-0 z-[calc(1000-var(--toast-index))] w-full origin-bottom rounded-2xl border bg-popover text-popover-foreground shadow-lg will-change-transform outline-none select-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50", "[--gap:0.75rem] [--height:var(--toast-frontmost-height,var(--toast-height))] [--offset-y:calc(var(--toast-offset-y)*-1+calc(var(--toast-index)*var(--gap)*-1)+var(--toast-swipe-movement-y))] [--peek:0.75rem] [--scale:calc(max(0,1-(var(--toast-index)*0.1)))] [--shrink:calc(1-var(--scale))]", "h-(--height) [transform:translateX(var(--toast-swipe-movement-x))_translateY(calc(var(--toast-swipe-movement-y)-(var(--toast-index)*var(--peek))-(var(--shrink)*var(--height))))_scale(var(--scale))] [transition:transform_500ms_cubic-bezier(0.22,1,0.36,1),opacity_500ms,height_150ms]", "after:absolute after:top-full after:left-0 after:h-[calc(var(--gap)+1px)] after:w-full after:content-['']", "data-expanded:h-(--toast-height) data-expanded:[transform:translateX(var(--toast-swipe-movement-x))_translateY(var(--offset-y))]", "data-limited:opacity-0 data-starting-style:[transform:translateY(150%)]", "[&[data-ending-style]:not([data-limited]):not([data-swipe-direction])]:[transform:translateY(150%)]", "data-ending-style:data-[swipe-direction=down]:[transform:translateY(calc(var(--toast-swipe-movement-y)+150%))]", "data-ending-style:data-[swipe-direction=left]:[transform:translateX(calc(var(--toast-swipe-movement-x)-150%))_translateY(var(--offset-y))]", "data-ending-style:data-[swipe-direction=right]:[transform:translateX(calc(var(--toast-swipe-movement-x)+150%))_translateY(var(--offset-y))]", "data-ending-style:data-[swipe-direction=up]:[transform:translateY(calc(var(--toast-swipe-movement-y)-150%))]", "data-expanded:data-ending-style:data-[swipe-direction=down]:[transform:translateY(calc(var(--toast-swipe-movement-y)+150%))]", "data-expanded:data-ending-style:data-[swipe-direction=left]:[transform:translateX(calc(var(--toast-swipe-movement-x)-150%))_translateY(var(--offset-y))]", "data-expanded:data-ending-style:data-[swipe-direction=right]:[transform:translateX(calc(var(--toast-swipe-movement-x)+150%))_translateY(var(--offset-y))]", "data-expanded:data-ending-style:data-[swipe-direction=up]:[transform:translateY(calc(var(--toast-swipe-movement-y)-150%))]", className),
         ...props
     }, void 0, false, {
         fileName: "[project]/secretaria-web/components/ui/toast.tsx",
@@ -217,7 +217,7 @@ function ToastContent({ className, ...props }) {
         ...props
     }, void 0, false, {
         fileName: "[project]/secretaria-web/components/ui/toast.tsx",
-        lineNumber: 62,
+        lineNumber: 63,
         columnNumber: 5
     }, this);
 }
@@ -229,7 +229,7 @@ function ToastTitle({ className, ...props }) {
         ...props
     }, void 0, false, {
         fileName: "[project]/secretaria-web/components/ui/toast.tsx",
-        lineNumber: 75,
+        lineNumber: 76,
         columnNumber: 5
     }, this);
 }
@@ -241,7 +241,7 @@ function ToastDescription({ className, ...props }) {
         ...props
     }, void 0, false, {
         fileName: "[project]/secretaria-web/components/ui/toast.tsx",
-        lineNumber: 88,
+        lineNumber: 89,
         columnNumber: 5
     }, this);
 }
@@ -251,7 +251,7 @@ function ToastAction({ className, render = /*#__PURE__*/ (0, __TURBOPACK__import
     size: "sm"
 }, void 0, false, {
     fileName: "[project]/secretaria-web/components/ui/toast.tsx",
-    lineNumber: 98,
+    lineNumber: 99,
     columnNumber: 12
 }, this), ...props }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$toast$2f$index$2e$parts$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__Toast$3e$__["Toast"].Action, {
@@ -261,7 +261,7 @@ function ToastAction({ className, render = /*#__PURE__*/ (0, __TURBOPACK__import
         ...props
     }, void 0, false, {
         fileName: "[project]/secretaria-web/components/ui/toast.tsx",
-        lineNumber: 102,
+        lineNumber: 103,
         columnNumber: 5
     }, this);
 }
@@ -271,7 +271,7 @@ function ToastClose({ className, children, render = /*#__PURE__*/ (0, __TURBOPAC
     size: "icon-sm"
 }, void 0, false, {
     fileName: "[project]/secretaria-web/components/ui/toast.tsx",
-    lineNumber: 114,
+    lineNumber: 115,
     columnNumber: 12
 }, this), ...props }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f40$base$2d$ui$2f$react$2f$toast$2f$index$2e$parts$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__Toast$3e$__["Toast"].Close, {
@@ -284,12 +284,12 @@ function ToastClose({ className, children, render = /*#__PURE__*/ (0, __TURBOPAC
             "aria-hidden": "true"
         }, void 0, false, {
             fileName: "[project]/secretaria-web/components/ui/toast.tsx",
-            lineNumber: 129,
+            lineNumber: 130,
             columnNumber: 9
         }, this)
     }, void 0, false, {
         fileName: "[project]/secretaria-web/components/ui/toast.tsx",
-        lineNumber: 118,
+        lineNumber: 119,
         columnNumber: 5
     }, this);
 }
@@ -301,7 +301,7 @@ function ToastIcon({ type }) {
             "aria-hidden": "true"
         }, void 0, false, {
             fileName: "[project]/secretaria-web/components/ui/toast.tsx",
-            lineNumber: 140,
+            lineNumber: 141,
             columnNumber: 7
         }, this);
     }
@@ -310,7 +310,7 @@ function ToastIcon({ type }) {
             "aria-hidden": "true"
         }, void 0, false, {
             fileName: "[project]/secretaria-web/components/ui/toast.tsx",
-            lineNumber: 146,
+            lineNumber: 147,
             columnNumber: 7
         }, this);
     }
@@ -319,7 +319,7 @@ function ToastIcon({ type }) {
             "aria-hidden": "true"
         }, void 0, false, {
             fileName: "[project]/secretaria-web/components/ui/toast.tsx",
-            lineNumber: 152,
+            lineNumber: 153,
             columnNumber: 7
         }, this);
     }
@@ -329,7 +329,7 @@ function ToastIcon({ type }) {
             "aria-hidden": "true"
         }, void 0, false, {
             fileName: "[project]/secretaria-web/components/ui/toast.tsx",
-            lineNumber: 158,
+            lineNumber: 159,
             columnNumber: 7
         }, this);
     }
@@ -339,7 +339,7 @@ function ToastIcon({ type }) {
             "aria-hidden": "true"
         }, void 0, false, {
             fileName: "[project]/secretaria-web/components/ui/toast.tsx",
-            lineNumber: 164,
+            lineNumber: 165,
             columnNumber: 7
         }, this);
     }
@@ -352,7 +352,7 @@ function ToastIcon({ type }) {
         children: icon
     }, void 0, false, {
         fileName: "[project]/secretaria-web/components/ui/toast.tsx",
-        lineNumber: 173,
+        lineNumber: 174,
         columnNumber: 5
     }, this);
 }
@@ -368,7 +368,7 @@ function ToastList() {
                         type: toastItem.type
                     }, void 0, false, {
                         fileName: "[project]/secretaria-web/components/ui/toast.tsx",
-                        lineNumber: 188,
+                        lineNumber: 189,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -376,39 +376,39 @@ function ToastList() {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ToastTitle, {}, void 0, false, {
                                 fileName: "[project]/secretaria-web/components/ui/toast.tsx",
-                                lineNumber: 190,
+                                lineNumber: 191,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ToastDescription, {}, void 0, false, {
                                 fileName: "[project]/secretaria-web/components/ui/toast.tsx",
-                                lineNumber: 191,
+                                lineNumber: 192,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/secretaria-web/components/ui/toast.tsx",
-                        lineNumber: 189,
+                        lineNumber: 190,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ToastAction, {}, void 0, false, {
                         fileName: "[project]/secretaria-web/components/ui/toast.tsx",
-                        lineNumber: 193,
+                        lineNumber: 194,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ToastClose, {}, void 0, false, {
                         fileName: "[project]/secretaria-web/components/ui/toast.tsx",
-                        lineNumber: 194,
+                        lineNumber: 195,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/secretaria-web/components/ui/toast.tsx",
-                lineNumber: 187,
+                lineNumber: 188,
                 columnNumber: 7
             }, this)
         }, toastItem.id, false, {
             fileName: "[project]/secretaria-web/components/ui/toast.tsx",
-            lineNumber: 186,
+            lineNumber: 187,
             columnNumber: 5
         }, this));
 }
@@ -428,23 +428,23 @@ function Toaster({ children, toastManager = toast, ...props }) {
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ToastViewport, {
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ToastList, {}, void 0, false, {
                         fileName: "[project]/secretaria-web/components/ui/toast.tsx",
-                        lineNumber: 210,
+                        lineNumber: 211,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/secretaria-web/components/ui/toast.tsx",
-                    lineNumber: 209,
+                    lineNumber: 210,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/secretaria-web/components/ui/toast.tsx",
-                lineNumber: 208,
+                lineNumber: 209,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/secretaria-web/components/ui/toast.tsx",
-        lineNumber: 206,
+        lineNumber: 207,
         columnNumber: 5
     }, this);
 }
