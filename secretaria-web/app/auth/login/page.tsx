@@ -6,9 +6,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { LiaHospitalAltSolid } from "react-icons/lia";
 import { useRouter } from "next/navigation";
-import { BASE_USERS } from "@/app/features/auth/api/MockData";
 import { toast } from "@/components/ui/toast";
 import { useAuth } from "@/app/features/auth/api/AuthContext";
+import { BASE_USERS } from "@/lib/MockData";
 
 interface FormState {
   email: string;

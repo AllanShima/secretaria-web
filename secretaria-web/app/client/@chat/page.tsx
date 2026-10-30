@@ -1,10 +1,10 @@
 'use client'
 
 import React, { useState } from 'react'
-import { BASE_USERS } from '@/app/features/auth/api/MockData'
 import LiveChatWindow from './_components/ClientLiveChat'
 import LoadingPage from '@/components/LoadingPage'
 import { User } from '@/app/features/auth/types/User'
+import { BASE_USERS } from '@/lib/MockData'
 
 const ClientHomepageChat = () => {
 

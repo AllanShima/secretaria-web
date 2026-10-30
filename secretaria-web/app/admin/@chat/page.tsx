@@ -4,11 +4,11 @@ import React, { useState, useEffect } from "react";
 import LiveChatWindow from "./_components/AdminLiveChat";
 import { User } from "@/app/features/auth/types/User";
 // import { getUsersFromApi } from "@/services/user-service"; // função fetch
-import { BASE_USERS } from "@/app/features/auth/api/MockData";
 import LoadingPage from "@/components/LoadingPage";
 import CustomMap from "@/app/features/map/components/CustomMap";
 import { searchCoordenateFromAddress } from "@/app/features/map/api/NominatimAPI";
 import { toast } from "@/components/ui/toast";
+import { BASE_USERS } from "@/lib/MockData";
 
 const AdminHomepageChat = () => {
   const users = BASE_USERS;

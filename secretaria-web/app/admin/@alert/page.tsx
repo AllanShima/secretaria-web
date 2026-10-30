@@ -3,12 +3,12 @@ import { Input } from '@/components/ui/input'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import EventSidebar from './_components/EventSidebar';
 import { useAuth } from '@/app/features/auth/api/AuthContext';
-import { BASE_EVENTS, BASE_USERS, BASE_VEHICLES } from '@/app/features/auth/api/MockData';
 import { useState } from 'react';
 import CustomMap from '@/app/features/map/components/CustomMap';
 import { CiSearch } from "react-icons/ci";
 import { toast } from '@/components/ui/toast';
 import { searchCoordenateFromAddress } from '@/app/features/map/api/NominatimAPI';
+import { BASE_EVENTS, BASE_USERS } from '@/lib/MockData';
 
 const AdminHomepageAlert = () => {
   // try {

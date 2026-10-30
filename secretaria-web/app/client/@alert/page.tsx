@@ -1,11 +1,11 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import ClientSidebar from './_components/ClientSidebar'
-import { BASE_EVENTS, BASE_VEHICLES } from '@/app/features/auth/api/MockData';
 import LoadingPage from '@/components/LoadingPage';
 import { Event } from '@/app/features/auth/types/Event';
 import CustomMap from '@/app/features/map/components/CustomMap';
 import { searchCoordenateFromAddress } from '@/app/features/map/api/NominatimAPI';
+import { BASE_EVENTS, BASE_VEHICLES } from '@/lib/MockData';
 
 const ClientHomepageAlert = () => {
   const vehicles = BASE_VEHICLES;

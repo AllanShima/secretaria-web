@@ -16,10 +16,27 @@ interface FormState {
   confirmarSenha: string;
   telefone: string;
   perfil: Perfil;
+  placa: string
 }
 
 export default function SignupPage() {
   const router = useRouter();
+
+    // useEffect(() => {
+    //   async function loadClients() {
+    //     try {
+    //       const data = await getUsersFromApi();
+    //       const filteredClients = data.filter((user: User) => user.type == "Client");
+    //       setClients(filteredClients);
+    //     } catch (error) {
+    //       console.error("Erro ao buscar clientes:", error);
+    //     } finally {
+    //       setIsLoading(false);
+    //     }
+    //   }
+
+    //   loadClients();
+    // }, []);
 
   const [form, setForm] = useState<FormState>({
     email: "",
@@ -27,6 +44,7 @@ export default function SignupPage() {
     confirmarSenha: "",
     telefone: "",
     perfil: "telefonista",
+    placa: "",
   });
   const [erro, setErro] = useState<string | null>(null);
 
@@ -123,7 +141,18 @@ export default function SignupPage() {
               />
             </div>
           </div>
-
+          
+          {form.perfil === "socorrista" && (
+            <div className="flex w-full h-10">
+              <Input
+                placeholder="Placa do Veículo"
+                value={form.placa}
+                onChange={(e) => setField("placa", e.target.value)}
+                className={inputClasses}
+                required
+              />
+            </div>              
+          )}
           {erro && <p className="text-sm text-[#f64444]">{erro}</p>}
 
           <Button
