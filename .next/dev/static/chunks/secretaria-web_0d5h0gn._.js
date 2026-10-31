@@ -600,39 +600,40 @@ async function searchCoordenateFromAddress(endereco) {
         return null;
     }
 }
-const getCurrentPosition = ()=>{
+async function getCurrentPosition() {
     if (!navigator.geolocation) {
         alert("A geolocalização não é suportada pelo seu navegador.");
-        return;
+        return null;
     }
-    navigator.geolocation.getCurrentPosition((position)=>{
-        const lat = position.coords.latitude;
-        const lng = position.coords.longitude;
-        console.log("Coordenadas obtidas:", {
-            lat,
-            lng
+    return new Promise((resolve)=>{
+        navigator.geolocation.getCurrentPosition((position)=>{
+            const pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+            console.log("Coordenadas obtidas:", pos.lat, pos.lng);
+            resolve(pos);
+        }, (error)=>{
+            console.error("Erro ao obter a localização:", error.message);
+            switch(error.code){
+                case error.PERMISSION_DENIED:
+                    alert("Permissão de localização negada pelo usuário.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("Informações de localização indisponíveis.");
+                    break;
+                case error.TIMEOUT:
+                    alert("O tempo para obter a localização expirou.");
+                    break;
+            }
+            resolve(null);
+        }, {
+            enableHighAccuracy: true,
+            timeout: 10000,
+            maximumAge: 0 // Não usa cache de localização antiga
         });
-    // Aqui você pode atualizar o seu estado para passar para o CustomMap
-    // ex: setCoordenadasDaRota([[lat, lng]])
-    }, (error)=>{
-        console.error("Erro ao obter a localização:", error.message);
-        switch(error.code){
-            case error.PERMISSION_DENIED:
-                alert("Permissão de localização negada pelo usuário.");
-                break;
-            case error.POSITION_UNAVAILABLE:
-                alert("Informações de localização indisponíveis.");
-                break;
-            case error.TIMEOUT:
-                alert("O tempo para obter a localização expirou.");
-                break;
-        }
-    }, {
-        enableHighAccuracy: true,
-        timeout: 10000,
-        maximumAge: 0 // Não usa cache de localização antiga
     });
-};
+}
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }

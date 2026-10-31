@@ -9,9 +9,11 @@ import { Avatar } from "@/components/ui/avatar";
 import { MdOutlineLocalPhone } from "react-icons/md";
 import Link from "next/link";
 import { useAuth } from "../features/auth/api/AuthContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "@/components/ui/toast";
 import { useRouter } from "next/navigation";
+import { logoutAttendant } from "../features/auth/api/authApi";
+import { LogoutAttendantRequest } from "../features/auth/requests/UsersRequests";
 
 interface AdminLayoutProps {
   children: React.ReactNode;
@@ -24,8 +26,23 @@ export default function HomepageAdminLayout({
   chat,
 }: AdminLayoutProps) {
   const router = useRouter();
+  const [isMounted, setIsMounted] = useState(false);
+  const { user, logout } = useAuth();
 
-  const { user } = useAuth();
+  const handleExit = async () => {
+    if (!user?.id) return;
+
+    const logoutBody: LogoutAttendantRequest = {
+      id: user.id
+    }
+    await logoutAttendant(logoutBody)
+    logout()
+    router.push("/auth/login");
+  }
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     if (!user) {
@@ -33,6 +50,11 @@ export default function HomepageAdminLayout({
       router.push("/auth/login");
     }
   }, [user])
+
+  if (!isMounted) {
+    // Enquanto o servidor renderiza ou o cliente não montou, exibe algo neutro (ou vazio igual o servidor)
+    return null; 
+  }
 
   return (
     <div className="flex-col w-full h-full">
@@ -75,14 +97,15 @@ export default function HomepageAdminLayout({
                 </Avatar>
                 <div className="flex-col">
                   <h3 className="font-medium text-white text-sm">{user?.name}</h3>
-                  <p className="font-light text-white/20 text-xs">TEL - {user?.phoneNumber}</p>
+                  <p className="font-light text-white/20 text-xs">TEL - {user?.phone}</p>
                 </div>
               </div>
-              <Link href="/auth/login">
-                <Button variant="outline" className={"dark bg-transparent text-white/70 hover:text-white text-md font-normal px-4 py-6"}>
+              <Button
+                onClick={handleExit}
+                variant="outline" 
+                className={"dark bg-transparent text-white/70 hover:text-white text-md font-normal px-4 py-6"}>
                   Sair
-                </Button>              
-              </Link>
+              </Button>
             </div>
           </div>
         </div>

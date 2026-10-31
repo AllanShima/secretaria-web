@@ -17,9 +17,36 @@ var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.sign
 const AuthContext = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"])(undefined);
 function AuthProvider({ children }) {
     _s();
-    const [user, setUser] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    const login = (userData)=>setUser(userData);
-    const logout = ()=>setUser(null);
+    // 1. Inicializa o estado buscando do localStorage (caso exista)
+    const [user, setUser] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
+        "AuthProvider.useState": ()=>{
+            if ("TURBOPACK compile-time truthy", 1) {
+                const savedUser = localStorage.getItem("@RotaSAMU:user");
+                if (savedUser) {
+                    try {
+                        return JSON.parse(savedUser);
+                    } catch (e) {
+                        console.error("Erro ao parsear usuário do localStorage", e);
+                    }
+                }
+            }
+            return null;
+        }
+    }["AuthProvider.useState"]);
+    // 2. Salva no localStorage quando o usuário fizer login
+    const login = (newUser)=>{
+        setUser(newUser);
+        if ("TURBOPACK compile-time truthy", 1) {
+            localStorage.setItem("@RotaSAMU:user", JSON.stringify(newUser));
+        }
+    };
+    // 3. Remove do localStorage quando fizer logout
+    const logout = ()=>{
+        setUser(null);
+        if ("TURBOPACK compile-time truthy", 1) {
+            localStorage.removeItem("@RotaSAMU:user");
+        }
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(AuthContext.Provider, {
         value: {
             user,
@@ -29,11 +56,11 @@ function AuthProvider({ children }) {
         children: children
     }, void 0, false, {
         fileName: "[project]/secretaria-web/app/features/auth/api/AuthContext.tsx",
-        lineNumber: 22,
+        lineNumber: 47,
         columnNumber: 5
     }, this);
 }
-_s(AuthProvider, "Iei9RGtZU29Y1RhBe1sbfh/MntA=");
+_s(AuthProvider, "oOEUd/tj3WYPodWJ2EoRSFgw2wA=");
 _c = AuthProvider;
 function useAuth() {
     _s1();

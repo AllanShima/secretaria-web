@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,6 +9,15 @@ import { useRouter } from "next/navigation";
 import { toast } from "@/components/ui/toast";
 import { useAuth } from "@/app/features/auth/api/AuthContext";
 import { BASE_USERS } from "@/lib/MockData";
+import { BaseUser } from "@/app/features/auth/types/User";
+import { getDrivers, loginAttendant, loginDriver } from "@/app/features/auth/api/authApi";
+import LoadingPage from "@/components/LoadingPage";
+import { Ambulance, Phone } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { LoginAttendantRequest, LoginDriverRequest } from "@/app/features/auth/requests/UsersRequests";
+import { LoginDriverResponse } from "@/app/features/auth/responses/UserResponses";
+import { getCurrentPosition } from "@/app/features/map/api/NominatimAPI";
+import { Spinner } from "@/components/ui/spinner";
 
 interface FormState {
   email: string;
@@ -21,42 +30,99 @@ export default function LoginPage() {
   const { login } = useAuth();
 
   // usuários mockados
-  const users = BASE_USERS;
 
   const [form, setForm] = useState<FormState>({
     email: "",
     senha: ""
   });
+
+  const [userType, setUserType] = useState<"DRIVER" | "ATTENDANT">("ATTENDANT");
+  const [isLoadingPos, setIsLoadingPos] = useState(false);
   const [erro, setErro] = useState<string | null>(null);
 
   function setField<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((prev) => ({ ...prev, [key]: value }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setErro(null);
 
-    console.log("Login:", form);
+    console.warn(userType);
 
-    const foundUser = users.find(user => user.email == form.email)
+    try {
 
-    if (foundUser && foundUser.password == form.senha) {
-      // Alocando para o state User
-      login(foundUser);
+      if (userType === "ATTENDANT") {
+        // Alocando para o state User
 
-      if (foundUser.type == "Client") {
-        router.push("/client");
+        const attendantLoginBody: LoginAttendantRequest = {
+          email: form.email,
+          password: form.senha
+        }
+
+        setIsLoadingPos(true);
+
+        const user: any = await loginAttendant(attendantLoginBody);
+        const baseUser: BaseUser = {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          password: user.password,
+          phone: user.phone,
+          role: user.role,
+          status: user.status,
+          createdAt: user.createdAt
+        }
+        login(baseUser);
+        router.push("/admin");
         return;
+
+      } else if (userType === "DRIVER") {
+        setIsLoadingPos(true);
+        const userPos: any = await getCurrentPosition()
+        if (userPos !== null) {
+          console.warn(userPos)
+          const driverLoginBody: LoginDriverRequest = {
+            email: form.email,
+            password: form.senha,
+            latitude: userPos.lat,
+            longitude: userPos.lng
+          }
+          const user: any = await loginDriver(driverLoginBody)
+          const baseUser: BaseUser = {
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            password: user.password,
+            phone: user.phone,
+            role: user.role,
+            status: user.status,
+            createdAt: user.createdAt
+          }
+          login(baseUser);
+          router.push("/client");
+          return; 
+        } else {
+          Error("Posição não encontrada!");
+        }
+      } else {
+        toast.add({
+          type: "error",
+          description: ("Usuário não encontrado!"),
+          priority: "high",
+        })
       }
-      router.push("/admin");
-      return;
+    } catch (error) {
+      console.warn(String(error))
+      toast.add({
+        type: "error",
+        description: String(error),
+        priority: "high",
+      })
+    } finally {
+      setIsLoadingPos(false);
+      console.log("Login:", form);
     }
-    toast.add({
-      type: "error",
-      description: "Usuário não encontrado.",
-      priority: "high",
-    })
   }
 
   return (
@@ -102,12 +168,39 @@ export default function LoginPage() {
               />
             </Field>
 
-            <Button
-              type="submit"
-              className="mt-2.5 h-[42px] w-full rounded-[10px] bg-[#f93a3a] text-lg font-semibold text-white hover:bg-[#e13333]"
-            >
-              Entrar no Sistema
-            </Button>
+                      <div className="flex flex-col gap-2">
+            <Label className="text-base font-normal text-white/50">
+              Entrar como
+            </Label>
+            <div className="flex h-12 gap-2">
+              <PerfilOption
+                icon={Phone}
+                label="Telefonista"
+                selected={userType === "ATTENDANT"}
+                onClick={() => setUserType("ATTENDANT")}
+              />
+              <PerfilOption
+                icon={Ambulance}
+                label="Ambulância"
+                selected={userType === "DRIVER"}
+                onClick={() => setUserType("DRIVER")}
+              />
+            </div>
+          </div>
+
+            {isLoadingPos ? (
+              <div className="flex mt-2.5 h-[42px] w-full items-center justify-center rounded-[10px] bg-[#f93a3a] text-lg font-semibold text-white hover:bg-[#e13333]">
+                <Spinner className="size-6"/>
+              </div>
+            ) : (
+              <Button
+                type="submit"
+                className="mt-2.5 h-[42px] w-full rounded-[10px] bg-[#f93a3a] text-lg font-semibold text-white hover:bg-[#e13333]"
+              >
+                Entrar no Sistema
+              </Button>
+            )}
+
 
             <div className="flex w-full justify-end">
               <p className="text-center text-[10px] text-white">
@@ -143,3 +236,28 @@ function Field({
   );
 }
 
+function PerfilOption({
+  icon: Icon,
+  label,
+  selected,
+  onClick,
+}: {
+  icon: typeof Phone;
+  label: string;
+  selected: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={cn(
+        "flex flex-1 items-center justify-center gap-[15px] rounded-xl border border-[#30363d] px-5 py-[5px] transition-colors",
+        selected ? "bg-white text-black" : "bg-[#1c2330] text-white/50",
+      )}
+    >
+      <Icon className="h-[17px] w-[17px]" />
+      <span className="text-base">{label}</span>
+    </button>
+  );
+}

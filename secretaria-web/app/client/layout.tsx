@@ -14,6 +14,9 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { TbReload } from "react-icons/tb";
+import { BaseUser } from "../features/auth/types/User";
+import { changeDriverStatus } from "../features/auth/api/authApi";
+import { ChangeDriverStatusRequest } from "../features/auth/requests/UsersRequests";
 
 interface ClientLayoutProps {
   children: React.ReactNode;
@@ -26,9 +29,35 @@ export default function HomepageClientLayout({
   chat,
 }: ClientLayoutProps) {
   const router = useRouter();
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
+  const [isMounted, setIsMounted] = useState(false);
+  const [status, setStatus] = useState<boolean>(false);
 
-  const [status, setStatus] = useState(false);
+const handleStatus = async () => {
+    if (!user?.id) return;
+
+    // Inverte o booleano atual para decidir o texto que vai para a API
+    const newStatus = !status; 
+    const st = newStatus ? "ONLINE" : "OFFLINE";
+
+    const driverBody: ChangeDriverStatusRequest = {
+      status: st
+    }
+
+    await changeDriverStatus(user.id, driverBody);
+    
+    // Atualiza o state com o valor invertido
+    setStatus(newStatus);
+  }
+
+  const handleExit = () => {
+    logout()
+    router.push("/auth/login");
+  }
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     if (!user) {
@@ -36,6 +65,11 @@ export default function HomepageClientLayout({
       router.push("/auth/login");
     }
   }, [user])
+
+  if (!isMounted) {
+    // Enquanto o servidor renderiza ou o cliente não montou, exibe algo neutro (ou vazio igual o servidor)
+    return null; 
+  }
 
   return (
     <div className="flex-col w-full h-full">
@@ -79,12 +113,12 @@ export default function HomepageClientLayout({
                   </Avatar>
                   <div className="flex-col">
                     <h3 className="font-medium text-white text-sm">{user?.name}</h3>
-                    <p className="font-light text-white/20 text-xs">TEL - {user?.phoneNumber}</p>
+                    <p className="font-light text-white/20 text-xs">TEL - {user?.phone}</p>
                   </div>                  
                 </span>
 
 
-                <button onClick={() => setStatus(!status)} className="w-20 h-fit cursor-pointer">
+                <button onClick={handleStatus} className="w-20 h-fit cursor-pointer">
                   {status == true ? (
                     <Badge className="w-full h-fit rounded-md border-[#1e7f1c] bg-[#204c1f] text-green-500">
                       <p>Online</p>
@@ -99,11 +133,12 @@ export default function HomepageClientLayout({
                 </button>
 
               </div>
-              <Link href="/auth/login">
-                <Button variant="outline" className={"dark bg-transparent text-white/70 hover:text-white text-md font-normal px-4 py-6"}>
-                  Sair
-                </Button>
-              </Link>
+              <Button 
+              onClick={handleExit}
+              variant="outline" 
+              className={"dark bg-transparent text-white/70 hover:text-white text-md font-normal px-4 py-6"}>
+                Sair
+              </Button>
             </div>
           </div>
         </div>

@@ -16,3 +16,23 @@ export interface CreateDriverRequest {
     longitude: number
   }
 }
+
+export interface LoginDriverRequest {
+  email: string,
+  password: string,
+  latitude: number,
+  longitude: number
+}
+
+export interface LoginAttendantRequest {
+  email: string,
+  password: string
+}
+
+export interface LogoutAttendantRequest {
+  id: string
+}
+
+export interface ChangeDriverStatusRequest {
+  status: "OFFLINE" | "ONLINE"
+}

@@ -26,7 +26,6 @@ interface FormState {
 export default function SignupPage() {
   const router = useRouter();
 
-
     // useEffect(() => {
     //   async function loadClients() {
     //     try {

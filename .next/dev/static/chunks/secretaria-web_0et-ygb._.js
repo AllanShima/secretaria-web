@@ -913,7 +913,16 @@ const ClientHomepageAlert = ()=>{
     // }, []);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "ClientHomepageAlert.useEffect": ()=>{
+            async function loadCurrentCoords() {
+                const currentPos = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$app$2f$features$2f$map$2f$api$2f$NominatimAPI$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCurrentPosition"])();
+            }
+            loadCurrentCoords();
+        }
+    }["ClientHomepageAlert.useEffect"], []);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "ClientHomepageAlert.useEffect": ()=>{
             async function loadCoordinates() {
+                const currentPos = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$app$2f$features$2f$map$2f$api$2f$NominatimAPI$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCurrentPosition"])();
                 const coords = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$app$2f$features$2f$map$2f$api$2f$NominatimAPI$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["searchCoordenateFromAddress"])(address);
                 setLocationCoords(coords ? [
                     [
@@ -930,7 +939,7 @@ const ClientHomepageAlert = ()=>{
     if (isLoading) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$LoadingPage$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
             fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-            lineNumber: 52,
+            lineNumber: 58,
             columnNumber: 12
         }, ("TURBOPACK compile-time value", void 0));
     }
@@ -945,7 +954,7 @@ const ClientHomepageAlert = ()=>{
                         children: "Localização"
                     }, void 0, false, {
                         fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                        lineNumber: 58,
+                        lineNumber: 64,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -957,12 +966,12 @@ const ClientHomepageAlert = ()=>{
                                     children: address
                                 }, void 0, false, {
                                     fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                                    lineNumber: 64,
+                                    lineNumber: 70,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                                lineNumber: 63,
+                                lineNumber: 69,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -971,24 +980,24 @@ const ClientHomepageAlert = ()=>{
                                     routeCords: locationCoords
                                 }, void 0, false, {
                                     fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                                    lineNumber: 69,
+                                    lineNumber: 75,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                                lineNumber: 68,
+                                lineNumber: 74,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                        lineNumber: 62,
+                        lineNumber: 68,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                lineNumber: 57,
+                lineNumber: 63,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1000,22 +1009,22 @@ const ClientHomepageAlert = ()=>{
                     setSelectedEvent: setSelectedEvent
                 }, void 0, false, {
                     fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                    lineNumber: 81,
+                    lineNumber: 87,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                lineNumber: 79,
+                lineNumber: 85,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-        lineNumber: 56,
+        lineNumber: 62,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(ClientHomepageAlert, "02dqeX/kRrH/Pz5wgqi+w9F1XWE=");
+_s(ClientHomepageAlert, "9XTDv10D/ydCEA19WcOrGv0j+uM=");
 _c = ClientHomepageAlert;
 const __TURBOPACK__default__export__ = ClientHomepageAlert;
 var _c;
@@ -1149,39 +1158,40 @@ async function searchCoordenateFromAddress(endereco) {
         return null;
     }
 }
-const getCurrentPosition = ()=>{
+async function getCurrentPosition() {
     if (!navigator.geolocation) {
         alert("A geolocalização não é suportada pelo seu navegador.");
-        return;
+        return null;
     }
-    navigator.geolocation.getCurrentPosition((position)=>{
-        const lat = position.coords.latitude;
-        const lng = position.coords.longitude;
-        console.log("Coordenadas obtidas:", {
-            lat,
-            lng
+    return new Promise((resolve)=>{
+        navigator.geolocation.getCurrentPosition((position)=>{
+            const pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+            console.log("Coordenadas obtidas:", pos.lat, pos.lng);
+            resolve(pos);
+        }, (error)=>{
+            console.error("Erro ao obter a localização:", error.message);
+            switch(error.code){
+                case error.PERMISSION_DENIED:
+                    alert("Permissão de localização negada pelo usuário.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("Informações de localização indisponíveis.");
+                    break;
+                case error.TIMEOUT:
+                    alert("O tempo para obter a localização expirou.");
+                    break;
+            }
+            resolve(null);
+        }, {
+            enableHighAccuracy: true,
+            timeout: 10000,
+            maximumAge: 0 // Não usa cache de localização antiga
         });
-    // Aqui você pode atualizar o seu estado para passar para o CustomMap
-    // ex: setCoordenadasDaRota([[lat, lng]])
-    }, (error)=>{
-        console.error("Erro ao obter a localização:", error.message);
-        switch(error.code){
-            case error.PERMISSION_DENIED:
-                alert("Permissão de localização negada pelo usuário.");
-                break;
-            case error.POSITION_UNAVAILABLE:
-                alert("Informações de localização indisponíveis.");
-                break;
-            case error.TIMEOUT:
-                alert("O tempo para obter a localização expirou.");
-                break;
-        }
-    }, {
-        enableHighAccuracy: true,
-        timeout: 10000,
-        maximumAge: 0 // Não usa cache de localização antiga
     });
-};
+}
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }

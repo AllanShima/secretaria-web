@@ -4,7 +4,7 @@ import ClientSidebar from './_components/ClientSidebar'
 import LoadingPage from '@/components/LoadingPage';
 import { Event } from '@/app/features/auth/types/Event';
 import CustomMap from '@/app/features/map/components/CustomMap';
-import { searchCoordenateFromAddress } from '@/app/features/map/api/NominatimAPI';
+import { getCurrentPosition, searchCoordenateFromAddress } from '@/app/features/map/api/NominatimAPI';
 import { BASE_EVENTS, BASE_VEHICLES } from '@/lib/MockData';
 
 const ClientHomepageAlert = () => {
@@ -20,8 +20,6 @@ const ClientHomepageAlert = () => {
   const eventAddress = selectedEvent.address;
   const placeholder = "Selecione um evento para emitir sua localização!" 
   const address = eventAddress != null ? eventAddress : placeholder;
-
-  
 
   // useEffect(() => {
   //   async function loadClients() {
@@ -40,7 +38,15 @@ const ClientHomepageAlert = () => {
   // }, []);
 
   useEffect(() => {
+    async function loadCurrentCoords() {
+      const currentPos = await getCurrentPosition()
+    }
+    loadCurrentCoords();
+  }, [])
+
+  useEffect(() => {
     async function loadCoordinates() {
+      const currentPos = await getCurrentPosition()
       const coords = await searchCoordenateFromAddress(address);
       setLocationCoords(coords ? [[coords.lat, coords.lng]] : []);
     }

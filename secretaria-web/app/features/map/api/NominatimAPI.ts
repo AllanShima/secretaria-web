@@ -68,40 +68,48 @@ export async function searchCoordenateFromAddress(endereco: string) {
     }
 }
 
-export const getCurrentPosition = () => {
+interface latLng {
+    lat: number;
+    lng: number;
+}
+
+export async function getCurrentPosition(): Promise<latLng | null> {
     if (!navigator.geolocation) {
         alert("A geolocalização não é suportada pelo seu navegador.");
-        return;
+        return null;
     }
 
-    navigator.geolocation.getCurrentPosition(
-        (position) => {
-            const lat = position.coords.latitude;
-            const lng = position.coords.longitude;
-            
-            console.log("Coordenadas obtidas:", { lat, lng });
-            
-            // Aqui você pode atualizar o seu estado para passar para o CustomMap
-            // ex: setCoordenadasDaRota([[lat, lng]])
-        },
-        (error) => {
-            console.error("Erro ao obter a localização:", error.message);
-            switch(error.code) {
-                case error.PERMISSION_DENIED:
-                    alert("Permissão de localização negada pelo usuário.");
-                    break;
-                case error.POSITION_UNAVAILABLE:
-                    alert("Informações de localização indisponíveis.");
-                    break;
-                case error.TIMEOUT:
-                    alert("O tempo para obter a localização expirou.");
-                    break;
+    return new Promise((resolve) => {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const pos: latLng = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+
+                console.log("Coordenadas obtidas:", pos.lat, pos.lng);
+                resolve(pos);
+            },
+            (error) => {
+                console.error("Erro ao obter a localização:", error.message);
+                switch(error.code) {
+                    case error.PERMISSION_DENIED:
+                        alert("Permissão de localização negada pelo usuário.");
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        alert("Informações de localização indisponíveis.");
+                        break;
+                    case error.TIMEOUT:
+                        alert("O tempo para obter a localização expirou.");
+                        break;
+                }
+                resolve(null);
+            },
+            {
+                enableHighAccuracy: true, // Tenta usar GPS se disponível (mais preciso)
+                timeout: 10000,           // Tempo limite de espera (10 segundos)
+                maximumAge: 0             // Não usa cache de localização antiga
             }
-        },
-        {
-            enableHighAccuracy: true, // Tenta usar GPS se disponível (mais preciso)
-            timeout: 10000,           // Tempo limite de espera (10 segundos)
-            maximumAge: 0             // Não usa cache de localização antiga
-        }
-    );
+        );
+    });
 };

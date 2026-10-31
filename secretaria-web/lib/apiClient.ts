@@ -1,6 +1,6 @@
 const API_URL = 'http://localhost:3001';
 
-export async function apiFetch<T>(endpoint: string, options?: RequestInit): Promise<T> {
+export async function apiFetch<T>(endpoint: string, options?: RequestInit): Promise<T | null> {
     const response = await fetch(`${API_URL}${endpoint}`, {
         headers: {
             'Content-Type': 'application/json',
@@ -10,8 +10,15 @@ export async function apiFetch<T>(endpoint: string, options?: RequestInit): Prom
     });
 
     if (!response.ok) {
-        throw new Error(`Erro na requisição: ${response.statusText}`);
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || 'Erro na requisição');
     }
 
-    return response.json();
+    // Verifica se o status é 204 (No Content) ou se o texto da resposta está vazio
+    if (response.status === 204) {
+        return null;
+    }
+
+    const text = await response.text();
+    return text ? JSON.parse(text) : null;
 }

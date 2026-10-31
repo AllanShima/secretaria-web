@@ -122,7 +122,7 @@ function SignupPage() {
                                 children: "Cadastro"
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                                lineNumber: 115,
+                                lineNumber: 114,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -130,13 +130,13 @@ function SignupPage() {
                                 children: "Crie a sua conta para continuar"
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                                lineNumber: 116,
+                                lineNumber: 115,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                        lineNumber: 114,
+                        lineNumber: 113,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -154,12 +154,12 @@ function SignupPage() {
                                     required: true
                                 }, void 0, false, {
                                     fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                                    lineNumber: 124,
+                                    lineNumber: 123,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                                lineNumber: 123,
+                                lineNumber: 122,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Field, {
@@ -173,12 +173,12 @@ function SignupPage() {
                                     required: true
                                 }, void 0, false, {
                                     fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                                    lineNumber: 135,
+                                    lineNumber: 134,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                                lineNumber: 134,
+                                lineNumber: 133,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Field, {
@@ -192,12 +192,12 @@ function SignupPage() {
                                     required: true
                                 }, void 0, false, {
                                     fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                                    lineNumber: 146,
+                                    lineNumber: 145,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                                lineNumber: 145,
+                                lineNumber: 144,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Field, {
@@ -211,12 +211,12 @@ function SignupPage() {
                                     required: true
                                 }, void 0, false, {
                                     fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                                    lineNumber: 157,
+                                    lineNumber: 156,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                                lineNumber: 156,
+                                lineNumber: 155,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Field, {
@@ -230,12 +230,12 @@ function SignupPage() {
                                     required: true
                                 }, void 0, false, {
                                     fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                                    lineNumber: 168,
+                                    lineNumber: 167,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                                lineNumber: 167,
+                                lineNumber: 166,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -246,7 +246,7 @@ function SignupPage() {
                                         children: "Cadastrar como"
                                     }, void 0, false, {
                                         fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                                        lineNumber: 179,
+                                        lineNumber: 178,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -259,7 +259,7 @@ function SignupPage() {
                                                 onClick: ()=>setField("perfil", "telefonista")
                                             }, void 0, false, {
                                                 fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                                                lineNumber: 183,
+                                                lineNumber: 182,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(PerfilOption, {
@@ -269,19 +269,19 @@ function SignupPage() {
                                                 onClick: ()=>setField("perfil", "socorrista")
                                             }, void 0, false, {
                                                 fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                                                lineNumber: 189,
+                                                lineNumber: 188,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                                        lineNumber: 182,
+                                        lineNumber: 181,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                                lineNumber: 178,
+                                lineNumber: 177,
                                 columnNumber: 11
                             }, this),
                             form.perfil === "socorrista" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -294,12 +294,12 @@ function SignupPage() {
                                     required: true
                                 }, void 0, false, {
                                     fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                                    lineNumber: 200,
+                                    lineNumber: 199,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                                lineNumber: 199,
+                                lineNumber: 198,
                                 columnNumber: 13
                             }, this),
                             erro && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -307,7 +307,7 @@ function SignupPage() {
                                 children: erro
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                                lineNumber: 209,
+                                lineNumber: 208,
                                 columnNumber: 20
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -316,7 +316,7 @@ function SignupPage() {
                                 children: "Cadastrar"
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                                lineNumber: 211,
+                                lineNumber: 210,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -332,30 +332,30 @@ function SignupPage() {
                                             children: "Logar"
                                         }, void 0, false, {
                                             fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                                            lineNumber: 221,
+                                            lineNumber: 220,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                                    lineNumber: 219,
+                                    lineNumber: 218,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                                lineNumber: 218,
+                                lineNumber: 217,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                        lineNumber: 121,
+                        lineNumber: 120,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                lineNumber: 113,
+                lineNumber: 112,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -365,18 +365,18 @@ function SignupPage() {
                     children: "Secretaria da Saúde de Marília — Uso restrito a funcionários autorizados"
                 }, void 0, false, {
                     fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                    lineNumber: 230,
+                    lineNumber: 229,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                lineNumber: 229,
+                lineNumber: 228,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-        lineNumber: 111,
+        lineNumber: 110,
         columnNumber: 5
     }, this);
 }
@@ -396,14 +396,14 @@ function Field({ label, children }) {
                 children: label
             }, void 0, false, {
                 fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                lineNumber: 250,
+                lineNumber: 249,
                 columnNumber: 7
             }, this),
             children
         ]
     }, void 0, true, {
         fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-        lineNumber: 249,
+        lineNumber: 248,
         columnNumber: 5
     }, this);
 }
@@ -418,7 +418,7 @@ function PerfilOption({ icon: Icon, label, selected, onClick }) {
                 className: "h-[17px] w-[17px]"
             }, void 0, false, {
                 fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                lineNumber: 276,
+                lineNumber: 275,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -426,13 +426,13 @@ function PerfilOption({ icon: Icon, label, selected, onClick }) {
                 children: label
             }, void 0, false, {
                 fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-                lineNumber: 277,
+                lineNumber: 276,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/secretaria-web/app/auth/register/page.tsx",
-        lineNumber: 268,
+        lineNumber: 267,
         columnNumber: 5
     }, this);
 }
@@ -449,6 +449,8 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "use strict";
 
 __turbopack_context__.s([
+    "changeDriverStatus",
+    ()=>changeDriverStatus,
     "createAttendant",
     ()=>createAttendant,
     "createDriver",
@@ -458,14 +460,38 @@ __turbopack_context__.s([
     "getDriverById",
     ()=>getDriverById,
     "getDrivers",
-    ()=>getDrivers
+    ()=>getDrivers,
+    "loginAttendant",
+    ()=>loginAttendant,
+    "loginDriver",
+    ()=>loginDriver,
+    "logoutAttendant",
+    ()=>logoutAttendant
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$lib$2f$apiClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/lib/apiClient.ts [app-client] (ecmascript)");
 ;
-async function getDrivers() {
-    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$lib$2f$apiClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])('/drivers/', {
-        method: 'GET'
+async function loginAttendant(attendantLoginBody) {
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$lib$2f$apiClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])('/attendants/login', {
+        method: 'POST',
+        body: JSON.stringify(attendantLoginBody)
     });
+}
+async function loginDriver(driverLoginBody) {
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$lib$2f$apiClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])('/drivers/login', {
+        method: 'POST',
+        body: JSON.stringify(driverLoginBody)
+    });
+}
+async function logoutAttendant(attendantLogoutBody) {
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$lib$2f$apiClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])('/attendants/logout', {
+        method: 'POST',
+        body: JSON.stringify(attendantLogoutBody)
+    });
+}
+async function getDrivers() {
+    return await (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$lib$2f$apiClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])('/drivers/', {
+        method: 'GET'
+    }) ?? [];
 }
 async function getAttendantById(id) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$lib$2f$apiClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])(`/attendants/${id}`);
@@ -482,6 +508,12 @@ async function createAttendant(attendantBody) {
 async function createDriver(driverBody) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$lib$2f$apiClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])('/drivers/', {
         method: 'POST',
+        body: JSON.stringify(driverBody)
+    });
+}
+async function changeDriverStatus(id, driverBody) {
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$lib$2f$apiClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])(`/drivers/${id}/status`, {
+        method: 'PATCH',
         body: JSON.stringify(driverBody)
     });
 }
@@ -569,9 +601,15 @@ async function apiFetch(endpoint, options) {
         ...options
     });
     if (!response.ok) {
-        throw new Error(`Erro na requisição: ${response.statusText}`);
+        const errorData = await response.json().catch(()=>({}));
+        throw new Error(errorData.message || 'Erro na requisição');
     }
-    return response.json();
+    // Verifica se o status é 204 (No Content) ou se o texto da resposta está vazio
+    if (response.status === 204) {
+        return null;
+    }
+    const text = await response.text();
+    return text ? JSON.parse(text) : null;
 }
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
