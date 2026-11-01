@@ -3,31 +3,55 @@ import { Input } from '@/components/ui/input'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import EventSidebar from './_components/EventSidebar';
 import { useAuth } from '@/app/features/auth/api/AuthContext';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CustomMap from '@/app/features/map/components/CustomMap';
 import { CiSearch } from "react-icons/ci";
 import { toast } from '@/components/ui/toast';
 import { searchCoordenateFromAddress } from '@/app/features/map/api/NominatimAPI';
 import { BASE_EVENTS, BASE_USERS } from '@/lib/MockData';
+import { getDrivers } from '@/app/features/auth/api/authApi';
+import { BaseUser } from '@/app/features/auth/types/User';
+import { Event } from '@/app/features/auth/types/Event';
+import { getEvents } from '@/app/features/admin/api/adminApi';
 
 const AdminHomepageAlert = () => {
-  // try {
-  //   const data = await getUsers();
-  //   return <UserList users={data} />;
-  // } catch (error) {
-  //   return <p>Ocorreu um erro ao carregar os usuários.</p>;
-  // }
   const [value, setValue] = useState("");
+  const [foundAddress, setFoundAddress] = useState(false);
+  const [condition, setCondition] = useState<"CRITICAL" | "URGENT" | "MODERATE">("CRITICAL")
   const [currentCoords, setCurrentCoords] = useState<[number, number][]>([]);
-  const users = BASE_USERS;
-  const events = BASE_EVENTS;
+  const [clients, setClients] = useState<BaseUser[] | null>(null);
+  // const users = BASE_USERS;
+  const [events, setEvents] = useState<Event[] | null>(null);
+  // const events = BASE_EVENTS;
+
+  useEffect(() => {
+    async function loadClientsAndEvents() {
+      try {
+        const foundClients = await getDrivers();
+        setClients(foundClients);
+        const foundEvents = await getEvents();
+        setEvents(foundEvents);
+      } catch (error) {
+        console.error("Erro ao buscar clientes:", error);
+        toast.add({
+          type: "error",
+          description: String(error),
+          priority: "high",
+        })
+      }
+    }
+
+    loadClientsAndEvents();
+  }, []);
 
   const handleSearchAddress = async () => {
     if (value !== "") {
       const coordinates = await searchCoordenateFromAddress(value);
       setCurrentCoords(coordinates ? [[coordinates.lat, coordinates.lng]] : []);
+      setFoundAddress(true);
       console.log(currentCoords);
     } else {
+      setFoundAddress(false);
       toast.add({
         type: "error",
         description: "Digite um endereço!",
@@ -36,7 +60,7 @@ const AdminHomepageAlert = () => {
     }
   }
 
-  const ButtonStyle = "text-white/30 hover:text-red-300 data-active:bg-[#301b24] data-active:border-red-600 data-active:text-red-500 data-active:hover:text-red-500 bg-[#1c2330] border-1 border-[#30363d] rounded-sm";
+  const ButtonStyle = "text-white/30 border-1 rounded-sm";
   return (
     <div className='flex w-full h-full gap-6 overflow-hidden'>
       {/* Left Side */}
@@ -58,11 +82,16 @@ const AdminHomepageAlert = () => {
             <h3 className='text-white/50 font-semibold text-sm'>
               Nível de Severidade
             </h3>
-            <Tabs className={"h-12"} defaultValue="critical">
-              <TabsList className="w-full h-30 gap-2 bg-black/10 ">
-                <TabsTrigger className={ButtonStyle} value="critical">Crítico</TabsTrigger>
-                <TabsTrigger className={ButtonStyle} value="urgent">Urgente</TabsTrigger>
-                <TabsTrigger className={ButtonStyle} value="moderate">Moderado</TabsTrigger>
+            <Tabs
+              className={"h-12"}
+              value={condition}
+              onValueChange={(value) => setCondition(value as "CRITICAL" | "URGENT" | "MODERATE")}
+            >
+              <TabsList 
+              className="w-full h-30 gap-2 bg-black/10 ">
+                <TabsTrigger className={`hover:text-red-300 data-active:bg-[#301b24] data-active:border-red-600 data-active:text-red-500 data-active:hover:text-red-500 bg-[#1c2330] border-[#30363d] ${ButtonStyle}`} value="CRITICAL">Crítico</TabsTrigger>
+                <TabsTrigger className={`hover:text-yellow-300 data-active:bg-yellow-500/10 data-active:border-yellow-600 data-active:text-yellow-500 data-active:hover:text-yellow-500 bg-[#1c2330] border-[#30363d] ${ButtonStyle}`} value="URGENT">Urgente</TabsTrigger>
+                <TabsTrigger className={`hover:text-blue-300 data-active:bg-blue-500/10 data-active:border-blue-600 data-active:text-blue-500 data-active:hover:text-blue-500 bg-[#1c2330] border-[#30363d] ${ButtonStyle}`} value="MODERATE">Moderado</TabsTrigger>
               </TabsList>
             </Tabs>
           </div>
@@ -103,7 +132,7 @@ const AdminHomepageAlert = () => {
       </div>
 
       {/* Right Sidebar */}
-      <EventSidebar users={users} events={events} locationValue={value} />
+      <EventSidebar condition={condition} clients={clients} events={events} locationValue={value} foundAddress={foundAddress} setFoundAddress={setFoundAddress}/>
     </div>
   )
 }

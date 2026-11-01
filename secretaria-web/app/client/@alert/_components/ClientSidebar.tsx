@@ -1,6 +1,5 @@
 'use client'
 
-import { BASE_EVENTS, BASE_VEHICLES } from '@/app/features/auth/api/MockData'
 import { User } from '@/app/features/auth/types/User'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
@@ -21,9 +20,9 @@ interface ClientSidebarProps {
 
 const ClientSidebar = ({vehicles, events, selectedEvent, setSelectedEvent}: ClientSidebarProps) => {
 
-    const drivers: User[] = vehicles
-        .filter((vehicle) => vehicle.driver) // Filtra os veículos que têm motorista
-        .map((vehicle) => vehicle.driver);  // Extrai apenas o motorista do veículo
+    // const drivers: User[] = vehicles
+    //     .filter((vehicle) => vehicle.driver) // Filtra os veículos que têm motorista
+    //     .map((vehicle) => vehicle.driver);  // Extrai apenas o motorista do veículo
 
     return (
         <div className='flex flex-col w-full h-full min-h-0 rounded-3xl shrink-0'>

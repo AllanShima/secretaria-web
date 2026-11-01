@@ -31,6 +31,9 @@ const ClientNotificationItem = ({event}: ClientNotItemProp) => {
                         {timeAgo}
                     </p>
                 </ItemTitle>
+                <ItemDescription className='flex flex-col gap-5 text-white'>
+                    Novas informações adicionais disponíveis!
+                </ItemDescription>
                 <ItemDescription className='flex flex-col gap-5'>
                     {event.address}
                 </ItemDescription>

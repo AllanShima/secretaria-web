@@ -28,7 +28,7 @@ const AdminEvent = ({event}: AdminEventProp) => {
         <Item className='flex bg-[#1c2330]/80'>
             <ItemContent className='gap-4'>
                 <ItemTitle className='gap-2'>
-                    <SeverityStatus status={event.severity} />
+                    <SeverityStatus status={event.patientCondition} />
                     <p className='text-xs font-semibold'>
                         {timeAgo}
                     </p>
@@ -37,14 +37,14 @@ const AdminEvent = ({event}: AdminEventProp) => {
                     {event.address}
                 </ItemDescription>
                 <ItemDescription className='flex w-fit text-[10px] font-semibold justify-center items-center'>
-                    Código: {event.code}
+                    Código: {event.protocol}
                     <LuDot />
-                    {event.status}
+                    {event.vehicles[0].status}
                 </ItemDescription>
             </ItemContent>
             <ItemActions>
                 <Dialog>
-                    {(event.status != "Finalizado") && (
+                    {(event.vehicles[0].status != "FINISHED") && (
                         <DialogTrigger render={
                             <Button variant="destructive" size="sm">
                                 <IoMdSend />

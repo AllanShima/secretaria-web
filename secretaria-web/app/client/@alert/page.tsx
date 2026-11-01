@@ -21,22 +21,6 @@ const ClientHomepageAlert = () => {
   const placeholder = "Selecione um evento para emitir sua localização!" 
   const address = eventAddress != null ? eventAddress : placeholder;
 
-  // useEffect(() => {
-  //   async function loadClients() {
-  //     try {
-  //       const data = await getUsersFromApi();
-  //       const filteredClients = data.filter((user: User) => user.type == "Client");
-  //       setClients(filteredClients);
-  //     } catch (error) {
-  //       console.error("Erro ao buscar clientes:", error);
-  //     } finally {
-  //       setIsLoading(false);
-  //     }
-  //   }
-
-  //   loadClients();
-  // }, []);
-
   useEffect(() => {
     async function loadCurrentCoords() {
       const currentPos = await getCurrentPosition()
