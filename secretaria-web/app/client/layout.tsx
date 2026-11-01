@@ -31,7 +31,7 @@ export default function HomepageClientLayout({
   const router = useRouter();
   const { user, logout } = useAuth();
   const [isMounted, setIsMounted] = useState(false);
-  const [status, setStatus] = useState<boolean>(false);
+  const [status, setStatus] = useState<boolean | null>(null);
 
 const handleStatus = async () => {
     if (!user?.id) return;
@@ -63,6 +63,12 @@ const handleStatus = async () => {
     if (!user) {
       console.log("Usuário não cadastrado.");
       router.push("/auth/login");
+    } else {
+      if (user.status == 'OFFLINE') {
+        setStatus(false);
+      } else {
+        setStatus(true);
+      }
     }
   }, [user])
 
