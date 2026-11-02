@@ -32,7 +32,6 @@ const AdminHomepageAlert = () => {
         const foundEvents = await getEvents();
         setEvents(foundEvents);
       } catch (error) {
-        console.error("Erro ao buscar clientes:", error);
         toast.add({
           type: "error",
           description: String(error),

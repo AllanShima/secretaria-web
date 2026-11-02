@@ -1032,48 +1032,63 @@ const BASE_VEHICLES = [
 const BASE_EVENTS = [
     {
         id: "evt-001",
-        code: "ATD-2026-001",
-        severity: "critical",
+        protocol: "ATD-2026-001",
         address: "Av. Sampaio Vidal, 450 - Centro, Marília - SP",
-        description: "Colisão frontal entre carro e moto em alta velocidade.",
-        injuryLocations: [
-            "Membro Inferior Direito",
-            "Tórax"
-        ],
-        createdByUser: BASE_USERS[0],
-        status: "Em Andamento",
-        operatorUser: BASE_USERS[1],
-        assignedVehicle: BASE_VEHICLES[0],
-        createdAt: new Date("2024-03-05T09:00:00Z")
+        returnLocation: "Hospital Regional de Marília",
+        whatHappened: "Colisão frontal entre carro e moto em alta velocidade.",
+        patientCondition: "Crítico",
+        apparentAge: 35,
+        patientCount: 1,
+        injuryCondition: "Membro Inferior Direito, Tórax",
+        observations: "Paciente consciente, porém desorientado no local.",
+        attendantId: BASE_USERS[0]?.id ?? "user-001",
+        createdAt: new Date("2024-03-05T09:00:00Z"),
+        vehicles: [
+            {
+                vehicleId: BASE_VEHICLES[0]?.id ?? "veh-001",
+                status: "Em Atendimento"
+            }
+        ]
     },
     {
         id: "evt-002",
-        code: "ATD-2026-002",
-        severity: "urgent",
+        protocol: "ATD-2026-002",
         address: "Rua Das Roseiras, 120 - Jardim Fragata, Marília - SP",
-        description: "Queda de própria altura com suspeita de fratura.",
-        injuryLocations: [
-            "Membro Superior Esquerdo"
-        ],
-        createdByUser: BASE_USERS[0],
-        status: "Em Andamento",
-        operatorUser: BASE_USERS[2],
-        createdAt: new Date("2024-03-05T09:00:00Z")
+        returnLocation: "Pronto Atendimento da Zona Norte",
+        whatHappened: "Queda de própria altura com suspeita de fratura.",
+        patientCondition: "Urgente",
+        apparentAge: 62,
+        patientCount: 1,
+        injuryCondition: "Membro Superior Esquerdo",
+        observations: "Apresenta fortes dores e imobilidade no braço esquerdo.",
+        attendantId: BASE_USERS[0]?.id ?? "user-001",
+        createdAt: new Date("2024-03-05T09:00:00Z"),
+        vehicles: [
+            {
+                vehicleId: BASE_VEHICLES[2]?.id ?? "veh-003",
+                status: "A Caminho"
+            }
+        ]
     },
     {
         id: "evt-003",
-        code: "ATD-2026-003",
-        severity: "moderate",
+        protocol: "ATD-2026-003",
         address: "Av. Tiradentes, 890 - Fragata, Marília - SP",
-        description: "Mal-estar súbito em via pública com tontura e mal-estar geral.",
-        injuryLocations: [
-            "Nenhum visível"
-        ],
-        createdByUser: BASE_USERS[0],
-        status: "Finalizado",
-        operatorUser: BASE_USERS[1],
-        assignedVehicle: BASE_VEHICLES[1],
-        createdAt: new Date("2024-03-05T09:00:00Z")
+        returnLocation: "N/A",
+        whatHappened: "Mal-estar súbito em via pública com tontura e vertigem.",
+        patientCondition: "Moderado",
+        apparentAge: 28,
+        patientCount: 1,
+        injuryCondition: "Nenhum visível",
+        observations: "Sinais vitais estabilizados após atendimento inicial no local.",
+        attendantId: BASE_USERS[0]?.id ?? "user-001",
+        createdAt: new Date("2024-03-05T09:00:00Z"),
+        vehicles: [
+            {
+                vehicleId: BASE_VEHICLES[1]?.id ?? "veh-002",
+                status: "Finalizado"
+            }
+        ]
     }
 ];
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {

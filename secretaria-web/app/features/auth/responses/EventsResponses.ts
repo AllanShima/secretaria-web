@@ -12,3 +12,12 @@ export interface CreateEventResponse {
   attendantId: string,
   createdAt: Date
 }
+
+export interface ConcludeEventResponse {
+  count: number
+}
+
+export interface LocationEventResponse {
+  latitude: number,
+  longitude: number
+}

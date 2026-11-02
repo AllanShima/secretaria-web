@@ -88,8 +88,9 @@ const EventSidebar = ({ condition, clients, events, locationValue, foundAddress,
         if (!driverId) return;
 
         try {
+            const newEventCode = await generateProtocol()()
             const eventRequest: CreateEventRequest = {
-                protocol: await generateProtocol()(),
+                protocol: newEventCode,
                 address: locationValue,
                 returnLocation: "",
                 whatHappened: "",

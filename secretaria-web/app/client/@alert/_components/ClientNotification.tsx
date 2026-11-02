@@ -1,46 +1,54 @@
+'use client'
+
 import SeverityStatus from '@/app/features/admin/components/SeverityStatus'
 import { Event } from '@/app/features/auth/types/Event'
 import { Button } from '@/components/ui/button'
 import { Item, ItemActions, ItemContent, ItemDescription, ItemTitle } from '@/components/ui/item'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoMdSend } from 'react-icons/io'
 import { LuDot } from 'react-icons/lu'
 
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { Badge } from '@/components/ui/badge'
+import { Notification } from '@/app/features/auth/types/Notification'
 
 interface ClientNotItemProp {
-    event: Event
+    notification: Notification,
+    events: Event[]
 }
 
-const ClientNotificationItem = ({event}: ClientNotItemProp) => {
+const ClientNotificationItem = ({notification, events}: ClientNotItemProp) => {
+
+    const notificationEvent = events.find((event) => event.id === notification.emergencyCallId)
+
     // Exemplo: "há cerca de 2 horas" / "há 3 segundos"
-    const timeAgo = formatDistanceToNow(event.createdAt, {
+    const timeAgo = formatDistanceToNow(notification.notifiedAt, {
         addSuffix: true, // Adiciona o "há ..."
         locale: ptBR,
     });
+
 
     return (
         <Item className='bg-[#1c2330]/80'>
             <ItemContent className='gap-2'>
                 <ItemTitle className='gap-2'>
                 <Badge variant={"outline"} className={`rounded-sm bg-[#1b2730] border-[#b5d7f2] text-[#b5d7f2] py-3`}>
-                    {event.code}
+                    {notificationEvent?.protocol}
                 </Badge>                    <p className='text-xs font-semibold'>
                         {timeAgo}
                     </p>
                 </ItemTitle>
                 <ItemDescription className='flex flex-col gap-5 text-white'>
-                    Novas informações adicionais disponíveis!
+                    {notification.message}
                 </ItemDescription>
                 <ItemDescription className='flex flex-col gap-5'>
-                    {event.address}
+                    {notificationEvent?.address}
                 </ItemDescription>
                 <ItemDescription className='flex w-fit text-[10px] font-semibold justify-center items-center'>
-                    Código: {event.code}
+                    Código: {notificationEvent?.protocol}
                     <LuDot />
-                    {event.status}
+                    {notificationEvent?.vehicles[0].status}
                 </ItemDescription>
             </ItemContent>
         </Item>

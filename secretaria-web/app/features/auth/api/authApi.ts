@@ -32,6 +32,10 @@ export async function getDrivers(): Promise<BaseUser[]> {
     return (await apiFetch<BaseUser[]>('/drivers/', { method: 'GET' })) ?? [];
 }
 
+export async function getAttendants(): Promise<BaseUser[]> {
+    return (await apiFetch<BaseUser[]>('/attendants/', { method: 'GET' })) ?? [];
+}
+
 // ---------- GetById
 
 export async function getAttendantById(id: string): Promise<BaseUser | null> {

@@ -1,5 +1,6 @@
+let contador = 1;
+
 export function generateProtocol() {
-  let contador = 1;
 
   return function gerarProtocolo(): string {
     const anoAtual = new Date().getFullYear();

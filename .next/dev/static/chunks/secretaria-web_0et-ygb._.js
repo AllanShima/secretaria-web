@@ -594,19 +594,27 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$item$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/components/ui/item.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$react$2d$icons$2f$lu$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/react-icons/lu/index.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$date$2d$fns$2f$formatDistanceToNow$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/date-fns/formatDistanceToNow.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$date$2d$fns$2f$locale$2f$pt$2d$BR$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/date-fns/locale/pt-BR.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/components/ui/badge.tsx [app-client] (ecmascript)");
 ;
+var _s = __turbopack_context__.k.signature();
+'use client';
 ;
 ;
 ;
 ;
 ;
-const ClientNotificationItem = ({ event })=>{
+;
+const ClientNotificationItem = ({ notification })=>{
+    _s();
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "ClientNotificationItem.useEffect": ()=>{}
+    }["ClientNotificationItem.useEffect"], []);
     // Exemplo: "há cerca de 2 horas" / "há 3 segundos"
-    const timeAgo = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$date$2d$fns$2f$formatDistanceToNow$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["formatDistanceToNow"])(event.createdAt, {
+    const timeAgo = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$date$2d$fns$2f$formatDistanceToNow$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["formatDistanceToNow"])(notifications.notifiedAt, {
         addSuffix: true,
         locale: __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$date$2d$fns$2f$locale$2f$pt$2d$BR$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ptBR"]
     });
@@ -624,7 +632,7 @@ const ClientNotificationItem = ({ event })=>{
                             children: event.code
                         }, void 0, false, {
                             fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientNotification.tsx",
-                            lineNumber: 28,
+                            lineNumber: 37,
                             columnNumber: 17
                         }, ("TURBOPACK compile-time value", void 0)),
                         "                    ",
@@ -633,13 +641,13 @@ const ClientNotificationItem = ({ event })=>{
                             children: timeAgo
                         }, void 0, false, {
                             fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientNotification.tsx",
-                            lineNumber: 30,
+                            lineNumber: 39,
                             columnNumber: 45
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientNotification.tsx",
-                    lineNumber: 27,
+                    lineNumber: 36,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$item$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ItemDescription"], {
@@ -647,15 +655,15 @@ const ClientNotificationItem = ({ event })=>{
                     children: "Novas informações adicionais disponíveis!"
                 }, void 0, false, {
                     fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientNotification.tsx",
-                    lineNumber: 34,
+                    lineNumber: 43,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$item$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ItemDescription"], {
                     className: "flex flex-col gap-5",
-                    children: event.address
+                    children: notification.address
                 }, void 0, false, {
                     fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientNotification.tsx",
-                    lineNumber: 37,
+                    lineNumber: 46,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$item$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ItemDescription"], {
@@ -665,28 +673,29 @@ const ClientNotificationItem = ({ event })=>{
                         event.code,
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$react$2d$icons$2f$lu$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["LuDot"], {}, void 0, false, {
                             fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientNotification.tsx",
-                            lineNumber: 42,
+                            lineNumber: 51,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         event.status
                     ]
                 }, void 0, true, {
                     fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientNotification.tsx",
-                    lineNumber: 40,
+                    lineNumber: 49,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientNotification.tsx",
-            lineNumber: 26,
+            lineNumber: 35,
             columnNumber: 13
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientNotification.tsx",
-        lineNumber: 25,
+        lineNumber: 34,
         columnNumber: 9
     }, ("TURBOPACK compile-time value", void 0));
 };
+_s(ClientNotificationItem, "OD7bBpZva5O2jO+Puf00hKivP7c=");
 _c = ClientNotificationItem;
 const __TURBOPACK__default__export__ = ClientNotificationItem;
 var _c;
@@ -715,10 +724,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$compone
 ;
 ;
 ;
-const ClientSidebar = ({ vehicles, events, selectedEvent, setSelectedEvent })=>{
-    // const drivers: User[] = vehicles
-    //     .filter((vehicle) => vehicle.driver) // Filtra os veículos que têm motorista
-    //     .map((vehicle) => vehicle.driver);  // Extrai apenas o motorista do veículo
+const ClientSidebar = ({ events, notifications, selectedEvent, setSelectedEvent })=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "flex flex-col w-full h-full min-h-0 rounded-3xl shrink-0",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Tabs"], {
@@ -735,7 +741,7 @@ const ClientSidebar = ({ vehicles, events, selectedEvent, setSelectedEvent })=>{
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$react$2d$icons$2f$io$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["IoIosMedical"], {}, void 0, false, {
                                         fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientSidebar.tsx",
-                                        lineNumber: 34,
+                                        lineNumber: 30,
                                         columnNumber: 29
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -743,13 +749,13 @@ const ClientSidebar = ({ vehicles, events, selectedEvent, setSelectedEvent })=>{
                                         children: "Eventos"
                                     }, void 0, false, {
                                         fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientSidebar.tsx",
-                                        lineNumber: 35,
+                                        lineNumber: 31,
                                         columnNumber: 29
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientSidebar.tsx",
-                                lineNumber: 33,
+                                lineNumber: 29,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsTrigger"], {
@@ -758,7 +764,7 @@ const ClientSidebar = ({ vehicles, events, selectedEvent, setSelectedEvent })=>{
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$react$2d$icons$2f$io$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["IoIosNotifications"], {}, void 0, false, {
                                         fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientSidebar.tsx",
-                                        lineNumber: 40,
+                                        lineNumber: 36,
                                         columnNumber: 29
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -766,24 +772,24 @@ const ClientSidebar = ({ vehicles, events, selectedEvent, setSelectedEvent })=>{
                                         children: "Notificações"
                                     }, void 0, false, {
                                         fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientSidebar.tsx",
-                                        lineNumber: 41,
+                                        lineNumber: 37,
                                         columnNumber: 29
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientSidebar.tsx",
-                                lineNumber: 39,
+                                lineNumber: 35,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientSidebar.tsx",
-                        lineNumber: 32,
+                        lineNumber: 28,
                         columnNumber: 21
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientSidebar.tsx",
-                    lineNumber: 31,
+                    lineNumber: 27,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -802,22 +808,22 @@ const ClientSidebar = ({ vehicles, events, selectedEvent, setSelectedEvent })=>{
                                             selectedEventCode: selectedEvent.code
                                         }, event.id, false, {
                                             fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientSidebar.tsx",
-                                            lineNumber: 54,
+                                            lineNumber: 50,
                                             columnNumber: 37
                                         }, ("TURBOPACK compile-time value", void 0)))
                                 }, void 0, false, {
                                     fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientSidebar.tsx",
-                                    lineNumber: 52,
+                                    lineNumber: 48,
                                     columnNumber: 29
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientSidebar.tsx",
-                                lineNumber: 51,
+                                lineNumber: 47,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientSidebar.tsx",
-                            lineNumber: 49,
+                            lineNumber: 45,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsContent"], {
@@ -825,38 +831,38 @@ const ClientSidebar = ({ vehicles, events, selectedEvent, setSelectedEvent })=>{
                             className: "w-full h-full m-0 data-[state=inactive]:hidden",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex flex-col p-3 w-full h-full items-start gap-3 bg-[#1c2330]/20 rounded-b-2xl",
-                                children: events.map((event)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$app$2f$client$2f40$alert$2f$_components$2f$ClientNotification$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                        event: event
-                                    }, event.id, false, {
+                                children: notifications.map((notification, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$app$2f$client$2f40$alert$2f$_components$2f$ClientNotification$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                        notification: notification
+                                    }, index, false, {
                                         fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientSidebar.tsx",
-                                        lineNumber: 63,
+                                        lineNumber: 59,
                                         columnNumber: 33
                                     }, ("TURBOPACK compile-time value", void 0)))
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientSidebar.tsx",
-                                lineNumber: 61,
+                                lineNumber: 57,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientSidebar.tsx",
-                            lineNumber: 59,
+                            lineNumber: 55,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientSidebar.tsx",
-                    lineNumber: 48,
+                    lineNumber: 44,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientSidebar.tsx",
-            lineNumber: 30,
+            lineNumber: 26,
             columnNumber: 13
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientSidebar.tsx",
-        lineNumber: 28,
+        lineNumber: 24,
         columnNumber: 9
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -893,7 +899,6 @@ var _s = __turbopack_context__.k.signature();
 ;
 const ClientHomepageAlert = ()=>{
     _s();
-    const vehicles = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$lib$2f$MockData$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["BASE_VEHICLES"];
     const events = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$lib$2f$MockData$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["BASE_EVENTS"];
     const [isLoading, setIsLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [selectedEvent, setSelectedEvent] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(events[0]);
@@ -934,7 +939,7 @@ const ClientHomepageAlert = ()=>{
     if (isLoading) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$LoadingPage$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
             fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-            lineNumber: 42,
+            lineNumber: 41,
             columnNumber: 12
         }, ("TURBOPACK compile-time value", void 0));
     }
@@ -949,7 +954,7 @@ const ClientHomepageAlert = ()=>{
                         children: "Localização"
                     }, void 0, false, {
                         fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                        lineNumber: 48,
+                        lineNumber: 47,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -961,12 +966,12 @@ const ClientHomepageAlert = ()=>{
                                     children: address
                                 }, void 0, false, {
                                     fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                                    lineNumber: 54,
+                                    lineNumber: 53,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                                lineNumber: 53,
+                                lineNumber: 52,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -975,47 +980,47 @@ const ClientHomepageAlert = ()=>{
                                     routeCords: locationCoords
                                 }, void 0, false, {
                                     fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                                    lineNumber: 59,
+                                    lineNumber: 58,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                                lineNumber: 58,
+                                lineNumber: 57,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                        lineNumber: 52,
+                        lineNumber: 51,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                lineNumber: 47,
+                lineNumber: 46,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "h-full w-1/3",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$app$2f$client$2f40$alert$2f$_components$2f$ClientSidebar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                    vehicles: vehicles,
                     events: events,
+                    notifications: notifications,
                     selectedEvent: selectedEvent,
                     setSelectedEvent: setSelectedEvent
                 }, void 0, false, {
                     fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                    lineNumber: 71,
+                    lineNumber: 70,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                lineNumber: 69,
+                lineNumber: 68,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-        lineNumber: 46,
+        lineNumber: 45,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -2288,48 +2293,63 @@ const BASE_VEHICLES = [
 const BASE_EVENTS = [
     {
         id: "evt-001",
-        code: "ATD-2026-001",
-        severity: "critical",
+        protocol: "ATD-2026-001",
         address: "Av. Sampaio Vidal, 450 - Centro, Marília - SP",
-        description: "Colisão frontal entre carro e moto em alta velocidade.",
-        injuryLocations: [
-            "Membro Inferior Direito",
-            "Tórax"
-        ],
-        createdByUser: BASE_USERS[0],
-        status: "Em Andamento",
-        operatorUser: BASE_USERS[1],
-        assignedVehicle: BASE_VEHICLES[0],
-        createdAt: new Date("2024-03-05T09:00:00Z")
+        returnLocation: "Hospital Regional de Marília",
+        whatHappened: "Colisão frontal entre carro e moto em alta velocidade.",
+        patientCondition: "Crítico",
+        apparentAge: 35,
+        patientCount: 1,
+        injuryCondition: "Membro Inferior Direito, Tórax",
+        observations: "Paciente consciente, porém desorientado no local.",
+        attendantId: BASE_USERS[0]?.id ?? "user-001",
+        createdAt: new Date("2024-03-05T09:00:00Z"),
+        vehicles: [
+            {
+                vehicleId: BASE_VEHICLES[0]?.id ?? "veh-001",
+                status: "Em Atendimento"
+            }
+        ]
     },
     {
         id: "evt-002",
-        code: "ATD-2026-002",
-        severity: "urgent",
+        protocol: "ATD-2026-002",
         address: "Rua Das Roseiras, 120 - Jardim Fragata, Marília - SP",
-        description: "Queda de própria altura com suspeita de fratura.",
-        injuryLocations: [
-            "Membro Superior Esquerdo"
-        ],
-        createdByUser: BASE_USERS[0],
-        status: "Em Andamento",
-        operatorUser: BASE_USERS[2],
-        createdAt: new Date("2024-03-05T09:00:00Z")
+        returnLocation: "Pronto Atendimento da Zona Norte",
+        whatHappened: "Queda de própria altura com suspeita de fratura.",
+        patientCondition: "Urgente",
+        apparentAge: 62,
+        patientCount: 1,
+        injuryCondition: "Membro Superior Esquerdo",
+        observations: "Apresenta fortes dores e imobilidade no braço esquerdo.",
+        attendantId: BASE_USERS[0]?.id ?? "user-001",
+        createdAt: new Date("2024-03-05T09:00:00Z"),
+        vehicles: [
+            {
+                vehicleId: BASE_VEHICLES[2]?.id ?? "veh-003",
+                status: "A Caminho"
+            }
+        ]
     },
     {
         id: "evt-003",
-        code: "ATD-2026-003",
-        severity: "moderate",
+        protocol: "ATD-2026-003",
         address: "Av. Tiradentes, 890 - Fragata, Marília - SP",
-        description: "Mal-estar súbito em via pública com tontura e mal-estar geral.",
-        injuryLocations: [
-            "Nenhum visível"
-        ],
-        createdByUser: BASE_USERS[0],
-        status: "Finalizado",
-        operatorUser: BASE_USERS[1],
-        assignedVehicle: BASE_VEHICLES[1],
-        createdAt: new Date("2024-03-05T09:00:00Z")
+        returnLocation: "N/A",
+        whatHappened: "Mal-estar súbito em via pública com tontura e vertigem.",
+        patientCondition: "Moderado",
+        apparentAge: 28,
+        patientCount: 1,
+        injuryCondition: "Nenhum visível",
+        observations: "Sinais vitais estabilizados após atendimento inicial no local.",
+        attendantId: BASE_USERS[0]?.id ?? "user-001",
+        createdAt: new Date("2024-03-05T09:00:00Z"),
+        vehicles: [
+            {
+                vehicleId: BASE_VEHICLES[1]?.id ?? "veh-002",
+                status: "Finalizado"
+            }
+        ]
     }
 ];
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {

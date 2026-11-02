@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { Dispatch, useEffect, useRef, useState } from "react";
 import { Event } from "@/app/features/auth/types/Event";
 import SeverityStatus from "@/app/features/admin/components/SeverityStatus";
 import {
@@ -16,22 +16,55 @@ import { LuDot } from "react-icons/lu";
 import { RadioGroupItem } from "@/components/ui/radio-group";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import ClientEventDialog from "./ClientEventDialog";
+import { getAttendants } from "@/app/features/auth/api/authApi";
+import { concludeEvent } from "@/app/features/admin/api/adminApi";
+import { ConcludeEventResponse } from "@/app/features/auth/responses/EventsResponses";
+import { toast } from "@/components/ui/toast";
 
 interface ClientEventProps {
   event: Event;
   selectedEventCode: string;
-  onFinishEvent?: (eventId: string) => void;
+  setAddress: Dispatch<React.SetStateAction<string>>
 }
 
-const ClientEvent = ({ event, selectedEventCode, onFinishEvent }: ClientEventProps) => {
+const ClientEvent = ({ event, selectedEventCode, setAddress }: ClientEventProps) => {
 
-  const radioId = `event-radio-${event.code}`;
+  const [createdByUser, setCreatedByUser] = useState("");
+
+  useEffect(() => {
+    async function loadAttendants() {
+      const attendants = await getAttendants();
+      const userFound = attendants.find((user) => user.id === event.attendantId);
+      setCreatedByUser(userFound?.name ?? "");
+    }
+    loadAttendants();
+  }, [])
+
+
+  const radioId = `event-radio-${event.protocol}`;
   const value = event;
 
   // 1. Criamos uma referência para o input do rádio
   const radioRef = useRef<HTMLButtonElement>(null);
 
-  const handleClickStyle = selectedEventCode === event.code ? "border-[#7f1c1c] bg-[#301b1b]" : "border-[#2a3447]"
+  const handleClickStyle = selectedEventCode === event.protocol ? "border-[#7f1c1c] bg-[#301b1b]" : "border-[#2a3447]"
+
+  const handleFinishEvent = async () => {
+    await concludeEvent(event.id);
+  }
+
+  const handleChangeLocation = async () => {
+    if (event.returnLocation) {
+      setAddress(event.returnLocation)
+      console.warn("Endereço atualizado no mapa");
+    } else {
+      toast.add({
+        type: "error",
+        description: "Localização não fornecida pelo atendente!",
+        priority: "high",
+      });
+    }
+  }
 
   return (
     <Accordion className="flex w-full h-fit">
@@ -55,27 +88,27 @@ const ClientEvent = ({ event, selectedEventCode, onFinishEvent }: ClientEventPro
               </div>
 
               <div className="flex items-center absolute">
-                <RadioGroupItem hidden disabled={event.status === "Finalizado"} ref={radioRef} value={value} id={radioId} />
+                <RadioGroupItem hidden disabled={event.vehicles[0].status === "FINISHED"} ref={radioRef} value={value} id={radioId} />
               </div>
 
               <div className="flex flex-col gap-2">
                 <span className="flex items-center text-xs font-semibold text-white/50">
-                  <p className="">Código: {event.code}</p>
+                  <p className="">Código: {event.protocol}</p>
                   <LuDot />
-                  <p>{event.status}</p>
+                  <p>{event.vehicles[0].status}</p>
                 </span>
                 <h4 className="font-semibold text-md text-white">
                   {event.address}
                 </h4>
                 <p className="text-sm text-white/70">
-                  Enviado por: {event.createdByUser?.name ?? "Solicitante não informado"}
+                  Enviado por: {createdByUser ?? "Solicitante não informado"}
                 </p>
               </div>
             </div>
 
             {/* Badge de Severidade */}
             <div className="absolute right-0 mr-4 mb-8 flex h-full items-end shrink-0 ">
-              <SeverityStatus status={event.severity} />
+              <SeverityStatus status={event.patientCondition} />
             </div>
           </div>
         </AccordionTrigger>
@@ -91,30 +124,21 @@ const ClientEvent = ({ event, selectedEventCode, onFinishEvent }: ClientEventPro
             <div className="grid grid-cols-2 gap-4 text-xs">
               {/* Coluna 1 */}
               <div className="space-y-3">
+
+
                 <div>
                   <p className="mb-1 text-white/60 font-semibold">
-                    Pronto-Socorro à Retornar
+                    Consciência e Respiração
                   </p>
                   <div className="rounded-xl border border-[#2e3748] bg-[#1a2332] p-2.5 text-white/80">
-                    {event.hospitalToReturn || "[Não informado]"}
+                    {event.injuryCondition || "[Não informado]"}
                   </div>
                 </div>
 
                 <div>
-                  <p className="mb-1 text-white/60 font-semibold">
-                    Idade ou Aparência Aproximada
-                  </p>
+                  <p className="mb-1 text-white/60 font-semibold">Observações</p>
                   <div className="rounded-xl border border-[#2e3748] bg-[#1a2332] p-2.5 text-white/80">
-                    {event.approximateAge
-                      ? `${event.approximateAge} anos`
-                      : "[Não informado]"}
-                  </div>
-                </div>
-
-                <div>
-                  <p className="mb-1 text-white/60 font-semibold">Quantidade</p>
-                  <div className="rounded-xl border border-[#2e3748] bg-[#1a2332] p-2.5 text-white/80">
-                    {event.quantity ? `${event.quantity} ferido(s)` : "1 ferido"}
+                    {event.observations || "[Não informado]"}
                   </div>
                 </div>
               </div>
@@ -123,40 +147,59 @@ const ClientEvent = ({ event, selectedEventCode, onFinishEvent }: ClientEventPro
               <div className="space-y-3">
                 <div>
                   <p className="mb-1 text-white/60 font-semibold">
-                    Consciência e Respiração
+                    Idade ou Aparência Aproximada
                   </p>
                   <div className="rounded-xl border border-[#2e3748] bg-[#1a2332] p-2.5 text-white/80">
-                    {event.consciousnessAndBreathing || "[Não informado]"}
+                    {event.apparentAge > 0
+                      ? `${event.apparentAge} anos`
+                      : "[Não informado]"}
                   </div>
                 </div>
 
                 <div>
-                  <p className="mb-1 text-white/60 font-semibold">Sangramento</p>
+                  <p className="mb-1 text-white/60 font-semibold">Quantidade</p>
                   <div className="rounded-xl border border-[#2e3748] bg-[#1a2332] p-2.5 text-white/80">
-                    {event.bleeding ? "Com sangramento" : "Nenhum sangramento visível"}
-                  </div>
-                </div>
-
-                <div>
-                  <p className="mb-1 text-white/60 font-semibold">Causa</p>
-                  <div className="rounded-xl border border-[#2e3748] bg-[#1a2332] p-2.5 text-white/80">
-                    {event.cause || "[Não informado]"}
+                    {event.patientCount > 0 ? `${event.patientCount} ferido(s)` : "[Não informado]"}
                   </div>
                 </div>
               </div>
             </div>
+              <div className="space-y-3">
+                <div>
+                  <p className="mb-1 text-white/60 font-semibold">
+                    Pronto-Socorro à Retornar
+                  </p>
+                  <div className="rounded-xl border border-[#2e3748] bg-[#1a2332] p-2.5 text-white/80">
+                    {event.returnLocation || "[Não informado]"}
+                  </div>
+                </div>
+              </div>
             <Dialog>
               {/* Botão Terminar Alerta */}
-              {event.status !== "Finalizado" && (
+              {event.vehicles[0].status !== "FINISHED" ? (
                 <div className="flex justify-center pt-3">
+                  <Button
+                    onClick={handleFinishEvent}
+                    className="gap-2 shadow-lg rounded-full bg-[#d32f2f] px-6 py-2 text-xs font-bold text-white hover:bg-[#b71c1c]"
+                  >
+                    Terminar Alerta
+                    <FaFlag className="h-3 w-3" />
+                  </Button>
+                </div>
+              ) : (
+                <div className="flex px-10 justify-between pt-3">
+                  <Button
+                    onClick={handleChangeLocation}
+                    className="gap-2 shadow-lg rounded-full bg-[#d32f2f] px-6 py-2 text-xs font-bold text-white hover:bg-[#b71c1c]"
+                  >
+                    Localizar Retorno
+                    <FaFlag className="h-3 w-3" />
+                  </Button>
                   <DialogTrigger render={
                     <Button
-                      onClick={(e) => {
-                        onFinishEvent?.(event.id);
-                      }}
                       className="gap-2 shadow-lg rounded-full bg-[#d32f2f] px-6 py-2 text-xs font-bold text-white hover:bg-[#b71c1c]"
                     >
-                      Terminar Alerta
+                      Exportar Dados
                       <FaFlag className="h-3 w-3" />
                     </Button>
                   } />
