@@ -39,7 +39,7 @@ const AdminEvent = ({event}: AdminEventProp) => {
                 <ItemDescription className='flex w-fit text-[10px] font-semibold justify-center items-center'>
                     Código: {event.protocol}
                     <LuDot />
-                    {event.vehicles[0].status === "FINISHED" ? "    21  Q1  '2Q1    '21 aq" : "Em andamento"}
+                    {event.vehicles[0].status === "FINISHED" ? "Finalizado" : "Em andamento"}
                 </ItemDescription>
             </ItemContent>
             <ItemActions>
@@ -51,7 +51,7 @@ const AdminEvent = ({event}: AdminEventProp) => {
                             </Button> 
                         } />
                     )}                    
-                    <AdminFormDialog/>
+                    <AdminFormDialog event={event}/>
                 </Dialog>
             </ItemActions>
         </Item>

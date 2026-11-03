@@ -23,6 +23,23 @@ export interface BaseUser {
     createdAt?: Date;
 }
 
+export interface Driver {
+  id: string,
+  name: string,
+  email: string,
+  role: string,
+  phone: string,
+  status: string,
+  createdAt: Date,
+  vehicle: {
+    id: string,
+    plate: string,
+    latitude: number,
+    longitude: number,
+    driverId: string
+  }
+}
+
 // Attendant
 // {
 //   "id": "06351f02-5052-48a1-9ca4-c148e2eacc8a",

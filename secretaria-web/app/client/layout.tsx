@@ -14,8 +14,8 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { TbReload } from "react-icons/tb";
-import { BaseUser } from "../features/auth/types/User";
-import { changeDriverStatus } from "../features/auth/api/authApi";
+import { BaseUser, Driver } from "../features/auth/types/User";
+import { changeDriverStatus, getDriverById } from "../features/auth/api/authApi";
 import { ChangeDriverStatusRequest } from "../features/auth/requests/UsersRequests";
 
 interface ClientLayoutProps {
@@ -30,6 +30,7 @@ export default function HomepageClientLayout({
 }: ClientLayoutProps) {
   const router = useRouter();
   const { user, logout } = useAuth();
+  const [driverInfo, setDriverInfo] = useState<Driver | null>(null)
   const [isMounted, setIsMounted] = useState(false);
   const [status, setStatus] = useState<boolean | null>(null);
 
@@ -57,6 +58,16 @@ const handleStatus = async () => {
 
   useEffect(() => {
     setIsMounted(true);
+    const loadDriverInfo = async () => {
+      if (user?.id) {
+        const driver = await getDriverById(user.id);
+        if (driver) {
+          setDriverInfo(driver);
+        }
+      }
+    }
+
+    loadDriverInfo();
   }, []);
 
   useEffect(() => {
@@ -118,14 +129,14 @@ const handleStatus = async () => {
                     <BiSolidAmbulance/>
                   </Avatar>
                   <div className="flex-col">
-                    <h3 className="font-medium text-white text-sm">{user?.name}</h3>
+                    <h3 className="font-medium text-white text-sm">{status ? driverInfo?.vehicle.plate : user?.name}</h3>
                     <p className="font-light text-white/20 text-xs">TEL - {user?.phone}</p>
                   </div>                  
                 </span>
 
 
                 <button onClick={handleStatus} className="w-20 h-fit cursor-pointer">
-                  {status == true ? (
+                  {status ? (
                     <Badge className="w-full h-fit rounded-md border-[#1e7f1c] bg-[#204c1f] text-green-500">
                       <p>Online</p>
                       <TbReload/>

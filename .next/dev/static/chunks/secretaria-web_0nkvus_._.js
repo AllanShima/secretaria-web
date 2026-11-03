@@ -80,7 +80,7 @@ const AdminEvent = ({ event })=>{
                                 lineNumber: 41,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
-                            event.vehicles[0].status === "FINISHED" ? "    21  Q1  '2Q1    '21 aq" : "Em andamento"
+                            event.vehicles[0].status === "FINISHED" ? "Finalizado" : "Em andamento"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/secretaria-web/app/admin/@alert/_components/AdminEvent.tsx",
@@ -170,8 +170,10 @@ var _s = __turbopack_context__.k.signature();
 const AdminFormDialog = ()=>{
     _s();
     const [form, setForm] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
-        email: "",
-        senha: ""
+        returnLocation: "",
+        whatHappened: "",
+        injuryCondition: "",
+        observations: ""
     });
     function setField(key, value) {
         setForm((prev)=>({
@@ -179,6 +181,7 @@ const AdminFormDialog = ()=>{
                 [key]: value
             }));
     }
+    // (e) => setField("email", e.target.value)
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogContent"], {
             className: "sm:max-w-md dark",
@@ -189,54 +192,93 @@ const AdminFormDialog = ()=>{
                             children: "Share link"
                         }, void 0, false, {
                             fileName: "[project]/secretaria-web/app/admin/@alert/_components/AdminFormDialog.tsx",
-                            lineNumber: 23,
+                            lineNumber: 25,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogDescription"], {
                             children: "Anyone who has this link will be able to view this."
                         }, void 0, false, {
                             fileName: "[project]/secretaria-web/app/admin/@alert/_components/AdminFormDialog.tsx",
-                            lineNumber: 24,
+                            lineNumber: 26,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/secretaria-web/app/admin/@alert/_components/AdminFormDialog.tsx",
-                    lineNumber: 22,
+                    lineNumber: 24,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "flex items-center gap-2",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "grid flex-1 gap-2",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
-                                htmlFor: "link",
-                                className: "sr-only",
-                                children: "Link"
-                            }, void 0, false, {
-                                fileName: "[project]/secretaria-web/app/admin/@alert/_components/AdminFormDialog.tsx",
-                                lineNumber: 30,
-                                columnNumber: 25
-                            }, ("TURBOPACK compile-time value", void 0)),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                id: "link",
-                                defaultValue: "https://ui.shadcn.com/docs/installation",
-                                readOnly: true
-                            }, void 0, false, {
-                                fileName: "[project]/secretaria-web/app/admin/@alert/_components/AdminFormDialog.tsx",
-                                lineNumber: 33,
-                                columnNumber: 25
-                            }, ("TURBOPACK compile-time value", void 0))
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/secretaria-web/app/admin/@alert/_components/AdminFormDialog.tsx",
-                        lineNumber: 29,
-                        columnNumber: 21
-                    }, ("TURBOPACK compile-time value", void 0))
-                }, void 0, false, {
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "grid flex-1 gap-2",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
+                                    htmlFor: "link",
+                                    className: "sr-only",
+                                    children: "Link"
+                                }, void 0, false, {
+                                    fileName: "[project]/secretaria-web/app/admin/@alert/_components/AdminFormDialog.tsx",
+                                    lineNumber: 34,
+                                    columnNumber: 25
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                    id: "link",
+                                    defaultValue: "https://ui.shadcn.com/docs/installation",
+                                    readOnly: true
+                                }, void 0, false, {
+                                    fileName: "[project]/secretaria-web/app/admin/@alert/_components/AdminFormDialog.tsx",
+                                    lineNumber: 37,
+                                    columnNumber: 25
+                                }, ("TURBOPACK compile-time value", void 0))
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/secretaria-web/app/admin/@alert/_components/AdminFormDialog.tsx",
+                            lineNumber: 33,
+                            columnNumber: 21
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "flex-1 flex flex-col min-h-0 justify-end items-center w-full h-full overflow-hidden rounded-2xl",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "z-10 flex absolute shadow-lg border-black/30 justify-center items-center bg-white text-black rounded-xl h-fit w-fit max-w-5/6 py-3 px-5 mb-5 border-1",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        children: address ? address : "Selecione um alerta para localizar!"
+                                    }, void 0, false, {
+                                        fileName: "[project]/secretaria-web/app/admin/@alert/_components/AdminFormDialog.tsx",
+                                        lineNumber: 45,
+                                        columnNumber: 25
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                }, void 0, false, {
+                                    fileName: "[project]/secretaria-web/app/admin/@alert/_components/AdminFormDialog.tsx",
+                                    lineNumber: 44,
+                                    columnNumber: 21
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "z-0 flex w-full h-full rounded-b-lg ",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(CustomMap, {
+                                        routeCords: locationCoords
+                                    }, void 0, false, {
+                                        fileName: "[project]/secretaria-web/app/admin/@alert/_components/AdminFormDialog.tsx",
+                                        lineNumber: 50,
+                                        columnNumber: 25
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                }, void 0, false, {
+                                    fileName: "[project]/secretaria-web/app/admin/@alert/_components/AdminFormDialog.tsx",
+                                    lineNumber: 49,
+                                    columnNumber: 21
+                                }, ("TURBOPACK compile-time value", void 0))
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/secretaria-web/app/admin/@alert/_components/AdminFormDialog.tsx",
+                            lineNumber: 43,
+                            columnNumber: 21
+                        }, ("TURBOPACK compile-time value", void 0))
+                    ]
+                }, void 0, true, {
                     fileName: "[project]/secretaria-web/app/admin/@alert/_components/AdminFormDialog.tsx",
-                    lineNumber: 28,
+                    lineNumber: 32,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogFooter"], {
@@ -248,12 +290,12 @@ const AdminFormDialog = ()=>{
                                 children: "Close"
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/admin/@alert/_components/AdminFormDialog.tsx",
-                                lineNumber: 41,
+                                lineNumber: 60,
                                 columnNumber: 42
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/secretaria-web/app/admin/@alert/_components/AdminFormDialog.tsx",
-                            lineNumber: 41,
+                            lineNumber: 60,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -262,28 +304,28 @@ const AdminFormDialog = ()=>{
                             children: "Atualizar Informações"
                         }, void 0, false, {
                             fileName: "[project]/secretaria-web/app/admin/@alert/_components/AdminFormDialog.tsx",
-                            lineNumber: 42,
+                            lineNumber: 61,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/secretaria-web/app/admin/@alert/_components/AdminFormDialog.tsx",
-                    lineNumber: 40,
+                    lineNumber: 59,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/secretaria-web/app/admin/@alert/_components/AdminFormDialog.tsx",
-            lineNumber: 21,
+            lineNumber: 23,
             columnNumber: 13
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/secretaria-web/app/admin/@alert/_components/AdminFormDialog.tsx",
-        lineNumber: 20,
+        lineNumber: 22,
         columnNumber: 9
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(AdminFormDialog, "tH6p/NI84bsY8Qh5lvdxndCNd5w=");
+_s(AdminFormDialog, "ZTZaS5lZjShTtkzRp+4Tv8P3YC0=");
 _c = AdminFormDialog;
 const __TURBOPACK__default__export__ = AdminFormDialog;
 var _c;
@@ -843,6 +885,9 @@ const AdminHomepageAlert = ()=>{
                     const foundClients = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$app$2f$features$2f$auth$2f$api$2f$authApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getDrivers"])();
                     setClients(foundClients);
                     const foundEvents = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$app$2f$features$2f$admin$2f$api$2f$adminApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getEvents"])();
+                    const sortedEvents = foundEvents.sort({
+                        "AdminHomepageAlert.useEffect.loadClientsAndEvents.sortedEvents": (a, b)=>new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+                    }["AdminHomepageAlert.useEffect.loadClientsAndEvents.sortedEvents"]);
                     setEvents(foundEvents);
                 } catch (error) {
                     __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$toast$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].add({
@@ -890,7 +935,7 @@ const AdminHomepageAlert = ()=>{
                                 children: "Enviar Alerta de Socorro"
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/admin/@alert/page.tsx",
-                                lineNumber: 69,
+                                lineNumber: 70,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
@@ -898,13 +943,13 @@ const AdminHomepageAlert = ()=>{
                                 children: "O alerta será enviado imediatamente aos socorristas SELECIONADOS."
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/admin/@alert/page.tsx",
-                                lineNumber: 72,
+                                lineNumber: 73,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/secretaria-web/app/admin/@alert/page.tsx",
-                        lineNumber: 68,
+                        lineNumber: 69,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -918,7 +963,7 @@ const AdminHomepageAlert = ()=>{
                                         children: "Nível de Severidade"
                                     }, void 0, false, {
                                         fileName: "[project]/secretaria-web/app/admin/@alert/page.tsx",
-                                        lineNumber: 81,
+                                        lineNumber: 82,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Tabs"], {
@@ -934,7 +979,7 @@ const AdminHomepageAlert = ()=>{
                                                     children: "Crítico"
                                                 }, void 0, false, {
                                                     fileName: "[project]/secretaria-web/app/admin/@alert/page.tsx",
-                                                    lineNumber: 91,
+                                                    lineNumber: 92,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsTrigger"], {
@@ -943,7 +988,7 @@ const AdminHomepageAlert = ()=>{
                                                     children: "Urgente"
                                                 }, void 0, false, {
                                                     fileName: "[project]/secretaria-web/app/admin/@alert/page.tsx",
-                                                    lineNumber: 92,
+                                                    lineNumber: 93,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsTrigger"], {
@@ -952,24 +997,24 @@ const AdminHomepageAlert = ()=>{
                                                     children: "Moderado"
                                                 }, void 0, false, {
                                                     fileName: "[project]/secretaria-web/app/admin/@alert/page.tsx",
-                                                    lineNumber: 93,
+                                                    lineNumber: 94,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/secretaria-web/app/admin/@alert/page.tsx",
-                                            lineNumber: 89,
+                                            lineNumber: 90,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/secretaria-web/app/admin/@alert/page.tsx",
-                                        lineNumber: 84,
+                                        lineNumber: 85,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/secretaria-web/app/admin/@alert/page.tsx",
-                                lineNumber: 80,
+                                lineNumber: 81,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -980,7 +1025,7 @@ const AdminHomepageAlert = ()=>{
                                         children: "Localização"
                                     }, void 0, false, {
                                         fileName: "[project]/secretaria-web/app/admin/@alert/page.tsx",
-                                        lineNumber: 100,
+                                        lineNumber: 101,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -996,7 +1041,7 @@ const AdminHomepageAlert = ()=>{
                                                         className: "dark text-white bg-transparent transition rounded-none border-zinc-700 h-12 flex-1 px-5"
                                                     }, void 0, false, {
                                                         fileName: "[project]/secretaria-web/app/admin/@alert/page.tsx",
-                                                        lineNumber: 107,
+                                                        lineNumber: 108,
                                                         columnNumber: 17
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1007,18 +1052,18 @@ const AdminHomepageAlert = ()=>{
                                                             className: "w-5 h-5"
                                                         }, void 0, false, {
                                                             fileName: "[project]/secretaria-web/app/admin/@alert/page.tsx",
-                                                            lineNumber: 119,
+                                                            lineNumber: 120,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     }, void 0, false, {
                                                         fileName: "[project]/secretaria-web/app/admin/@alert/page.tsx",
-                                                        lineNumber: 114,
+                                                        lineNumber: 115,
                                                         columnNumber: 17
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/secretaria-web/app/admin/@alert/page.tsx",
-                                                lineNumber: 106,
+                                                lineNumber: 107,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1027,36 +1072,36 @@ const AdminHomepageAlert = ()=>{
                                                     routeCords: currentCoords
                                                 }, void 0, false, {
                                                     fileName: "[project]/secretaria-web/app/admin/@alert/page.tsx",
-                                                    lineNumber: 126,
+                                                    lineNumber: 127,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             }, void 0, false, {
                                                 fileName: "[project]/secretaria-web/app/admin/@alert/page.tsx",
-                                                lineNumber: 125,
+                                                lineNumber: 126,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/secretaria-web/app/admin/@alert/page.tsx",
-                                        lineNumber: 104,
+                                        lineNumber: 105,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/secretaria-web/app/admin/@alert/page.tsx",
-                                lineNumber: 99,
+                                lineNumber: 100,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/secretaria-web/app/admin/@alert/page.tsx",
-                        lineNumber: 78,
+                        lineNumber: 79,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/secretaria-web/app/admin/@alert/page.tsx",
-                lineNumber: 66,
+                lineNumber: 67,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$app$2f$admin$2f40$alert$2f$_components$2f$EventSidebar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1068,13 +1113,13 @@ const AdminHomepageAlert = ()=>{
                 setFoundAddress: setFoundAddress
             }, void 0, false, {
                 fileName: "[project]/secretaria-web/app/admin/@alert/page.tsx",
-                lineNumber: 134,
+                lineNumber: 135,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/secretaria-web/app/admin/@alert/page.tsx",
-        lineNumber: 64,
+        lineNumber: 65,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -1128,7 +1173,8 @@ async function createEvent(eventBody) {
 }
 async function concludeEvent(id) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$lib$2f$apiClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])(`/emergency-calls/${id}/conclude`, {
-        method: 'PATCH'
+        method: 'PATCH',
+        body: JSON.stringify({})
     });
 }
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {

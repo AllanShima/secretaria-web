@@ -207,7 +207,7 @@ function Toaster({
     <ToastProvider toastManager={toastManager} {...props}>
       {children}
       <ToastPortal>
-        <ToastViewport>
+        <ToastViewport className={"z-[99999]"}>
           <ToastList />
         </ToastViewport>
       </ToastPortal>

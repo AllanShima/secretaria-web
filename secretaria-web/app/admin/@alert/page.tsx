@@ -30,6 +30,7 @@ const AdminHomepageAlert = () => {
         const foundClients = await getDrivers();
         setClients(foundClients);
         const foundEvents = await getEvents();
+        const sortedEvents = foundEvents.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
         setEvents(foundEvents);
       } catch (error) {
         toast.add({

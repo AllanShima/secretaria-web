@@ -336,7 +336,9 @@ __turbopack_context__.s([
     "loginDriver",
     ()=>loginDriver,
     "logoutAttendant",
-    ()=>logoutAttendant
+    ()=>logoutAttendant,
+    "updateDriverLocationById",
+    ()=>updateDriverLocationById
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$lib$2f$apiClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/lib/apiClient.ts [app-client] (ecmascript)");
 ;
@@ -388,6 +390,12 @@ async function createDriver(driverBody) {
 }
 async function changeDriverStatus(id, driverBody) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$lib$2f$apiClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])(`/drivers/${id}/status`, {
+        method: 'PATCH',
+        body: JSON.stringify(driverBody)
+    });
+}
+async function updateDriverLocationById(id, driverBody) {
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$lib$2f$apiClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])(`/drivers/${id}/location`, {
         method: 'PATCH',
         body: JSON.stringify(driverBody)
     });

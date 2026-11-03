@@ -36,3 +36,8 @@ export interface LogoutAttendantRequest {
 export interface ChangeDriverStatusRequest {
   status: "OFFLINE" | "ONLINE"
 }
+
+export interface UpdateDriverLocationRequest {
+  latitude: number,
+  longitude: number
+}

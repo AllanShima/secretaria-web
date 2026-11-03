@@ -1,8 +1,9 @@
 import { apiFetch } from "@/lib/apiClient";
-import { CreateEventRequest } from "../../auth/requests/EventsRequests";
+import { CreateEventRequest, UpdateEventRequest } from "../../auth/requests/EventsRequests";
 import { ConcludeEventResponse, CreateEventResponse, LocationEventResponse } from "../../auth/responses/EventsResponses";
 import { Event } from "../../auth/types/Event";
 import { Notification } from "../../auth/types/Notification";
+import { UpdateDriverLocationRequest } from "../../auth/requests/UsersRequests";
 
 // ---------- GetAll
 export async function getEvents(): Promise<Event[]> {
@@ -35,8 +36,16 @@ export async function createEvent(eventBody: CreateEventRequest) {
 
 // ----------- PATCH
 
-export async function concludeEvent(id: string): Promise<ConcludeEventResponse | null> {
+export async function concludeEvent(id: string) {
     return apiFetch<ConcludeEventResponse>(`/emergency-calls/${id}/conclude`, {
-        method: 'PATCH'
+        method: 'PATCH',
+        body: JSON.stringify({})
+    });
+}
+
+export async function updateEventById(id: string, eventBody: UpdateEventRequest) {
+    return apiFetch<Event>(`/emergency-calls/${id}`, {
+        method: 'PATCH',
+        body: JSON.stringify(eventBody)
     });
 }

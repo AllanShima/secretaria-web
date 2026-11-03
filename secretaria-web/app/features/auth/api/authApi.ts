@@ -1,6 +1,6 @@
 import { apiFetch } from "@/lib/apiClient";
-import { BaseUser, User } from "../types/User";
-import { ChangeDriverStatusRequest, CreateAttendantRequest, CreateDriverRequest, LoginAttendantRequest, LoginDriverRequest, LogoutAttendantRequest } from "../requests/UsersRequests";
+import { BaseUser, Driver, User } from "../types/User";
+import { ChangeDriverStatusRequest, CreateAttendantRequest, CreateDriverRequest, LoginAttendantRequest, LoginDriverRequest, LogoutAttendantRequest, UpdateDriverLocationRequest } from "../requests/UsersRequests";
 
 // ---------- Login
 
@@ -42,8 +42,8 @@ export async function getAttendantById(id: string): Promise<BaseUser | null> {
     return apiFetch<BaseUser>(`/attendants/${id}`);
 }
 
-export async function getDriverById(id: string): Promise<BaseUser | null> {
-    return apiFetch<BaseUser>(`/drivers/${id}`);
+export async function getDriverById(id: string) {
+    return apiFetch<Driver>(`/drivers/${id}`);
 }
 
 // ----------- POST
@@ -68,5 +68,12 @@ export async function changeDriverStatus(id: string, driverBody: ChangeDriverSta
     return apiFetch(`/drivers/${id}/status`, {
         method: 'PATCH',
         body: JSON.stringify(driverBody),
+    });
+}
+
+export async function updateDriverLocationById(id: string, driverBody: UpdateDriverLocationRequest) {
+    return apiFetch<Event>(`/drivers/${id}/location`, {
+        method: 'PATCH',
+        body: JSON.stringify(driverBody)
     });
 }

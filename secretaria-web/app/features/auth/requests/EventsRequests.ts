@@ -11,3 +11,10 @@ export interface CreateEventRequest {
   attendantId: string,
   driverId: string
 }
+
+export interface UpdateEventRequest {
+  returnLocation: string,
+  whatHappened: string,
+  injuryCondition: string,
+  observations: string
+}

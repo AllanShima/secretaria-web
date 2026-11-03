@@ -12,6 +12,7 @@ import { Event } from '@/app/features/auth/types/Event'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Notification } from '@/app/features/auth/types/Notification'
 import { Spinner } from '@/components/ui/spinner'
+import { RouteCoordinates } from '@/app/features/map/types/Routing'
 
 interface ClientSidebarProps {
     events?: Event[] | null,
@@ -19,10 +20,12 @@ interface ClientSidebarProps {
     selectedEvent: Event | null,
     setSelectedEvent: Dispatch<React.SetStateAction<Event | null>>,
     setAddress: Dispatch<React.SetStateAction<string>>,
-    isLoading: boolean
+    isLoading: boolean,
+    setLocationCoords: Dispatch<React.SetStateAction<RouteCoordinates>>,
+    setIsRoutingLoading: Dispatch<React.SetStateAction<boolean>>
 }
 
-const ClientSidebar = ({ events, notifications, selectedEvent, setSelectedEvent, setAddress, isLoading }: ClientSidebarProps) => {
+const ClientSidebar = ({ events, notifications, selectedEvent, setSelectedEvent, setAddress, isLoading, setLocationCoords, setIsRoutingLoading }: ClientSidebarProps) => {
     return (
         <div className='flex flex-col w-full h-full min-h-0 rounded-3xl shrink-0'>
             {/* Tabs Container com aba padrão inicial */}
@@ -63,7 +66,13 @@ const ClientSidebar = ({ events, notifications, selectedEvent, setSelectedEvent,
                                 <div className='flex flex-col p-3 pb-20 w-full h-full items-start gap-3 overflow-auto scrollbar-none'>
                                     <RadioGroup value={selectedEvent} onValueChange={setSelectedEvent}>
                                         {(events ?? []).map(event => (
-                                            <ClientEvent key={event.id} event={event} selectedEventCode={selectedEvent?.protocol ?? ''} setAddress={setAddress} />
+                                            <ClientEvent key={event.id} 
+                                                event={event} 
+                                                selectedEventCode={selectedEvent?.protocol ?? ''} 
+                                                setAddress={setAddress} 
+                                                setLocationCoords={setLocationCoords}
+                                                setIsRoutingLoading={setIsRoutingLoading}
+                                            />
                                         ))}
                                     </RadioGroup>
                                 </div>

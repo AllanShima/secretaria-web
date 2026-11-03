@@ -20,15 +20,22 @@ import { getAttendants } from "@/app/features/auth/api/authApi";
 import { concludeEvent } from "@/app/features/admin/api/adminApi";
 import { ConcludeEventResponse } from "@/app/features/auth/responses/EventsResponses";
 import { toast } from "@/components/ui/toast";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { FaFileExport } from "react-icons/fa";
+import { useRouter } from "next/navigation";
+import { loadCoordinatesForAddress } from "@/app/features/map/utils/mapHelper";
+import { RouteCoordinates } from "@/app/features/map/types/Routing";
 
 interface ClientEventProps {
   event: Event;
   selectedEventCode: string;
-  setAddress: Dispatch<React.SetStateAction<string>>
+  setAddress: Dispatch<React.SetStateAction<string>>;
+  setLocationCoords: Dispatch<React.SetStateAction<RouteCoordinates>>,
+  setIsRoutingLoading: Dispatch<React.SetStateAction<boolean>>
 }
 
-const ClientEvent = ({ event, selectedEventCode, setAddress }: ClientEventProps) => {
-
+const ClientEvent = ({ event, selectedEventCode, setAddress, setLocationCoords, setIsRoutingLoading }: ClientEventProps) => {
+  const router = useRouter();
   const [createdByUser, setCreatedByUser] = useState("");
 
   useEffect(() => {
@@ -50,19 +57,49 @@ const ClientEvent = ({ event, selectedEventCode, setAddress }: ClientEventProps)
   const handleClickStyle = selectedEventCode === event.protocol ? "border-[#7f1c1c] bg-[#301b1b]" : "border-[#2a3447]"
 
   const handleFinishEvent = async () => {
-    await concludeEvent(event.id);
+    try {
+      const count: ConcludeEventResponse | null = await concludeEvent(event.id);
+      if (!count) {
+        toast.add({
+          type: "error",
+          description: "Não foi possível concluir o alerta.",
+          priority: "high",
+        });
+        return;
+      }
+      router.refresh();
+    } catch (error) {
+      toast.add({
+        type: "error",
+        description: String(error),
+        priority: "high",
+      });
+    }
   }
 
   const handleChangeLocation = async () => {
-    if (event.returnLocation) {
-      setAddress(event.returnLocation)
-      console.warn("Endereço atualizado no mapa");
-    } else {
+    setIsRoutingLoading(true);
+    try {
+      if (event.returnLocation) {
+        setIsRoutingLoading(true);
+        setAddress(event.returnLocation);
+        await loadCoordinatesForAddress(event.returnLocation, setLocationCoords);
+        console.warn("Endereço atualizado no mapa");
+      } else {
+        toast.add({
+          type: "error",
+          description: "Localização não fornecida pelo atendente!",
+          priority: "high",
+        });
+      }      
+    } catch (error) {
       toast.add({
         type: "error",
-        description: "Localização não fornecida pelo atendente!",
+        description: String(error),
         priority: "high",
       });
+    } finally {
+      setIsRoutingLoading(false);
     }
   }
 
@@ -95,7 +132,7 @@ const ClientEvent = ({ event, selectedEventCode, setAddress }: ClientEventProps)
                 <span className="flex items-center text-xs font-semibold text-white/50">
                   <p className="">Código: {event.protocol}</p>
                   <LuDot />
-                  <p>{event.vehicles[0].status}</p>
+                  <p>{event.vehicles[0].status === "NOT_STARTED" ? "Em Andamento" : "Finalizado"}</p>
                 </span>
                 <h4 className="font-semibold text-md text-white">
                   {event.address}
@@ -122,10 +159,9 @@ const ClientEvent = ({ event, selectedEventCode, setAddress }: ClientEventProps)
 
             {/* Grid de Detalhes Adicionais (2 colunas) */}
             <div className="grid grid-cols-2 gap-4 text-xs">
+
               {/* Coluna 1 */}
               <div className="space-y-3">
-
-
                 <div>
                   <p className="mb-1 text-white/60 font-semibold">
                     Consciência e Respiração
@@ -134,18 +170,11 @@ const ClientEvent = ({ event, selectedEventCode, setAddress }: ClientEventProps)
                     {event.injuryCondition || "[Não informado]"}
                   </div>
                 </div>
-
-                <div>
-                  <p className="mb-1 text-white/60 font-semibold">Observações</p>
-                  <div className="rounded-xl border border-[#2e3748] bg-[#1a2332] p-2.5 text-white/80">
-                    {event.observations || "[Não informado]"}
-                  </div>
-                </div>
               </div>
 
               {/* Coluna 2 */}
               <div className="space-y-3">
-                <div>
+                {/* <div>
                   <p className="mb-1 text-white/60 font-semibold">
                     Idade ou Aparência Aproximada
                   </p>
@@ -154,16 +183,23 @@ const ClientEvent = ({ event, selectedEventCode, setAddress }: ClientEventProps)
                       ? `${event.apparentAge} anos`
                       : "[Não informado]"}
                   </div>
-                </div>
+                </div> */}
 
                 <div>
-                  <p className="mb-1 text-white/60 font-semibold">Quantidade</p>
+                  <p className="mb-1 text-white/60 font-semibold">O que aconteceu?</p>
                   <div className="rounded-xl border border-[#2e3748] bg-[#1a2332] p-2.5 text-white/80">
-                    {event.patientCount > 0 ? `${event.patientCount} ferido(s)` : "[Não informado]"}
+                    {event.whatHappened ? event.whatHappened : "[Não informado]"}
                   </div>
                 </div>
               </div>
             </div>
+              <div>
+                <p className="mb-1 text-white/60 font-semibold">Observações</p>
+                <div className="rounded-xl border border-[#2e3748] bg-[#1a2332] p-2.5 text-white/80">
+                  {event.observations || "[Não informado]"}
+                </div>
+              </div>
+              
               <div className="space-y-3">
                 <div>
                   <p className="mb-1 text-white/60 font-semibold">
@@ -193,14 +229,14 @@ const ClientEvent = ({ event, selectedEventCode, setAddress }: ClientEventProps)
                     className="gap-2 shadow-lg rounded-full bg-[#d32f2f] px-6 py-2 text-xs font-bold text-white hover:bg-[#b71c1c]"
                   >
                     Localizar Retorno
-                    <FaFlag className="h-3 w-3" />
+                    <FaMapMarkerAlt className="h-3 w-3" />
                   </Button>
                   <DialogTrigger render={
                     <Button
                       className="gap-2 shadow-lg rounded-full bg-[#d32f2f] px-6 py-2 text-xs font-bold text-white hover:bg-[#b71c1c]"
                     >
                       Exportar Dados
-                      <FaFlag className="h-3 w-3" />
+                      <FaFileExport className="h-3 w-3" />
                     </Button>
                   } />
                 </div>

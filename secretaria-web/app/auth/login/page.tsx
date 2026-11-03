@@ -101,7 +101,7 @@ export default function LoginPage() {
           }
           login(baseUser);
           router.push("/client");
-          return; 
+          return;
         } else {
           Error("Posição não encontrada!");
         }
@@ -168,29 +168,29 @@ export default function LoginPage() {
               />
             </Field>
 
-                      <div className="flex flex-col gap-2">
-            <Label className="text-base font-normal text-white/50">
-              Entrar como
-            </Label>
-            <div className="flex h-12 gap-2">
-              <PerfilOption
-                icon={Phone}
-                label="Telefonista"
-                selected={userType === "ATTENDANT"}
-                onClick={() => setUserType("ATTENDANT")}
-              />
-              <PerfilOption
-                icon={Ambulance}
-                label="Ambulância"
-                selected={userType === "DRIVER"}
-                onClick={() => setUserType("DRIVER")}
-              />
+            <div className="flex flex-col gap-2">
+              <Label className="text-base font-normal text-white/50">
+                Entrar como
+              </Label>
+              <div className="flex h-12 gap-2">
+                <PerfilOption
+                  icon={Phone}
+                  label="Telefonista"
+                  selected={userType === "ATTENDANT"}
+                  onClick={() => setUserType("ATTENDANT")}
+                />
+                <PerfilOption
+                  icon={Ambulance}
+                  label="Ambulância"
+                  selected={userType === "DRIVER"}
+                  onClick={() => setUserType("DRIVER")}
+                />
+              </div>
             </div>
-          </div>
 
             {isLoadingPos ? (
               <div className="flex mt-2.5 h-[42px] w-full items-center justify-center rounded-[10px] bg-[#f93a3a] text-lg font-semibold text-white hover:bg-[#e13333]">
-                <Spinner className="size-6"/>
+                <Spinner className="size-6" />
               </div>
             ) : (
               <Button

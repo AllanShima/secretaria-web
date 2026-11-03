@@ -20,6 +20,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$app$2f$
 var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$app$2f$features$2f$auth$2f$api$2f$authApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/app/features/auth/api/authApi.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$app$2f$features$2f$admin$2f$api$2f$adminApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/app/features/admin/api/adminApi.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$toast$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/components/ui/toast.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/navigation.js [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 "use client";
@@ -36,8 +37,12 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
+;
+;
+;
 const ClientEvent = ({ event, selectedEventCode, setAddress })=>{
     _s();
+    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const [createdByUser, setCreatedByUser] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "ClientEvent.useEffect": ()=>{
@@ -57,7 +62,24 @@ const ClientEvent = ({ event, selectedEventCode, setAddress })=>{
     const radioRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const handleClickStyle = selectedEventCode === event.protocol ? "border-[#7f1c1c] bg-[#301b1b]" : "border-[#2a3447]";
     const handleFinishEvent = async ()=>{
-        await (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$app$2f$features$2f$admin$2f$api$2f$adminApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["concludeEvent"])(event.id);
+        try {
+            const count = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$app$2f$features$2f$admin$2f$api$2f$adminApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["concludeEvent"])(event.id);
+            if (!count) {
+                __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$toast$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].add({
+                    type: "error",
+                    description: "Não foi possível concluir o alerta.",
+                    priority: "high"
+                });
+                return;
+            }
+            router.refresh();
+        } catch (error) {
+            __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$toast$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].add({
+                type: "error",
+                description: String(error),
+                priority: "high"
+            });
+        }
     };
     const handleChangeLocation = async ()=>{
         if (event.returnLocation) {
@@ -95,12 +117,12 @@ const ClientEvent = ({ event, selectedEventCode, setAddress })=>{
                                             className: "h-5 w-5"
                                         }, void 0, false, {
                                             fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                            lineNumber: 87,
+                                            lineNumber: 107,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                        lineNumber: 86,
+                                        lineNumber: 106,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -113,12 +135,12 @@ const ClientEvent = ({ event, selectedEventCode, setAddress })=>{
                                             id: radioId
                                         }, void 0, false, {
                                             fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                            lineNumber: 91,
+                                            lineNumber: 111,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                        lineNumber: 90,
+                                        lineNumber: 110,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -135,25 +157,25 @@ const ClientEvent = ({ event, selectedEventCode, setAddress })=>{
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                                        lineNumber: 96,
+                                                        lineNumber: 116,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$react$2d$icons$2f$lu$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["LuDot"], {}, void 0, false, {
                                                         fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                                        lineNumber: 97,
+                                                        lineNumber: 117,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        children: event.vehicles[0].status
+                                                        children: event.vehicles[0].status === "NOT_STARTED" ? "Em Andamento" : "Finalizado"
                                                     }, void 0, false, {
                                                         fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                                        lineNumber: 98,
+                                                        lineNumber: 118,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                                lineNumber: 95,
+                                                lineNumber: 115,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
@@ -161,7 +183,7 @@ const ClientEvent = ({ event, selectedEventCode, setAddress })=>{
                                                 children: event.address
                                             }, void 0, false, {
                                                 fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                                lineNumber: 100,
+                                                lineNumber: 120,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -172,19 +194,19 @@ const ClientEvent = ({ event, selectedEventCode, setAddress })=>{
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                                lineNumber: 103,
+                                                lineNumber: 123,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                        lineNumber: 94,
+                                        lineNumber: 114,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                lineNumber: 85,
+                                lineNumber: 105,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -193,23 +215,23 @@ const ClientEvent = ({ event, selectedEventCode, setAddress })=>{
                                     status: event.patientCondition
                                 }, void 0, false, {
                                     fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                    lineNumber: 111,
+                                    lineNumber: 131,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                lineNumber: 110,
+                                lineNumber: 130,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                        lineNumber: 83,
+                        lineNumber: 103,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                    lineNumber: 76,
+                    lineNumber: 96,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$accordion$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AccordionContent"], {
@@ -222,7 +244,7 @@ const ClientEvent = ({ event, selectedEventCode, setAddress })=>{
                                 children: "Informações adicionais"
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                lineNumber: 119,
+                                lineNumber: 139,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -230,123 +252,95 @@ const ClientEvent = ({ event, selectedEventCode, setAddress })=>{
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "space-y-3",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "mb-1 text-white/60 font-semibold",
-                                                        children: "Consciência e Respiração"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                                        lineNumber: 130,
-                                                        columnNumber: 19
-                                                    }, ("TURBOPACK compile-time value", void 0)),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "rounded-xl border border-[#2e3748] bg-[#1a2332] p-2.5 text-white/80",
-                                                        children: event.injuryCondition || "[Não informado]"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                                        lineNumber: 133,
-                                                        columnNumber: 19
-                                                    }, ("TURBOPACK compile-time value", void 0))
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                                lineNumber: 129,
-                                                columnNumber: 17
-                                            }, ("TURBOPACK compile-time value", void 0)),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "mb-1 text-white/60 font-semibold",
-                                                        children: "Observações"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                                        lineNumber: 139,
-                                                        columnNumber: 19
-                                                    }, ("TURBOPACK compile-time value", void 0)),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "rounded-xl border border-[#2e3748] bg-[#1a2332] p-2.5 text-white/80",
-                                                        children: event.observations || "[Não informado]"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                                        lineNumber: 140,
-                                                        columnNumber: 19
-                                                    }, ("TURBOPACK compile-time value", void 0))
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                                lineNumber: 138,
-                                                columnNumber: 17
-                                            }, ("TURBOPACK compile-time value", void 0))
-                                        ]
-                                    }, void 0, true, {
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "mb-1 text-white/60 font-semibold",
+                                                    children: "Consciência e Respiração"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
+                                                    lineNumber: 149,
+                                                    columnNumber: 19
+                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "rounded-xl border border-[#2e3748] bg-[#1a2332] p-2.5 text-white/80",
+                                                    children: event.injuryCondition || "[Não informado]"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
+                                                    lineNumber: 152,
+                                                    columnNumber: 19
+                                                }, ("TURBOPACK compile-time value", void 0))
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
+                                            lineNumber: 148,
+                                            columnNumber: 17
+                                        }, ("TURBOPACK compile-time value", void 0))
+                                    }, void 0, false, {
                                         fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                        lineNumber: 126,
+                                        lineNumber: 147,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "space-y-3",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "mb-1 text-white/60 font-semibold",
-                                                        children: "Idade ou Aparência Aproximada"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                                        lineNumber: 149,
-                                                        columnNumber: 19
-                                                    }, ("TURBOPACK compile-time value", void 0)),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "rounded-xl border border-[#2e3748] bg-[#1a2332] p-2.5 text-white/80",
-                                                        children: event.apparentAge > 0 ? `${event.apparentAge} anos` : "[Não informado]"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                                        lineNumber: 152,
-                                                        columnNumber: 19
-                                                    }, ("TURBOPACK compile-time value", void 0))
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                                lineNumber: 148,
-                                                columnNumber: 17
-                                            }, ("TURBOPACK compile-time value", void 0)),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "mb-1 text-white/60 font-semibold",
-                                                        children: "Quantidade"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                                        lineNumber: 160,
-                                                        columnNumber: 19
-                                                    }, ("TURBOPACK compile-time value", void 0)),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "rounded-xl border border-[#2e3748] bg-[#1a2332] p-2.5 text-white/80",
-                                                        children: event.patientCount > 0 ? `${event.patientCount} ferido(s)` : "[Não informado]"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                                        lineNumber: 161,
-                                                        columnNumber: 19
-                                                    }, ("TURBOPACK compile-time value", void 0))
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                                lineNumber: 159,
-                                                columnNumber: 17
-                                            }, ("TURBOPACK compile-time value", void 0))
-                                        ]
-                                    }, void 0, true, {
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "mb-1 text-white/60 font-semibold",
+                                                    children: "O que aconteceu?"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
+                                                    lineNumber: 172,
+                                                    columnNumber: 19
+                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "rounded-xl border border-[#2e3748] bg-[#1a2332] p-2.5 text-white/80",
+                                                    children: event.whatHappened ? event.whatHappened : "[Não informado]"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
+                                                    lineNumber: 173,
+                                                    columnNumber: 19
+                                                }, ("TURBOPACK compile-time value", void 0))
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
+                                            lineNumber: 171,
+                                            columnNumber: 17
+                                        }, ("TURBOPACK compile-time value", void 0))
+                                    }, void 0, false, {
                                         fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                        lineNumber: 147,
+                                        lineNumber: 159,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                lineNumber: 124,
+                                lineNumber: 144,
                                 columnNumber: 13
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "mb-1 text-white/60 font-semibold",
+                                        children: "Observações"
+                                    }, void 0, false, {
+                                        fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
+                                        lineNumber: 180,
+                                        columnNumber: 17
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "rounded-xl border border-[#2e3748] bg-[#1a2332] p-2.5 text-white/80",
+                                        children: event.observations || "[Não informado]"
+                                    }, void 0, false, {
+                                        fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
+                                        lineNumber: 181,
+                                        columnNumber: 17
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
+                                lineNumber: 179,
+                                columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "space-y-3",
@@ -357,7 +351,7 @@ const ClientEvent = ({ event, selectedEventCode, setAddress })=>{
                                             children: "Pronto-Socorro à Retornar"
                                         }, void 0, false, {
                                             fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                            lineNumber: 169,
+                                            lineNumber: 188,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -365,18 +359,18 @@ const ClientEvent = ({ event, selectedEventCode, setAddress })=>{
                                             children: event.returnLocation || "[Não informado]"
                                         }, void 0, false, {
                                             fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                            lineNumber: 172,
+                                            lineNumber: 191,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                    lineNumber: 168,
+                                    lineNumber: 187,
                                     columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                lineNumber: 167,
+                                lineNumber: 186,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -392,18 +386,18 @@ const ClientEvent = ({ event, selectedEventCode, setAddress })=>{
                                                     className: "h-3 w-3"
                                                 }, void 0, false, {
                                                     fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                                    lineNumber: 186,
+                                                    lineNumber: 205,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                            lineNumber: 181,
+                                            lineNumber: 200,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                        lineNumber: 180,
+                                        lineNumber: 199,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "flex px-10 justify-between pt-3",
@@ -413,17 +407,17 @@ const ClientEvent = ({ event, selectedEventCode, setAddress })=>{
                                                 className: "gap-2 shadow-lg rounded-full bg-[#d32f2f] px-6 py-2 text-xs font-bold text-white hover:bg-[#b71c1c]",
                                                 children: [
                                                     "Localizar Retorno",
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$react$2d$icons$2f$fa$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FaFlag"], {
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$react$2d$icons$2f$fa$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FaMapMarkerAlt"], {
                                                         className: "h-3 w-3"
                                                     }, void 0, false, {
                                                         fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                                        lineNumber: 196,
+                                                        lineNumber: 215,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                                lineNumber: 191,
+                                                lineNumber: 210,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogTrigger"], {
@@ -431,65 +425,69 @@ const ClientEvent = ({ event, selectedEventCode, setAddress })=>{
                                                     className: "gap-2 shadow-lg rounded-full bg-[#d32f2f] px-6 py-2 text-xs font-bold text-white hover:bg-[#b71c1c]",
                                                     children: [
                                                         "Exportar Dados",
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$react$2d$icons$2f$fa$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FaFlag"], {
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$react$2d$icons$2f$fa$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FaFileExport"], {
                                                             className: "h-3 w-3"
                                                         }, void 0, false, {
                                                             fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                                            lineNumber: 203,
+                                                            lineNumber: 222,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                                    lineNumber: 199,
+                                                    lineNumber: 218,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             }, void 0, false, {
                                                 fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                                lineNumber: 198,
+                                                lineNumber: 217,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                        lineNumber: 190,
+                                        lineNumber: 209,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$app$2f$client$2f40$alert$2f$_components$2f$ClientEventDialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                                         fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                        lineNumber: 208,
+                                        lineNumber: 227,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                                lineNumber: 177,
+                                lineNumber: 196,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                        lineNumber: 118,
+                        lineNumber: 138,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-                    lineNumber: 117,
+                    lineNumber: 137,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-            lineNumber: 71,
+            lineNumber: 91,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEvent.tsx",
-        lineNumber: 70,
+        lineNumber: 90,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(ClientEvent, "4tclCAVySB2XR4eCw0fwR3YLDuM=");
+_s(ClientEvent, "lytLxKP9kJ6lhrS38sWf36fx2uY=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"]
+    ];
+});
 _c = ClientEvent;
 const __TURBOPACK__default__export__ = ClientEvent;
 var _c;
@@ -1065,10 +1063,13 @@ const ClientHomepageAlert = ()=>{
                     const allNotificationsNested = await Promise.all(notificationsPromises);
                     // 3. Achata (flatten) a lista caso queira uma única lista contendo todas as notificações juntas
                     const allNotifications = allNotificationsNested.flat();
-                    // Faça algo com a lista unificada de notificações, por exemplo, salvando em um estado:
-                    setNotifications(allNotifications.filter({
-                        "ClientHomepageAlert.useEffect.loadClientsAndEvents": (notification)=>notification !== null
-                    }["ClientHomepageAlert.useEffect.loadClientsAndEvents"]));
+                    const sortedNotifications = allNotifications.filter({
+                        "ClientHomepageAlert.useEffect.loadClientsAndEvents.sortedNotifications": (notification)=>notification !== null
+                    }["ClientHomepageAlert.useEffect.loadClientsAndEvents.sortedNotifications"]).sort({
+                        "ClientHomepageAlert.useEffect.loadClientsAndEvents.sortedNotifications": (a, b)=>new Date(b.notifiedAt).getTime() - new Date(a.notifiedAt).getTime()
+                    }["ClientHomepageAlert.useEffect.loadClientsAndEvents.sortedNotifications"]);
+                    // Salva a lista ordenada no estado
+                    setNotifications(sortedNotifications);
                 } catch (error) {
                     __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$toast$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].add({
                         type: "error",
@@ -1082,26 +1083,24 @@ const ClientHomepageAlert = ()=>{
             loadClientsAndEvents();
         }
     }["ClientHomepageAlert.useEffect"], []);
+    async function loadCoordinates(address) {
+        // Passa o endereço direto da constante, evitando o delay do state assíncrono
+        const coords = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$app$2f$features$2f$map$2f$api$2f$NominatimAPI$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["searchCoordenateFromAddress"])(address);
+        if (coords) {
+            setLocationCoords([
+                [
+                    coords.lat,
+                    coords.lng
+                ]
+            ]);
+        }
+    }
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "ClientHomepageAlert.useEffect": ()=>{
             if (!selectedEvent) return;
-            // Atualiza o endereço visualmente logo de cara
             const currentAddress = selectedEvent.address;
             setAddress(currentAddress);
-            async function loadCoordinates() {
-                // Opcional: const currentPos = await getCurrentPosition();
-                // Passa o endereço direto da constante, evitando o delay do state assíncrono
-                const coords = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$app$2f$features$2f$map$2f$api$2f$NominatimAPI$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["searchCoordenateFromAddress"])(currentAddress);
-                if (coords) {
-                    setLocationCoords([
-                        [
-                            coords.lat,
-                            coords.lng
-                        ]
-                    ]);
-                }
-            }
-            loadCoordinates();
+            loadCoordinates(currentAddress);
         }
     }["ClientHomepageAlert.useEffect"], [
         selectedEvent
@@ -1109,7 +1108,7 @@ const ClientHomepageAlert = ()=>{
     if (isLoading) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$LoadingPage$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
             fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-            lineNumber: 83,
+            lineNumber: 87,
             columnNumber: 12
         }, ("TURBOPACK compile-time value", void 0));
     }
@@ -1124,7 +1123,7 @@ const ClientHomepageAlert = ()=>{
                         children: "Localização"
                     }, void 0, false, {
                         fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                        lineNumber: 89,
+                        lineNumber: 93,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1136,12 +1135,12 @@ const ClientHomepageAlert = ()=>{
                                     children: address ? address : "Selecione um alerta para localizar!"
                                 }, void 0, false, {
                                     fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                                    lineNumber: 95,
+                                    lineNumber: 99,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                                lineNumber: 94,
+                                lineNumber: 98,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1150,24 +1149,24 @@ const ClientHomepageAlert = ()=>{
                                     routeCords: locationCoords
                                 }, void 0, false, {
                                     fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                                    lineNumber: 100,
+                                    lineNumber: 104,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                                lineNumber: 99,
+                                lineNumber: 103,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                        lineNumber: 93,
+                        lineNumber: 97,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                lineNumber: 88,
+                lineNumber: 92,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1181,18 +1180,18 @@ const ClientHomepageAlert = ()=>{
                     isLoading: isLoading
                 }, void 0, false, {
                     fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                    lineNumber: 112,
+                    lineNumber: 116,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-                lineNumber: 110,
+                lineNumber: 114,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/secretaria-web/app/client/@alert/page.tsx",
-        lineNumber: 87,
+        lineNumber: 91,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -1220,7 +1219,9 @@ __turbopack_context__.s([
     "getEvents",
     ()=>getEvents,
     "getNotificationsByEventId",
-    ()=>getNotificationsByEventId
+    ()=>getNotificationsByEventId,
+    "updateEventById",
+    ()=>updateEventById
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$lib$2f$apiClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/lib/apiClient.ts [app-client] (ecmascript)");
 ;
@@ -1246,7 +1247,14 @@ async function createEvent(eventBody) {
 }
 async function concludeEvent(id) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$lib$2f$apiClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])(`/emergency-calls/${id}/conclude`, {
-        method: 'PATCH'
+        method: 'PATCH',
+        body: JSON.stringify({})
+    });
+}
+async function updateEventById(id, eventBody) {
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$lib$2f$apiClient$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["apiFetch"])(`/emergency-calls/${id}`, {
+        method: 'PATCH',
+        body: JSON.stringify(eventBody)
     });
 }
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
