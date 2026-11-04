@@ -4,21 +4,22 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import EventSidebar from './_components/EventSidebar';
 import { useAuth } from '@/app/features/auth/api/AuthContext';
 import { useEffect, useState } from 'react';
-import CustomMap from '@/app/features/map/components/CustomMap';
+import CustomMap from '@/app/features/client/components/CustomMap';
 import { CiSearch } from "react-icons/ci";
 import { toast } from '@/components/ui/toast';
-import { searchCoordenateFromAddress } from '@/app/features/map/api/NominatimAPI';
+import { searchCoordenateFromAddress } from '@/app/features/client/api/NominatimAPI';
 import { BASE_EVENTS, BASE_USERS } from '@/lib/MockData';
 import { getDrivers } from '@/app/features/auth/api/authApi';
 import { BaseUser } from '@/app/features/auth/types/User';
 import { Event } from '@/app/features/auth/types/Event';
 import { getEvents } from '@/app/features/admin/api/adminApi';
+import { RouteCoordinates } from '@/app/features/client/types/Routing';
 
 const AdminHomepageAlert = () => {
   const [value, setValue] = useState("");
   const [foundAddress, setFoundAddress] = useState(false);
   const [condition, setCondition] = useState<"CRITICAL" | "URGENT" | "MODERATE">("CRITICAL")
-  const [currentCoords, setCurrentCoords] = useState<[number, number][]>([]);
+  const [currentCoords, setCurrentCoords] = useState<RouteCoordinates>([]);
   const [clients, setClients] = useState<BaseUser[] | null>(null);
   // const users = BASE_USERS;
   const [events, setEvents] = useState<Event[] | null>(null);

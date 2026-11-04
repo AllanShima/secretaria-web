@@ -12,7 +12,7 @@ import { Event } from '@/app/features/auth/types/Event'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Notification } from '@/app/features/auth/types/Notification'
 import { Spinner } from '@/components/ui/spinner'
-import { RouteCoordinates } from '@/app/features/map/types/Routing'
+import { RouteCoordinates } from '@/app/features/client/types/Routing'
 
 interface ClientSidebarProps {
     events?: Event[] | null,
@@ -22,10 +22,21 @@ interface ClientSidebarProps {
     setAddress: Dispatch<React.SetStateAction<string>>,
     isLoading: boolean,
     setLocationCoords: Dispatch<React.SetStateAction<RouteCoordinates>>,
-    setIsRoutingLoading: Dispatch<React.SetStateAction<boolean>>
+    setIsRoutingLoading: Dispatch<React.SetStateAction<boolean>>,
+    setEvents: Dispatch<React.SetStateAction<Event[] | null>>
 }
 
-const ClientSidebar = ({ events, notifications, selectedEvent, setSelectedEvent, setAddress, isLoading, setLocationCoords, setIsRoutingLoading }: ClientSidebarProps) => {
+const ClientSidebar = ({ 
+    events, 
+    notifications, 
+    selectedEvent, 
+    setSelectedEvent, 
+    setAddress, 
+    isLoading, 
+    setLocationCoords, 
+    setIsRoutingLoading, 
+    setEvents }: ClientSidebarProps) => {
+        
     return (
         <div className='flex flex-col w-full h-full min-h-0 rounded-3xl shrink-0'>
             {/* Tabs Container com aba padrão inicial */}
@@ -72,6 +83,9 @@ const ClientSidebar = ({ events, notifications, selectedEvent, setSelectedEvent,
                                                 setAddress={setAddress} 
                                                 setLocationCoords={setLocationCoords}
                                                 setIsRoutingLoading={setIsRoutingLoading}
+                                                setSelectedEvent={setSelectedEvent}
+                                                selectedEvent={selectedEvent}
+                                                setEvents={setEvents}
                                             />
                                         ))}
                                     </RadioGroup>

@@ -17,25 +17,35 @@ import { RadioGroupItem } from "@/components/ui/radio-group";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import ClientEventDialog from "./ClientEventDialog";
 import { getAttendants } from "@/app/features/auth/api/authApi";
-import { concludeEvent } from "@/app/features/admin/api/adminApi";
+import { concludeEvent, getEvents } from "@/app/features/admin/api/adminApi";
 import { ConcludeEventResponse } from "@/app/features/auth/responses/EventsResponses";
 import { toast } from "@/components/ui/toast";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaFileExport } from "react-icons/fa";
 import { useRouter } from "next/navigation";
-import { loadCoordinatesForAddress } from "@/app/features/map/utils/mapHelper";
-import { RouteCoordinates } from "@/app/features/map/types/Routing";
+import { loadCoordinatesForAddress } from "@/app/features/client/utils/mapHelper";
+import { RouteCoordinates } from "@/app/features/client/types/Routing";
 
 interface ClientEventProps {
   event: Event;
   selectedEventCode: string;
   setAddress: Dispatch<React.SetStateAction<string>>;
   setLocationCoords: Dispatch<React.SetStateAction<RouteCoordinates>>,
-  setIsRoutingLoading: Dispatch<React.SetStateAction<boolean>>
+  setIsRoutingLoading: Dispatch<React.SetStateAction<boolean>>,
+  setSelectedEvent: Dispatch<React.SetStateAction<Event | null>>,
+  selectedEvent: Event | null,
+  setEvents: Dispatch<React.SetStateAction<Event[] | null>>
 }
 
-const ClientEvent = ({ event, selectedEventCode, setAddress, setLocationCoords, setIsRoutingLoading }: ClientEventProps) => {
-  const router = useRouter();
+const ClientEvent = ({ 
+  event, 
+  selectedEventCode, 
+  setAddress, 
+  setLocationCoords, 
+  setIsRoutingLoading,
+  setSelectedEvent,
+  selectedEvent,
+  setEvents }: ClientEventProps) => {
   const [createdByUser, setCreatedByUser] = useState("");
 
   useEffect(() => {
@@ -67,7 +77,8 @@ const ClientEvent = ({ event, selectedEventCode, setAddress, setLocationCoords, 
         });
         return;
       }
-      router.refresh();
+      
+      window.location.reload();
     } catch (error) {
       toast.add({
         type: "error",

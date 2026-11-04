@@ -382,26 +382,29 @@ var _s = __turbopack_context__.k.signature();
 const ClientHomepageChat = ()=>{
     _s();
     const users = __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$lib$2f$MockData$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["BASE_USERS"];
-    const [clients, setClients] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(users.filter({
-        "ClientHomepageChat.useState": (user)=>user.type == "Admin"
-    }["ClientHomepageChat.useState"]));
-    const [selectedClient, setSelectedClient] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(clients[0]);
+    // users.filter(user => user.type == "Admin")
+    const [users, setUsers] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [selectedUser, setSelectedUser] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const [isLoading, setIsLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     console.log(clients);
-    // useEffect(() => {
-    //   async function loadClients() {
-    //     try {
-    //       const data = await getUsersFromApi();
-    //       const filteredClients = data.filter((user: User) => user.type == "Client");
-    //       setClients(filteredClients);
-    //     } catch (error) {
-    //       console.error("Erro ao buscar clientes:", error);
-    //     } finally {
-    //       setIsLoading(false);
-    //     }
-    //   }
-    //   loadClients();
-    // }, []);
+    useEffect({
+        "ClientHomepageChat.useEffect": ()=>{
+            async function loadClients() {
+                try {
+                    const data = await getUsersFromApi();
+                    const filteredClients = data.filter({
+                        "ClientHomepageChat.useEffect.loadClients.filteredClients": (user)=>user.type == "Client"
+                    }["ClientHomepageChat.useEffect.loadClients.filteredClients"]);
+                    setClients(filteredClients);
+                } catch (error) {
+                    console.error("Erro ao buscar clientes:", error);
+                } finally{
+                    setIsLoading(false);
+                }
+            }
+            loadClients();
+        }
+    }["ClientHomepageChat.useEffect"], []);
     if (isLoading) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$LoadingPage$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
             fileName: "[project]/secretaria-web/app/client/@chat/page.tsx",
@@ -412,9 +415,9 @@ const ClientHomepageChat = ()=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "w-full h-full",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$app$2f$client$2f40$chat$2f$_components$2f$ClientLiveChat$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-            users: clients,
-            selectedClient: selectedClient,
-            onSelectClient: setSelectedClient
+            users: users,
+            selectedUser: selectedUser,
+            setSelectedUser: setSelectedUser
         }, void 0, false, {
             fileName: "[project]/secretaria-web/app/client/@chat/page.tsx",
             lineNumber: 41,
@@ -426,7 +429,7 @@ const ClientHomepageChat = ()=>{
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(ClientHomepageChat, "tRrLWMjlHw+jEBINlIzueoHgkVM=");
+_s(ClientHomepageChat, "j/x4qW76a5OpREFmx+fESdgpqKA=");
 _c = ClientHomepageChat;
 const __TURBOPACK__default__export__ = ClientHomepageChat;
 var _c;

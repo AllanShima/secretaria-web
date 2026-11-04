@@ -1,10 +1,10 @@
-import { User } from '@/app/features/auth/types/User';
+import { BaseUser, User } from '@/app/features/auth/types/User';
 import { Avatar } from '@/components/ui/avatar';
 import React from 'react'
 import { BiSolidAmbulance } from 'react-icons/bi';
 
 interface AdminItemProp {
-    user: User;
+    user: BaseUser;
     isSelected: boolean;
 }
 
@@ -25,7 +25,7 @@ const ClientItem = ({user, isSelected}: AdminItemProp) => {
                     {user.name}
                 </h4>
                 <p className="truncate text-xs text-white/40">
-                    TEL - {user.phoneNumber}
+                    TEL - {user.phone}
                 </p>
             </div>
         </div>

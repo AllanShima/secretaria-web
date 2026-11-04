@@ -46,7 +46,7 @@ const AdminItem = ({ user, isSelected })=>{
                         className: "truncate text-xs text-white/40",
                         children: [
                             "TEL - ",
-                            user.phoneNumber
+                            user.phone
                         ]
                     }, void 0, true, {
                         fileName: "[project]/secretaria-web/app/client/@chat/_components/AdminItem.tsx",
@@ -124,21 +124,30 @@ const MOCK_MESSAGES = [
         date: new Date()
     }
 ];
-const LiveChatWindow = ({ users, selectedClient, onSelectClient })=>{
+const LiveChatWindow = ({ users, selectedUser, setSelectedUser })=>{
     _s();
-    const [messages, setMessages] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(MOCK_MESSAGES);
+    const [messages, setMessages] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const [message, setMessage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
-    const handleMessage = ()=>{
-        const newMessage = {
-            id: 5,
-            text: message,
-            sender: "me",
-            date: new Date()
-        };
-        setMessages((prevMessages)=>[
-                ...prevMessages,
-                newMessage
-            ]);
+    const handleMessage = async ()=>{
+        try {
+            if (!message.trim()) Error("Mensagem vazia!");
+            const newMessage = {
+                attendantId: selectedUser.id,
+                driverId: selectedUser.id,
+                senderId: selectedUser.id,
+                text: message
+            };
+            await newMessage(newMessage);
+            setMessages((prevMessages)=>[
+                    ...prevMessages,
+                    newMessage
+                ]);
+        } catch (error) {
+            __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$toast$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].add({
+                type: "error",
+                description: String(error)
+            });
+        }
     };
     const dataFormatada = new Intl.DateTimeFormat('pt-BR').format(messages[0].date);
     const handleDoubleClick = async (phoneNumber)=>{
@@ -173,7 +182,7 @@ const LiveChatWindow = ({ users, selectedClient, onSelectClient })=>{
                                 className: "h-5 w-5"
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/client/@chat/_components/ClientLiveChat.tsx",
-                                lineNumber: 77,
+                                lineNumber: 89,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -181,42 +190,42 @@ const LiveChatWindow = ({ users, selectedClient, onSelectClient })=>{
                                 children: "Conversas"
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/client/@chat/_components/ClientLiveChat.tsx",
-                                lineNumber: 78,
+                                lineNumber: 90,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/secretaria-web/app/client/@chat/_components/ClientLiveChat.tsx",
-                        lineNumber: 76,
+                        lineNumber: 88,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex-1 overflow-y-auto p-4 space-y-3",
                         children: users.map((user, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                onDoubleClick: ()=>handleDoubleClick(user.phoneNumber),
-                                onClick: ()=>onSelectClient(user),
+                                onDoubleClick: ()=>handleDoubleClick(user.phone),
+                                onClick: ()=>setSelectedUser(user),
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$app$2f$client$2f40$chat$2f$_components$2f$AdminItem$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                     user: user,
-                                    isSelected: user === selectedClient
+                                    isSelected: user === selectedUser
                                 }, void 0, false, {
                                     fileName: "[project]/secretaria-web/app/client/@chat/_components/ClientLiveChat.tsx",
-                                    lineNumber: 85,
+                                    lineNumber: 97,
                                     columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, index, false, {
                                 fileName: "[project]/secretaria-web/app/client/@chat/_components/ClientLiveChat.tsx",
-                                lineNumber: 84,
+                                lineNumber: 96,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)))
                     }, void 0, false, {
                         fileName: "[project]/secretaria-web/app/client/@chat/_components/ClientLiveChat.tsx",
-                        lineNumber: 82,
+                        lineNumber: 94,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/secretaria-web/app/client/@chat/_components/ClientLiveChat.tsx",
-                lineNumber: 74,
+                lineNumber: 86,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -227,18 +236,18 @@ const LiveChatWindow = ({ users, selectedClient, onSelectClient })=>{
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                             className: "font-light text-sm",
                             children: [
-                                selectedClient?.name,
+                                selectedUser?.name,
                                 " - ",
-                                selectedClient?.phoneNumber
+                                selectedUser?.phone
                             ]
                         }, void 0, true, {
                             fileName: "[project]/secretaria-web/app/client/@chat/_components/ClientLiveChat.tsx",
-                            lineNumber: 95,
+                            lineNumber: 107,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/secretaria-web/app/client/@chat/_components/ClientLiveChat.tsx",
-                        lineNumber: 94,
+                        lineNumber: 106,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -255,12 +264,12 @@ const LiveChatWindow = ({ users, selectedClient, onSelectClient })=>{
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/secretaria-web/app/client/@chat/_components/ClientLiveChat.tsx",
-                                    lineNumber: 104,
+                                    lineNumber: 116,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/client/@chat/_components/ClientLiveChat.tsx",
-                                lineNumber: 103,
+                                lineNumber: 115,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             messages.map((msg, index)=>{
@@ -274,19 +283,19 @@ const LiveChatWindow = ({ users, selectedClient, onSelectClient })=>{
                                         children: msg.text
                                     }, void 0, false, {
                                         fileName: "[project]/secretaria-web/app/client/@chat/_components/ClientLiveChat.tsx",
-                                        lineNumber: 118,
+                                        lineNumber: 130,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, index, false, {
                                     fileName: "[project]/secretaria-web/app/client/@chat/_components/ClientLiveChat.tsx",
-                                    lineNumber: 112,
+                                    lineNumber: 124,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0));
                             })
                         ]
                     }, void 0, true, {
                         fileName: "[project]/secretaria-web/app/client/@chat/_components/ClientLiveChat.tsx",
-                        lineNumber: 101,
+                        lineNumber: 113,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -303,12 +312,12 @@ const LiveChatWindow = ({ users, selectedClient, onSelectClient })=>{
                                         className: "min-h-[50px] max-h-[100px] w-full resize-none border-none bg-transparent p-3 text-sm text-white placeholder:text-white/30 focus-visible:ring-0 focus-visible:ring-offset-0"
                                     }, void 0, false, {
                                         fileName: "[project]/secretaria-web/app/client/@chat/_components/ClientLiveChat.tsx",
-                                        lineNumber: 136,
+                                        lineNumber: 148,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/secretaria-web/app/client/@chat/_components/ClientLiveChat.tsx",
-                                    lineNumber: 135,
+                                    lineNumber: 147,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -319,39 +328,39 @@ const LiveChatWindow = ({ users, selectedClient, onSelectClient })=>{
                                         className: "h-5 w-5"
                                     }, void 0, false, {
                                         fileName: "[project]/secretaria-web/app/client/@chat/_components/ClientLiveChat.tsx",
-                                        lineNumber: 148,
+                                        lineNumber: 160,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/secretaria-web/app/client/@chat/_components/ClientLiveChat.tsx",
-                                    lineNumber: 143,
+                                    lineNumber: 155,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/secretaria-web/app/client/@chat/_components/ClientLiveChat.tsx",
-                            lineNumber: 134,
+                            lineNumber: 146,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/secretaria-web/app/client/@chat/_components/ClientLiveChat.tsx",
-                        lineNumber: 133,
+                        lineNumber: 145,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/secretaria-web/app/client/@chat/_components/ClientLiveChat.tsx",
-                lineNumber: 92,
+                lineNumber: 104,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/secretaria-web/app/client/@chat/_components/ClientLiveChat.tsx",
-        lineNumber: 72,
+        lineNumber: 84,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(LiveChatWindow, "8dSBNY6MLghbYUF8eYcznf0jDHU=");
+_s(LiveChatWindow, "01it+Q3pcxWQUiobMSUeX77VBf8=");
 _c = LiveChatWindow;
 const __TURBOPACK__default__export__ = LiveChatWindow;
 var _c;
@@ -369,13 +378,10 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
-(()=>{
-    const e = new Error("Cannot find module '@/app/features/auth/api/MockData'");
-    e.code = 'MODULE_NOT_FOUND';
-    throw e;
-})();
 var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$app$2f$client$2f40$chat$2f$_components$2f$ClientLiveChat$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/app/client/@chat/_components/ClientLiveChat.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$LoadingPage$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/components/LoadingPage.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$app$2f$features$2f$auth$2f$api$2f$authApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/app/features/auth/api/authApi.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$toast$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/secretaria-web/components/ui/toast.tsx [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 'use client';
@@ -383,54 +389,61 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
+;
 const ClientHomepageChat = ()=>{
     _s();
-    const users = BASE_USERS;
-    const [clients, setClients] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(users.filter({
-        "ClientHomepageChat.useState": (user)=>user.type == "Admin"
-    }["ClientHomepageChat.useState"]));
-    const [selectedClient, setSelectedClient] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(clients[0]);
+    // users.filter(user => user.type == "Admin")
+    const [users, setUsers] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [selectedUser, setSelectedUser] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const [isLoading, setIsLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    console.log(clients);
-    // useEffect(() => {
-    //   async function loadClients() {
-    //     try {
-    //       const data = await getUsersFromApi();
-    //       const filteredClients = data.filter((user: User) => user.type == "Client");
-    //       setClients(filteredClients);
-    //     } catch (error) {
-    //       console.error("Erro ao buscar clientes:", error);
-    //     } finally {
-    //       setIsLoading(false);
-    //     }
-    //   }
-    //   loadClients();
-    // }, []);
-    if (isLoading) {
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "ClientHomepageChat.useEffect": ()=>{
+            async function loadClients() {
+                setIsLoading(true);
+                try {
+                    const data = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$app$2f$features$2f$auth$2f$api$2f$authApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getAttendants"])();
+                    const filteredUsers = data.filter({
+                        "ClientHomepageChat.useEffect.loadClients.filteredUsers": (user)=>user.role == "ATTENDANT"
+                    }["ClientHomepageChat.useEffect.loadClients.filteredUsers"]);
+                    setUsers(filteredUsers);
+                    setSelectedUser(filteredUsers[0]);
+                    setIsLoading(false);
+                } catch (error) {
+                    __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$toast$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].add({
+                        type: "error",
+                        description: String(error),
+                        priority: "high"
+                    });
+                }
+            }
+            loadClients();
+        }
+    }["ClientHomepageChat.useEffect"], []);
+    if (isLoading || !users || !selectedUser) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$LoadingPage$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
             fileName: "[project]/secretaria-web/app/client/@chat/page.tsx",
-            lineNumber: 36,
+            lineNumber: 39,
             columnNumber: 12
         }, ("TURBOPACK compile-time value", void 0));
     }
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "w-full h-full",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$app$2f$client$2f40$chat$2f$_components$2f$ClientLiveChat$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-            users: clients,
-            selectedClient: selectedClient,
-            onSelectClient: setSelectedClient
+            users: users,
+            selectedUser: selectedUser,
+            setSelectedUser: setSelectedUser
         }, void 0, false, {
             fileName: "[project]/secretaria-web/app/client/@chat/page.tsx",
-            lineNumber: 41,
+            lineNumber: 44,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/secretaria-web/app/client/@chat/page.tsx",
-        lineNumber: 40,
+        lineNumber: 43,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(ClientHomepageChat, "tRrLWMjlHw+jEBINlIzueoHgkVM=");
+_s(ClientHomepageChat, "j/x4qW76a5OpREFmx+fESdgpqKA=");
 _c = ClientHomepageChat;
 const __TURBOPACK__default__export__ = ClientHomepageChat;
 var _c;

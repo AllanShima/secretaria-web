@@ -1,36 +1,40 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import LiveChatWindow from './_components/ClientLiveChat'
 import LoadingPage from '@/components/LoadingPage'
-import { User } from '@/app/features/auth/types/User'
+import { BaseUser, User } from '@/app/features/auth/types/User'
 import { BASE_USERS } from '@/lib/MockData'
+import { getAttendants } from '@/app/features/auth/api/authApi'
+import { toast } from '@/components/ui/toast'
 
 const ClientHomepageChat = () => {
-
-  const users = BASE_USERS;
-
-  const [clients, setClients] = useState<User[]>(users.filter(user => user.type == "Admin"));
-  const [selectedClient, setSelectedClient] = useState<User>(clients[0]);
+  const [users, setUsers] = useState<BaseUser[] | null>(null);
+  const [selectedUser, setSelectedUser] = useState<BaseUser | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  console.log(clients);
+  useEffect(() => {
+    async function loadClients() {
+      try {
+        setIsLoading(true);
+        const data = await getAttendants();
+        setUsers(data);
+        if (data) {
+          setSelectedUser(data[0]);          
+        }
+      } catch (error) {
+        toast.add({
+          type: "error",
+          description: String(error),
+          priority: "high",
+        })
+      } finally {
+        setIsLoading(false);
+      }
+    }
 
-  // useEffect(() => {
-  //   async function loadClients() {
-  //     try {
-  //       const data = await getUsersFromApi();
-  //       const filteredClients = data.filter((user: User) => user.type == "Client");
-  //       setClients(filteredClients);
-  //     } catch (error) {
-  //       console.error("Erro ao buscar clientes:", error);
-  //     } finally {
-  //       setIsLoading(false);
-  //     }
-  //   }
-
-  //   loadClients();
-  // }, []);
+    loadClients();
+  }, []);
 
   if (isLoading) {
     return <LoadingPage/>;
@@ -38,7 +42,7 @@ const ClientHomepageChat = () => {
 
   return (
     <div className='w-full h-full'>
-      <LiveChatWindow users={clients} selectedClient={selectedClient} onSelectClient={setSelectedClient}/>
+      <LiveChatWindow users={users!} selectedUser={selectedUser!} setSelectedUser={setSelectedUser!}/>
     </div>
   )
 }

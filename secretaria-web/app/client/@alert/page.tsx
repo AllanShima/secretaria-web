@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react'
 import ClientSidebar from './_components/ClientSidebar'
 import LoadingPage from '@/components/LoadingPage';
 import { Event } from '@/app/features/auth/types/Event';
-import CustomMap from '@/app/features/map/components/CustomMap';
-import { getCurrentPosition, searchCoordenateFromAddress } from '@/app/features/map/api/NominatimAPI';
+import CustomMap from '@/app/features/client/components/CustomMap';
+import { getCurrentPosition, searchCoordenateFromAddress } from '@/app/features/client/api/NominatimAPI';
 import { BASE_EVENTS } from '@/lib/MockData';
 import { getEvents, getNotificationsByEventId } from '@/app/features/admin/api/adminApi';
 import { toast } from '@/components/ui/toast';
 import { Notification } from '@/app/features/auth/types/Notification';
-import { loadCoordinatesForAddress } from '@/app/features/map/utils/mapHelper';
-import { RouteCoordinates } from '@/app/features/map/types/Routing';
+import { loadCoordinatesForAddress } from '@/app/features/client/utils/mapHelper';
+import { RouteCoordinates } from '@/app/features/client/types/Routing';
 
 const ClientHomepageAlert = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -21,49 +21,51 @@ const ClientHomepageAlert = () => {
   const [address, setAddress] = useState("")
   const [locationCoords, setLocationCoords] = useState<RouteCoordinates>([]);
 
-  useEffect(() => {
-    async function loadClientsAndEvents() {
-      try {
-        setIsLoading(true)
-        const foundEvents = await getEvents();
-        setEvents(foundEvents);
+  // 1. Função isolada para poder ser reutilizada
+  const loadClientsAndEvents = async () => {
+    try {
+      // Dica: Se quiser que o loading só apareça no primeiro carregamento, 
+      // você pode controlar o setIsLoading com um estado de "isInitialLoad"
+      const foundEvents = await getEvents();
+      setEvents(foundEvents);
 
-        // setSelectedEvent(foundEvents[0]);
-        // 1. Filtra para manter somente os eventos não concluídos 
-        // (ajuste a condição de acordo com o status ou campo que define se está concluído, ex: patientCondition !== 'Finalizado' ou status !== 'Finalizado')
-        // const activeEvents = foundEvents.filter(event => event.vehicles[0].status !== "FINISHED");
+      const notificationsPromises = foundEvents.map(async (event) => {
+        const notifications = await getNotificationsByEventId(event.id);
+        return notifications;
+      });
 
-        // 2. Busca as notificações de cada evento ativo em paralelo usando Promise.all e map
-        const notificationsPromises = foundEvents.map(async (event) => {
-          const notifications = await getNotificationsByEventId(event.id);
-          return notifications; // Retorna a lista de notificações daquele evento
-        });
+      const allNotificationsNested = await Promise.all(notificationsPromises);
+      const allNotifications = allNotificationsNested.flat();
 
-        // Aguarda todas as requisições terminarem
-        const allNotificationsNested = await Promise.all(notificationsPromises);
+      const sortedNotifications = allNotifications
+        .filter((notification): notification is Notification => notification !== null)
+        .sort((a, b) => new Date(b.notifiedAt).getTime() - new Date(a.notifiedAt).getTime());
 
-        // 3. Achata (flatten) a lista caso queira uma única lista contendo todas as notificações juntas
-        const allNotifications = allNotificationsNested.flat();
+      setNotifications(sortedNotifications);
 
-        const sortedNotifications = allNotifications
-          .filter((notification): notification is Notification => notification !== null)
-          .sort((a, b) => new Date(b.notifiedAt).getTime() - new Date(a.notifiedAt).getTime());
-
-        // Salva a lista ordenada no estado
-        setNotifications(sortedNotifications);
-
-      } catch (error) {
-        toast.add({
-          type: "error",
-          description: String(error),
-          priority: "high",
-        });
-      } finally {
-        setIsLoading(false)
-      }
+    } catch (error) {
+      toast.add({
+        type: "error",
+        description: String(error),
+        priority: "high",
+      });
+    } finally {
+      setIsLoading(false);
     }
+  };
 
-    loadClientsAndEvents();
+  // 2. useEffect configurado para rodar na montagem e a cada 15 segundos
+  useEffect(() => {
+    setIsLoading(true);
+    loadClientsAndEvents(); // Executa imediatamente ao abrir
+
+    // Configura o intervalo de 15 segundos (15000 milissegundos)
+    const intervalId = setInterval(() => {
+      loadClientsAndEvents();
+    }, 15000);
+
+    // Limpa o intervalo quando o componente for desmontado para evitar vazamento de memória
+    return () => clearInterval(intervalId);
   }, []);
 
   useEffect(() => {
@@ -102,20 +104,20 @@ const ClientHomepageAlert = () => {
 
   return (
     <div className='flex w-full h-full gap-4'>
-<div className='flex flex-col flex-1 min-h-0 w-full gap-2'>
+      <div className='flex flex-col flex-1 min-h-0 w-full gap-2'>
         <h3 className='text-white/50 font-semibold text-sm shrink-0'>
           Localização
         </h3>
 
         {/* Adicionado 'relative' aqui para servir de âncoras para os elementos absolute */}
         <div className='relative flex-1 flex flex-col min-h-0 justify-end items-center w-full h-full overflow-hidden rounded-2xl'>
-          
+
           {/* Card do Endereço (Centralizado embaixo, como já estava) */}
           <div className='z-10 flex absolute shadow-lg border-black/30 justify-center items-center bg-white text-black rounded-xl h-fit w-fit max-w-5/6 py-3 px-5 mb-5 border border-zinc-200'>
             <p className="text-sm font-medium">
               {address ? address : "Selecione um alerta para localizar!"}
             </p>
-          </div>      
+          </div>
 
           {/* Card de Distância e Duração (Posicionado no topo à esquerda do mapa) */}
           {locationCoords.distanceMeters !== undefined && locationCoords.distanceMeters > 0 && (
@@ -126,7 +128,7 @@ const ClientHomepageAlert = () => {
                   {(locationCoords.distanceMeters / 1000).toFixed(2)} km
                 </span>
               </div>
-              
+
               <div className="h-8 w-[1px] bg-zinc-700" /> {/* Linha divisoria */}
 
               <div className="flex flex-col">
@@ -156,6 +158,7 @@ const ClientHomepageAlert = () => {
           isLoading={isLoading}
           setLocationCoords={setLocationCoords}
           setIsRoutingLoading={setIsRoutingLoading}
+          setEvents={setEvents}
         />
       </div>
 

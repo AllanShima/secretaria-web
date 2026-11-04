@@ -1,4 +1,4 @@
-import { getCurrentPosition, searchCoordenateFromAddress } from '@/app/features/map/api/NominatimAPI';
+import { getCurrentPosition, searchCoordenateFromAddress } from '@/app/features/client/api/NominatimAPI';
 import { RoutingPreviewRequest } from '../requests.ts/MapRequests';
 import { getRoutingPreview } from '../api/mapApi';
 import { RouteCoordinates } from '../types/Routing';

@@ -23,10 +23,6 @@ export interface Event {
   ]
 }
 
-interface Vehicles {
-  
-}
-
 // Emergency call ID
 // {
 //   "id": "9c470a05-a62f-4023-bde7-8e888764e958",

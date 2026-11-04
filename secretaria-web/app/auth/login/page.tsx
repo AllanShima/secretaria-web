@@ -16,7 +16,7 @@ import { Ambulance, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { LoginAttendantRequest, LoginDriverRequest } from "@/app/features/auth/requests/UsersRequests";
 import { LoginDriverResponse } from "@/app/features/auth/responses/UserResponses";
-import { getCurrentPosition } from "@/app/features/map/api/NominatimAPI";
+import { getCurrentPosition } from "@/app/features/client/api/NominatimAPI";
 import { Spinner } from "@/components/ui/spinner";
 
 interface FormState {
