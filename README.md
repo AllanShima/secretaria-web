@@ -42,4 +42,5 @@ bun dev
 - Instalando Axios "bun install axios"
 - Instalando bilbioteca js: "bun install leaflet react-leaflet"
 - "bun install --save-dev @types/leaflet"
+- "bun install html2canvas-pro jspdf"
 (Leaflet já possui integração nativa com o OSRM para traçar linhas e toras autoaticamente)

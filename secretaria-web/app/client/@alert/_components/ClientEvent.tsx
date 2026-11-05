@@ -252,7 +252,7 @@ const ClientEvent = ({
                   } />
                 </div>
               )}
-              <ClientEventDialog/>
+              <ClientEventDialog event={event}/>
             </Dialog>
           </div>
         </AccordionContent>
