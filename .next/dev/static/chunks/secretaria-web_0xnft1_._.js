@@ -1231,12 +1231,12 @@ const ClientEventDialog = ({ event })=>{
                                                                 backgroundColor: '#1a2130',
                                                                 border: '1px solid #2d3545',
                                                                 color: 'rgba(255, 255, 255, 0.9)',
-                                                                padding: '0 16px',
-                                                                height: '48px',
+                                                                padding: '12px 16px',
                                                                 borderRadius: '10px',
-                                                                display: 'flex',
-                                                                alignItems: 'center',
-                                                                fontSize: '14px'
+                                                                fontSize: '14px',
+                                                                lineHeight: '1.5',
+                                                                wordBreak: 'break-word',
+                                                                overflowWrap: 'break-word'
                                                             },
                                                             children: event.returnLocation
                                                         }, void 0, false, {
@@ -1266,7 +1266,7 @@ const ClientEventDialog = ({ event })=>{
                                                             children: "Consciência e Respiração"
                                                         }, void 0, false, {
                                                             fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEventDialog.tsx",
-                                                            lineNumber: 233,
+                                                            lineNumber: 243,
                                                             columnNumber: 37
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1284,13 +1284,13 @@ const ClientEventDialog = ({ event })=>{
                                                             children: event.injuryCondition
                                                         }, void 0, false, {
                                                             fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEventDialog.tsx",
-                                                            lineNumber: 234,
+                                                            lineNumber: 244,
                                                             columnNumber: 37
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEventDialog.tsx",
-                                                    lineNumber: 232,
+                                                    lineNumber: 242,
                                                     columnNumber: 33
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1309,7 +1309,7 @@ const ClientEventDialog = ({ event })=>{
                                                             children: "Causa"
                                                         }, void 0, false, {
                                                             fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEventDialog.tsx",
-                                                            lineNumber: 240,
+                                                            lineNumber: 250,
                                                             columnNumber: 37
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1327,13 +1327,13 @@ const ClientEventDialog = ({ event })=>{
                                                             children: event.whatHappened
                                                         }, void 0, false, {
                                                             fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEventDialog.tsx",
-                                                            lineNumber: 241,
+                                                            lineNumber: 251,
                                                             columnNumber: 37
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEventDialog.tsx",
-                                                    lineNumber: 239,
+                                                    lineNumber: 249,
                                                     columnNumber: 33
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
@@ -1358,7 +1358,7 @@ const ClientEventDialog = ({ event })=>{
                                                     children: "Observações"
                                                 }, void 0, false, {
                                                     fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEventDialog.tsx",
-                                                    lineNumber: 248,
+                                                    lineNumber: 258,
                                                     columnNumber: 33
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1376,13 +1376,13 @@ const ClientEventDialog = ({ event })=>{
                                                     children: event.observations
                                                 }, void 0, false, {
                                                     fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEventDialog.tsx",
-                                                    lineNumber: 249,
+                                                    lineNumber: 259,
                                                     columnNumber: 33
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEventDialog.tsx",
-                                            lineNumber: 247,
+                                            lineNumber: 257,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1401,7 +1401,7 @@ const ClientEventDialog = ({ event })=>{
                                                     children: "Endereço"
                                                 }, void 0, false, {
                                                     fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEventDialog.tsx",
-                                                    lineNumber: 255,
+                                                    lineNumber: 265,
                                                     columnNumber: 33
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1419,13 +1419,13 @@ const ClientEventDialog = ({ event })=>{
                                                     children: event.address
                                                 }, void 0, false, {
                                                     fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEventDialog.tsx",
-                                                    lineNumber: 256,
+                                                    lineNumber: 266,
                                                     columnNumber: 33
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEventDialog.tsx",
-                                            lineNumber: 254,
+                                            lineNumber: 264,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
@@ -1457,12 +1457,12 @@ const ClientEventDialog = ({ event })=>{
                                 children: "Secretaria da Saúde de Marília — Uso restrito a funcionários autorizados"
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEventDialog.tsx",
-                                lineNumber: 264,
+                                lineNumber: 274,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEventDialog.tsx",
-                            lineNumber: 263,
+                            lineNumber: 273,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
@@ -1489,12 +1489,12 @@ const ClientEventDialog = ({ event })=>{
                                 children: "Cancelar"
                             }, void 0, false, {
                                 fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEventDialog.tsx",
-                                lineNumber: 275,
+                                lineNumber: 285,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEventDialog.tsx",
-                            lineNumber: 274,
+                            lineNumber: 284,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$secretaria$2d$web$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1507,25 +1507,25 @@ const ClientEventDialog = ({ event })=>{
                                     className: "h-4 w-4"
                                 }, void 0, false, {
                                     fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEventDialog.tsx",
-                                    lineNumber: 286,
+                                    lineNumber: 296,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 isExporting ? 'A gerar PDF...' : 'Extrair Arquivo e Sair'
                             ]
                         }, void 0, true, {
                             fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEventDialog.tsx",
-                            lineNumber: 280,
+                            lineNumber: 290,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEventDialog.tsx",
-                    lineNumber: 273,
+                    lineNumber: 283,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/secretaria-web/app/client/@alert/_components/ClientEventDialog.tsx",
-                lineNumber: 272,
+                lineNumber: 282,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0))
         ]

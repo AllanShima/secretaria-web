@@ -224,7 +224,17 @@ const ClientEventDialog = ({ event }: ClientEventDialogProps) => {
                             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                     <span style={{ color: 'rgba(255, 255, 255, 0.8)', fontSize: '13px', fontWeight: '500' }}>Pronto-Socorro à Retornar</span>
-                                    <div style={{ backgroundColor: '#1a2130', border: '1px solid #2d3545', color: 'rgba(255, 255, 255, 0.9)', padding: '0 16px', height: '48px', borderRadius: '10px', display: 'flex', alignItems: 'center', fontSize: '14px' }}>
+                                    <div style={{
+                                        backgroundColor: '#1a2130',
+                                        border: '1px solid #2d3545',
+                                        color: 'rgba(255, 255, 255, 0.9)',
+                                        padding: '12px 16px', // Padding vertical adicionado para respiro do texto multilinhas
+                                        borderRadius: '10px',
+                                        fontSize: '14px',
+                                        lineHeight: '1.5', // Melhora o espaçamento entre as linhas do texto longo
+                                        wordBreak: 'break-word', // Garante que palavras muito longas quebrem corretamente
+                                        overflowWrap: 'break-word'
+                                    }}>
                                         {event.returnLocation}
                                     </div>
                                 </div>

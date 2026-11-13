@@ -10,7 +10,6 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { toast } from '@/components/ui/toast'
 import React, { useState, useEffect } from 'react'
-import { CiSearch } from 'react-icons/ci'
 
 type AdminFormState = {
     returnLocation: string
@@ -22,6 +21,12 @@ type AdminFormState = {
 interface AdminFormProps {
     event: Event
 }
+
+const PREDEFINED_LOCATIONS = [
+    "Santa Casa de Marília, SP",
+    "Hospital das Clínicas, Marília, SP",
+    "USF Parque das Nações, Marília, SP"
+]
 
 const AdminFormDialog = ({ event }: AdminFormProps) => {
     const [locationCoords, setLocationCoords] = useState<[number, number][]>([]);
@@ -56,14 +61,17 @@ const AdminFormDialog = ({ event }: AdminFormProps) => {
         setForm((prev) => ({ ...prev, [key]: value }));
     }
 
-    const handleSearchAddress = async () => {
-        if (form.returnLocation !== "") {
-            const coordinates = await searchCoordenateFromAddress(form.returnLocation);
-            setLocationCoords(coordinates ? [[coordinates.lat, coordinates.lng]] : []);
+    // Função para selecionar a localização pelos botões e atualizar o mapa instantaneamente
+    const handleSelectLocation = async (address: string) => {
+        setField("returnLocation", address);
+        const coordinates = await searchCoordenateFromAddress(address);
+        if (coordinates) {
+            setLocationCoords([[coordinates.lat, coordinates.lng]]);
         } else {
+            setLocationCoords([]);
             toast.add({
                 type: "error",
-                description: "Digite um endereço!",
+                description: "Não foi possível encontrar as coordenadas para este endereço.",
                 priority: "high",
             });
         }
@@ -106,29 +114,36 @@ const AdminFormDialog = ({ event }: AdminFormProps) => {
                 {/* Body Content */}
                 <div className="flex flex-col w-full gap-4">
 
-                    {/* Endereço de Retorno + Mapa */}
-                    <div className="flex flex-col gap-1.5">
+                    {/* Endereço de Retorno + Seleção por Botões + Mapa */}
+                    <div className="flex flex-col gap-2">
                         <Label className="text-sm font-medium text-zinc-300">
                             Endereço de Retorno / Destino
                         </Label>
-                        <div className='relative flex flex-col w-full h-[280px] justify-end items-center overflow-hidden rounded-2xl border border-white/10'>
-                            <div className='flex w-full items-center bg-[#1c2330] rounded-t-xl overflow-hidden border-b border-zinc-700 z-10'>
-                                <Input
-                                    value={form.returnLocation}
-                                    onChange={(e) => setField("returnLocation", e.target.value)}
-                                    placeholder='Ex: Av. Brasil, 1500, Apto 42, Centro, Marília - SP'
-                                    className='dark text-white bg-transparent transition rounded-none border-none h-12 flex-1 px-4 focus-visible:ring-0 focus-visible:ring-offset-0'
-                                />          
-                                
-                                <button 
-                                    onClick={handleSearchAddress}
-                                    type='button' 
-                                    className='flex items-center justify-center w-12 h-12 bg-transparent hover:bg-white/10 text-white transition-colors shrink-0'
-                                >
-                                    <CiSearch className='w-5 h-5'/>
-                                </button>
-                            </div>
-                            <div className='z-0 flex w-full h-full rounded-b-2xl'>
+
+                        {/* Grade com os 3 botões de locais */}
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                            {PREDEFINED_LOCATIONS.map((loc) => {
+                                const isSelected = form.returnLocation === loc;
+                                return (
+                                    <Button
+                                        key={loc}
+                                        type="button"
+                                        onClick={() => handleSelectLocation(loc)}
+                                        className={`text-xs h-auto py-2.5 px-3 text-left justify-start whitespace-normal transition-all ${
+                                            isSelected
+                                                ? "bg-blue-600 hover:bg-blue-700 text-white border border-blue-400 shadow-md"
+                                                : "bg-[#1c2330] hover:bg-zinc-800 text-zinc-300 border border-zinc-700"
+                                        }`}
+                                    >
+                                        {loc}
+                                    </Button>
+                                );
+                            })}
+                        </div>
+
+                        {/* Mapa exibindo a localização selecionada */}
+                        <div className='relative flex flex-col w-full h-[240px] justify-end items-center overflow-hidden rounded-2xl border border-white/10 mt-1'>
+                            <div className='z-0 flex w-full h-full rounded-2xl'>
                                 <CustomMap routeCords={locationCoords} />
                             </div>
                         </div>
